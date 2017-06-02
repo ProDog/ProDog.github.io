@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="强笔记 — 张浩强的学习博客">
 <meta property="og:description" content="Ubuntu 下搭建比特币测试网络 最近想入门区块链开发，先学习一下比特币网络，用测试网络来熟悉比特币的运行机制，在虚拟机上安装 Ubuntu14.04 作为开发环境，分享一下环境配置的方法。 安装虚拟机 Ubuntu 和 Node.js1、虚拟机和 Ubuntu 的安装可以参考：Vmware Workstation 安装 Ubuntu14.04； 2、安装完成后打开 Ubuntu，用 CTRL+">
 <meta property="og:image" content="http://stayfoolish.top/img/Dockererror.jpg">
-<meta property="og:updated_time" content="2017-06-02T15:48:28.272Z">
+<meta property="og:updated_time" content="2017-06-02T15:59:02.519Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="比特币应用开发（一）">
 <meta name="twitter:description" content="Ubuntu 下搭建比特币测试网络 最近想入门区块链开发，先学习一下比特币网络，用测试网络来熟悉比特币的运行机制，在虚拟机上安装 Ubuntu14.04 作为开发环境，分享一下环境配置的方法。 安装虚拟机 Ubuntu 和 Node.js1、虚拟机和 Ubuntu 的安装可以参考：Vmware Workstation 安装 Ubuntu14.04； 2、安装完成后打开 Ubuntu，用 CTRL+">
@@ -279,7 +279,7 @@
 <p>3、Ubuntu14.04 默认带有 Node.js，查询是否安装 Node.js 和相应版本用如下命令：<br><a id="more"></a><br>npm 是随同 nodejs 一起安装的包管理工具，能解决 nodejs 代码部署上的很多问题，常见的使用场景有以下几种：<br>允许用户从 npm 服务器下载别人编写的第三方包到本地使用;<br>允许用户从 npm 服务器下载并安装别人编写的命令行程序到本地使用;<br>允许用户将自己编写的包或命令行程序上传到 npm 服务器供别人使用;<br>由于新版的 nodejs 已经集成了 npm，所以之前npm也一并安装好了。同样可以通过输入 “npm -v” 来测试是否成功安装。出现版本提示表示安装成功:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">apt-cache policy nodejs</div><div class="line">node -v</div><div class="line">npm -v</div></pre></td></tr></table></figure>
 <p>如果没有安装 Node.js，可以使用下面命令安装:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo add-apt-repository &apos;deb https://deb.nodesource.com/node trusty main&apos;</div><div class="line">sudo apt-get update</div><div class="line">sudo apt-get install nodejs</div></pre></td></tr></table></figure></p>
-<p>也可以用这种方法安装或者升级：<a href="aaaa">Node.js 安装升级和 npm 使用</a>;</p>
+<p>也可以用这种方法安装或者升级：<a href="http://www.stayfoolish.top/2017/05/30/Node.js%20%E5%AE%89%E8%A3%85%E5%8D%87%E7%BA%A7%E5%92%8C%20npm%20%E4%BD%BF%E7%94%A8/" target="_blank" rel="external">Node.js 安装升级和 npm 使用</a>;</p>
 <h3 id="安装相应的支持库和-Docker"><a href="#安装相应的支持库和-Docker" class="headerlink" title="安装相应的支持库和 Docker"></a>安装相应的支持库和 Docker</h3><p>1、这里使用的 RPC 支持库为 kapitalize，使用如下命令安装：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm install kapitalize</div><div class="line">经测试 Ubuntu14.04 可以安装成功，高版本的 Ubuntu 会有其它问题产生。</div></pre></td></tr></table></figure></p>
 <p>2、安装 Docker 运行环境：<br>Docker 是一个开源应用容器引擎，详细信息可以参考：<a href="http://www.docker.org.cn/book/docker/what-is-docker-16.html" target="_blank" rel="external">Docker 中文</a>;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install docker.io</div><div class="line">查看 Docker 版本：</div><div class="line">docker --version</div><div class="line">如果查看版本时出现 Docker version xxx ,build xxxx ,说明已经安装成功。</div><div class="line"></div><div class="line">创建软链接：</div><div class="line">sudo ln -sf /usr/bin/docker.io /usr/local/bin/docker</div></pre></td></tr></table></figure></p>
 <h3 id="安装和运行比特币测试网络"><a href="#安装和运行比特币测试网络" class="headerlink" title="安装和运行比特币测试网络"></a>安装和运行比特币测试网络</h3><p>1、下载比特币测试网络的 Docker 镜像：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo docker pull freewil/bitcoin-testnet-box</div></pre></td></tr></table></figure></p>
@@ -383,7 +383,7 @@
         <p><span>本文标题:</span><a href="/2017/05/30/比特币应用开发（一）/">比特币应用开发（一）</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Grip-Zhang 的个人博客">Grip-Zhang</a></p>
         <p><span>发布时间:</span>2017年05月30日 - 19时44分</p>
-        <p><span>最后更新:</span>2017年06月02日 - 23时48分</p>
+        <p><span>最后更新:</span>2017年06月02日 - 23时59分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2017/05/30/比特币应用开发（一）/" title="比特币应用开发（一）">http://stayfoolish.top/2017/05/30/比特币应用开发（一）/</a>
             <span class="copy-path" data-clipboard-text="原文: http://stayfoolish.top/2017/05/30/比特币应用开发（一）/　　作者: Grip-Zhang" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
