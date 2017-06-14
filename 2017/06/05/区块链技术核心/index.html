@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://stayfoolish.top/2017/06/05/区块链技术核心/index.html">
 <meta property="og:site_name" content="GripNotes">
 <meta property="og:description" content="区块链技术从大方面来说主要有三个技术核心：密码学原理，共识机制，分布式数据存储，下面就总结一下最近掌握的这三点技术： 密码学原理：在区块链应用中，所有节点都是平等参与的，没有中心化的机构保证数据的安全和用户隐私不被泄露，这就需要节点或者分布式网络能保证安全性和匿名性。以比特币网络为例，比特币钱包客户端使用了公钥非对称数字加密技术来实现交易双方的互相信任。">
-<meta property="og:updated_time" content="2017-06-08T08:58:59.398Z">
+<meta property="og:updated_time" content="2017-06-14T09:26:17.225Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="区块链技术核心">
 <meta name="twitter:description" content="区块链技术从大方面来说主要有三个技术核心：密码学原理，共识机制，分布式数据存储，下面就总结一下最近掌握的这三点技术： 密码学原理：在区块链应用中，所有节点都是平等参与的，没有中心化的机构保证数据的安全和用户隐私不被泄露，这就需要节点或者分布式网络能保证安全性和匿名性。以比特币网络为例，比特币钱包客户端使用了公钥非对称数字加密技术来实现交易双方的互相信任。">
@@ -276,7 +276,8 @@
 <p>公钥加密发明于20世纪70年代。它是计算机和信息安全的数学基础。自从公钥加密被发明之后，有许多适合用于加密的数学函数被发明出来，比如素数幂和椭圆曲线乘法。这些数学函数都是不可逆的，很容易向一个方向计算，但不可以向相反方向倒推。基于这些数学函数的密码学，使得生成数字密钥和不可伪造的数字签名成为可能。比特币正是使用椭圆曲线乘法作为其公钥加密的基础算法。在比特币系统中，我们用公钥加密创建一个密钥对，用于控制比特币的获取。密钥对包括一个私钥，和由其衍生出的唯一的公钥。公钥用于接收比特币，而私钥用于比特币支付时的交易签名。公钥和私钥之间的数学关系，使得私钥可用于生成特定消息的签名。此签名可以在不泄露私钥的同时对公钥进行验证。支付比特币时，比特币的当前所有者需要在交易中提交其公钥和签名（每次交易的签名都不同，但均从同一个私钥生成）。比特币网络中的所有人都可以通过所提交的公钥和签名进行验证，并确认该交易是否有效，即确认支付者在该时刻对所交易的比特币拥有所有权。通过这种方式解决了去中心化交易中出现的信任问题，使得区块链落实到应用成为可能。</p>
 <p>比特币在钱包地址进行处理，实现安全可信和匿名，主要使用的算法有：secp256k1 椭圆曲线，SHA256 哈希算法，RIPEMD160 哈希算法，Base58Check 编码。</p>
 <h3 id="共识机制："><a href="#共识机制：" class="headerlink" title="共识机制："></a>共识机制：</h3><p>所谓共识，是指多方参与的节点在预设规则下，通过多个节点交互对某些数据、行为或流程达成一致的过程。共识机制是指定义共识过程的算法、协议和规则。区块链的共识机制具备“少数服从多数”以及“人人平等”的特点，其中“少数服从多数”并不完全指节点个数，也可以是计算能力、股权数或者其他的计算机可以比较的特征量。“人人平等”是当节点满足条件时，所有节点都有权优先提出共识结果、直接被其他节点认同后并最后有可能成为最终共识结果。<br>比特币使用的是 POW 共识机制，即工作量证明机制，是一种通过“挖矿”的方式进行大量计算来证明工作量获得记账权的机制。<br>目前主流的共识机制有：PoW（Proof of Work）工作量证明，PoS（Proof of Stake）权益证明，dBFT（Delegate Proof of Stake） 股份授权证明，Casper 投注共识，Ripple Consensus 瑞波共识机制，PBFT（Practical Byzantine Fault Tolerance）实用拜占庭容错机制，dBFT（delegated BFT）授权拜占庭容错机制，PoET（Proof of Elapsed Time）消逝时间量证明机制，Quorum Voting 仲裁投票机制。</p>
-<h3 id="分布式数据存储："><a href="#分布式数据存储：" class="headerlink" title="分布式数据存储："></a>分布式数据存储：</h3>
+<h3 id="分布式数据存储："><a href="#分布式数据存储：" class="headerlink" title="分布式数据存储："></a>分布式数据存储：</h3><p>区块链中的分布式存储是参与的节点各自都有独立的、完整的数据存储。<br>跟传统的分布式存储有所不同，区块链的分布式存储的独特性主要体现在两个方面：一是区块链每个节点都按照块链式结构存储完整的数据，传统分布式存储一般是将数据按照一定的规则分成多份进行存储。二是区块链每个节点存储都是独立的、地位等同的，依靠共识机制保证存储的一致性，而传统分布式存储一般是通过中心节点往其他备份节点同步数据。数据节点可以是不同的物理机器，也可以是云端不同的实例。</p>
+
       
       
         <div class="page-reward">
@@ -361,7 +362,7 @@
         <p><span>本文标题:</span><a href="/2017/06/05/区块链技术核心/">区块链技术核心</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Grip 的个人博客">Grip</a></p>
         <p><span>发布时间:</span>2017年06月05日 - 15时28分</p>
-        <p><span>最后更新:</span>2017年06月08日 - 16时58分</p>
+        <p><span>最后更新:</span>2017年06月14日 - 17时26分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2017/06/05/区块链技术核心/" title="区块链技术核心">http://stayfoolish.top/2017/06/05/区块链技术核心/</a>
             <span class="copy-path" data-clipboard-text="原文: http://stayfoolish.top/2017/06/05/区块链技术核心/　　作者: Grip" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -514,7 +515,6 @@
     <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
 <script src="/js/main.js"></script>
 
-<script type="text/javascript" color="255,255,255" opacity='0.5' zIndex="-2" count="99" src="//cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"></script>
     <script>
         $(document).ready(function() {
             var backgroundnum = 24;
