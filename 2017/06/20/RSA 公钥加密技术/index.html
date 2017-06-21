@@ -5,17 +5,17 @@
   
   <title>RSA 公钥加密技术 | GripNotes</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="区块链，.NET，C#，数据库，Python">
-<meta name="keywords" content="Bitcoin">
+  <meta name="description" content="RAS: 即公钥加密算法，由 Ron Rivest、Adi Shamir、Leonard Adleman 三人在 1977 年提出，故名 RSA。 介绍由来：1976年以前，所有的加密方法都是同一种模式：　　（1）甲方选择某一种加密规则，对信息进行加密；　　（2）乙方使用同一种规则，对信息进行解密。">
+<meta name="keywords" content="Bitcoin,RSA">
 <meta property="og:type" content="article">
 <meta property="og:title" content="RSA 公钥加密技术">
 <meta property="og:url" content="http://stayfoolish.top/2017/06/20/RSA 公钥加密技术/index.html">
 <meta property="og:site_name" content="GripNotes">
-<meta property="og:description" content="区块链，.NET，C#，数据库，Python">
-<meta property="og:updated_time" content="2017-06-20T11:05:08.632Z">
+<meta property="og:description" content="RAS: 即公钥加密算法，由 Ron Rivest、Adi Shamir、Leonard Adleman 三人在 1977 年提出，故名 RSA。 介绍由来：1976年以前，所有的加密方法都是同一种模式：　　（1）甲方选择某一种加密规则，对信息进行加密；　　（2）乙方使用同一种规则，对信息进行解密。">
+<meta property="og:updated_time" content="2017-06-21T11:43:10.183Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="RSA 公钥加密技术">
-<meta name="twitter:description" content="区块链，.NET，C#，数据库，Python">
+<meta name="twitter:description" content="RAS: 即公钥加密算法，由 Ron Rivest、Adi Shamir、Leonard Adleman 三人在 1977 年提出，故名 RSA。 介绍由来：1976年以前，所有的加密方法都是同一种模式：　　（1）甲方选择某一种加密规则，对信息进行加密；　　（2）乙方使用同一种规则，对信息进行解密。">
   
     <link rel="alternative" href="/atom.xml" title="GripNotes" type="application/atom+xml">
   
@@ -149,7 +149,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/Bitcoin/" style="font-size: 20px;">Bitcoin</a> <a href="/tags/Blockchain/" style="font-size: 20px;">Blockchain</a> <a href="/tags/C/" style="font-size: 10px;">C#</a> <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/Ubuntu/" style="font-size: 20px;">Ubuntu</a> <a href="/tags/供应链/" style="font-size: 10px;">供应链</a>
+                        <a href="/tags/Bitcoin/" style="font-size: 20px;">Bitcoin</a> <a href="/tags/Blockchain/" style="font-size: 20px;">Blockchain</a> <a href="/tags/C/" style="font-size: 10px;">C#</a> <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/RSA/" style="font-size: 10px;">RSA</a> <a href="/tags/Ubuntu/" style="font-size: 20px;">Ubuntu</a> <a href="/tags/供应链/" style="font-size: 10px;">供应链</a>
                     </div>
                 </section>
                 
@@ -255,13 +255,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/比特币/">比特币</a>
+    <a class="article-category-link" href="/categories/密码学/">密码学</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Bitcoin/">Bitcoin</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Bitcoin/">Bitcoin</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/RSA/">RSA</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -271,7 +271,32 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        
+        <p>RAS: 即公钥加密算法，由 Ron Rivest、Adi Shamir、Leonard Adleman 三人在 1977 年提出，故名 RSA。</p>
+<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>由来：1976年以前，所有的加密方法都是同一种模式：<br>　　（1）甲方选择某一种加密规则，对信息进行加密；<br>　　（2）乙方使用同一种规则，对信息进行解密。<br><a id="more"></a><br>由于加密和解密使用同样规则（简称”密钥”），这被称为”对称加密算法”（Symmetric-key algorithm）。这种加密模式有一个最大弱点：甲方必须把加密规则告诉乙方，否则无法解密。保存和传递密钥，就成了最头疼的问题。</p>
+<p>1976年，两位美国计算机学家Whitfield Diffie 和 Martin、Hellman，提出了一种崭新构思，可以在不直接传递密钥的情况下，完成解密。这被称为”Diffie-Hellman密钥交换算法”。这个算法启发了其他科学家。人们认识到，加密和解密可以使用不同的规则，只要这两种规则之间存在某种对应关系即可，这样就避免了直接传递密钥。这种新的加密模式被称为”非对称加密算法”。<br>　　（1）乙方生成两把密钥（公钥和私钥）。公钥是公开的，任何人都可以获得，私钥则是保密的。<br>　　（2）甲方获取乙方的公钥，然后用它对信息加密。<br>　　（3）乙方得到加密后的信息，用私钥解密。<br>如果公钥加密的信息只有私钥解得开，那么只要私钥不泄漏，通信就是安全的。</p>
+<p>1977年，三位数学家Rivest、Shamir 和 Adleman 设计了一种算法，可以实现非对称加密。这种算法用他们三个人的名字命名，叫做RSA算法。从那时直到现在，RSA算法一直是最广为使用的”非对称加密算法”。毫不夸张地说，只要有计算机网络的地方，就有RSA算法。<br>这种算法非常可靠，密钥越长，它就越难破解。根据已经披露的文献，目前被破解的最长RSA密钥是768个二进制位。也就是说，长度超过768位的密钥，还无法破解（至少没人公开宣布）。因此可以认为，1024位的RSA密钥基本安全，2048位的密钥极其安全。</p>
+<h2 id="理论基础"><a href="#理论基础" class="headerlink" title="理论基础:"></a>理论基础:</h2><h3 id="什么是“素数”？"><a href="#什么是“素数”？" class="headerlink" title="什么是“素数”？"></a>什么是“素数”？</h3><p>素数是这样的整数，它除了能表示为它自己和1的乘积以外，不能表示为任何其它两个整数的乘积。例如，15＝3＊5，所以15不是素数；又如，12＝6＊2＝4＊3，所以12也不是素数。另一方面，13除了等于13＊1以外，不能表示为其它任何两个整数的乘积，所以13是一个素数。素数也称为“质数”。</p>
+<h3 id="什么是“互质数”（或“互素数”）？"><a href="#什么是“互质数”（或“互素数”）？" class="headerlink" title="什么是“互质数”（或“互素数”）？"></a>什么是“互质数”（或“互素数”）？</h3><p>小学数学教材对互质数是这样定义的：“公约数只有1的两个数，叫做互质数。”这里所说的“两个数”是指自然数。<br>　　判别方法主要有以下几种（不限于此）：<br>（1）两个质数一定是互质数。例如，2与7、13与19。<br>（2）一个质数如果不能整除另一个合数，这两个数为互质数。例如，3与10、5与 26。<br>（3）1不是质数也不是合数，它和任何一个自然数在一起都是互质数。如1和9908。<br>（4）相邻的两个自然数是互质数。如 15与 16。<br>（5）相邻的两个奇数是互质数。如 49与 51。<br>（6）大数是质数的两个数是互质数。如97与88。<br>（7）小数是质数，大数不是小数的倍数的两个数是互质数。如 7和 16。<br>（8）两个数都是合数（二数差又较大），小数所有的质因数，都不是大数的约数，这两个数是互质数。如357与715，357=3×7×17，而3、7和17都不是715的约数，这两个数为互质数。等等。</p>
+<h3 id="什么是模指数运算？"><a href="#什么是模指数运算？" class="headerlink" title="什么是模指数运算？"></a>什么是模指数运算？</h3><p>指数运算谁都懂，不必说了，先说说模运算。模运算是整数运算，有一个整数m，以n为模做模运算，即m mod n。怎样做呢？让m去被n整除，只取所得的余数作为结果，就叫做模运算。例如，10 mod 3=1；26 mod 6=2；28 mod 2 =0等等。<br>　　模指数运算就是先做指数运算，取其结果再做模运算。如2^3 mod 5 = 3</p>
+<h3 id="什么是同余式"><a href="#什么是同余式" class="headerlink" title="什么是同余式"></a>什么是同余式</h3><p>表示同余关系的数学表达式，与等式相似。将等式中的等号“=”换成同余符号“≡”，必要时在式尾缀以(mod m) 注明模m（即除数），就是同余式。含有未知数的同余式叫做同余方程，通常要求整数解。<br>如果两个正整数 a和 b之差能被 n整除，那么我们就说 a和 b对模n同余，记作：<br>a ≡b (mod n)</p>
+<h3 id="什么是费马定理"><a href="#什么是费马定理" class="headerlink" title="什么是费马定理"></a>什么是费马定理</h3><p>若p是素数，a与p互素，则<br>a^(p-1）≡1 (mod p）</p>
+<h3 id="什么是欧拉定理"><a href="#什么是欧拉定理" class="headerlink" title="什么是欧拉定理"></a>什么是欧拉定理</h3><p>欧拉函数φ(n)表示不大于n且与n互素的正整数的个数。<br>当n是素数，φ(n)=n-1。n=pq,p,q均为素数时，则φ(n)= φ(p)φ(q)=(p-1)(q-1)。<br>对于互素的a和n，有a^φ(n)≡1(mod n)</p>
+<h3 id="什么是模反元素？"><a href="#什么是模反元素？" class="headerlink" title="什么是模反元素？"></a>什么是模反元素？</h3><p>如果两个正整数a和n互质，那么一定可以找到整数b，使得ab-1被n整除或者说ab被n除的余数是1。这时，b就叫做a的”模反元素”。<br>比如，3和11互质，那么3的模反元素就是4，因为 (3 × 4)-1 可以被11整除。显然，模反元素不止一个， 4加减11的整数倍都是3的模反元素 {…,-18,-7,4,15,26,…}，即如果b是a的模反元素，则 b+kn 都是a的模反元素。欧拉定理可以用来证明模反元素必然存在。</p>
+<h3 id="密钥生成步骤"><a href="#密钥生成步骤" class="headerlink" title="密钥生成步骤"></a>密钥生成步骤</h3><p>这里通过实例来说明。假设爱丽丝要与鲍勃进行加密通信，她该怎么生成公钥和私钥呢？</p>
+<p>第一步，随机选择两个不相等的质数p和q。<br>爱丽丝选择了61和53。（实际应用中，这两个质数越大，就越难破解。）<br>第二步，计算p和q的乘积n。<br>爱丽丝就把61和53相乘。<br>　　n = 61×53 = 3233<br>n的长度就是密钥长度。3233写成二进制是110010100001，一共有12位，所以这个密钥就是12位。实际应用中，RSA密钥一般是1024位，重要场合则为2048位。<br>第三步，计算n的欧拉函数φ(n)。<br>根据公式：<br>　　φ(n) = (p-1)(q-1)<br>爱丽丝算出φ(3233)等于60×52，即3120。<br>第四步，随机选择一个整数e，条件是1&lt; e &lt; φ(n)，且e与φ(n) 互质。<br>爱丽丝就在1到3120之间，随机选择了17。（实际应用中，常常选择65537。）<br>第五步，计算e对于φ(n)的模反元素d。<br>所谓”模反元素”就是指有一个整数d，可以使得ed被φ(n)除的余数为1。<br>　　ed ≡ 1 (mod φ(n))<br>这个式子等价于<br>　　ed - 1 = kφ(n)<br>于是，找到模反元素d，实质上就是对下面这个二元一次方程求解。<br>　　ex + φ(n)y = 1<br>已知 e=17, φ(n)=3120，<br>　　17x + 3120y = 1<br>这个方程可以用”扩展欧几里得算法”求解，此处省略具体过程。总之，爱丽丝算出一组整数解为 (x,y)=(2753,-15)，即 d=2753。<br>至此所有计算完成。<br>第六步，将n和e封装成公钥，n和d封装成私钥。<br>在爱丽丝的例子中，n=3233，e=17，d=2753，所以公钥就是 (3233,17)，私钥就是（3233, 2753）。<br>实际应用中，公钥和私钥的数据都采用ASN.1格式表达。</p>
+<h2 id="RSA算法的可靠性"><a href="#RSA算法的可靠性" class="headerlink" title="RSA算法的可靠性:"></a>RSA算法的可靠性:</h2><p>回顾上面的密钥生成步骤，一共出现六个数字：p，q，n，φ(n)，e，d</p>
+<p>这六个数字之中，公钥用到了两个（n和e），其余四个数字都是不公开的。其中最关键的是d，因为n和d组成了私钥，一旦d泄漏，就等于私钥泄漏。<br>那么，有无可能在已知n和e的情况下，推导出d？<br>　　（1）ed≡1 (mod φ(n))。只有知道e和φ(n)，才能算出d。<br>　　（2）φ(n)=(p-1)(q-1)。只有知道p和q，才能算出φ(n)。<br>　　（3）n=pq。只有将n因数分解，才能算出p和q。<br>结论：如果n可以被因数分解，d就可以算出，也就意味着私钥被破解。<br>可是，大整数的因数分解，是一件非常困难的事情。目前，除了暴力破解，还没有发现别的有效方法。维基百科这样写道：<br>　　“对极大整数做因数分解的难度决定了RSA算法的可靠性。换言之，对一极大整数做因数分解愈困难，RSA算法愈可靠。<br>　　假如有人找到一种快速因数分解的算法，那么RSA的可靠性就会极度下降。但找到这样的算法的可能性是非常小的。今天只有短的RSA密钥才可能被暴力破解。到2008年为止，世界上还没有任何可靠的攻击RSA算法的方式。<br>　　只要密钥长度足够长，用RSA加密的信息实际上是不能被解破的。”<br>举例来说，你可以对3233进行因数分解（61×53），但是你没法对几百位长的大数进行分解。比如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">12301866845301177551304949583849627207728535695953347921973224521517</div><div class="line">26400507263657518745202199786469389956474942774063845925192557326303</div><div class="line">45373154826850791702612214291346167042921431160222124047927473779408</div><div class="line">0665351419597459856902143413</div><div class="line"></div><div class="line">它等于这样两个质数的乘积：</div><div class="line"></div><div class="line">33478071698956898786044169848212690817704794983713768568912431388982</div><div class="line">883793878002287614711652531743087737814467999489　×</div><div class="line">36746043666799590428244633799627952632279158164343087642676032283815</div><div class="line">739666511279233373417143396810270092798736308917</div></pre></td></tr></table></figure></p>
+<p>事实上，这大概是人类已经分解的最大整数（232个十进制位，768个二进制位）。比它更大的因数分解，还没有被报道过，因此目前被破解的最长RSA密钥就是768位。</p>
+<h2 id="加密和解密："><a href="#加密和解密：" class="headerlink" title="加密和解密："></a>加密和解密：</h2><p>有了公钥和密钥，就能进行加密和解密了。</p>
+<h3 id="加密要用公钥-n-e"><a href="#加密要用公钥-n-e" class="headerlink" title="加密要用公钥 (n,e)"></a>加密要用公钥 (n,e)</h3><p>假设鲍勃要向爱丽丝发送加密信息m，他就要用爱丽丝的公钥 (n,e) 对m进行加密。这里需要注意，m必须是整数（字符串可以取ascii值或unicode值），且m必须小于n。<br>所谓”加密”，就是算出下式的c：<br>　　me ≡ c (mod n)<br>爱丽丝的公钥是 (3233, 17)，鲍勃的m假设是65，那么可以算出下面的等式：<br>　　6517 ≡ 2790 (mod 3233)<br>于是，c等于2790，鲍勃就把2790发给了爱丽丝。</p>
+<h3 id="解密要用私钥-n-d"><a href="#解密要用私钥-n-d" class="headerlink" title="解密要用私钥(n,d)"></a>解密要用私钥(n,d)</h3><p>爱丽丝拿到鲍勃发来的2790以后，就用自己的私钥(3233, 2753) 进行解密。可以证明，下面的等式一定成立：<br>　 cd ≡ m (mod n)<br>也就是说，c的d次方除以n的余数为m。现在，c等于2790，私钥是(3233, 2753)，那么，爱丽丝算出<br>　　27902753 ≡ 65 (mod 3233)<br>因此，爱丽丝知道了鲍勃加密前的原文就是65。<br>至此，”加密–解密”的整个过程全部完成。<br>我们可以看到，如果不知道d，就没有办法从c求出m。而前面已经说过，要知道d就必须分解n，这是极难做到的，所以RSA算法保证了通信安全。<br>你可能会问，公钥(n,e) 只能加密小于n的整数m，那么如果要加密大于n的整数，该怎么办？有两种解决方法：一种是把长信息分割成若干段短消息，每段分别加密；另一种是先选择一种”对称性加密算法”（比如DES），用这种算法的密钥加密信息，再用RSA公钥加密DES密钥。</p>
+<h3 id="私钥解密的证明"><a href="#私钥解密的证明" class="headerlink" title="私钥解密的证明:"></a>私钥解密的证明:</h3><p>为什么用私钥解密，一定可以正确地得到m。也就是证明下面这个式子：</p>
+<p>c^d ≡ m (mod n)<br>因为，根据加密规则<br>m^e ≡ c (mod n)<br>于是，c可以写成下面的形式：<br>c = m^e - kn<br>将c代入要我们要证明的那个解密规则：<br>(m^e - kn)^d ≡ m (mod n)<br>它等同于求证<br>m^ed ≡ m (mod n)<br>由于 ed ≡ 1 (mod φ(n))<br>所以 ed = hφ(n)+1<br>将ed代入：<br>m^(hφ(n)+1) ≡ m (mod n)<br>接下来，分成两种情况证明上面这个式子。<br>（1）m与n互质。<br>根据欧拉定理，此时</p>
+<p>　　m^φ(n) ≡ 1 (mod n)<br>得到</p>
+<p>　　(m^φ(n))^h × m ≡ m (mod n)<br>原式得到证明。<br>（2）m与n不是互质关系。<br>此时，由于n等于质数p和q的乘积，所以m必然等于kp或kq。<br>以 m = kp为例，考虑到这时k与q必然互质，则根据欧拉定理，下面的式子成立：<br>　　(kp)^q-1 ≡ 1 (mod q)<br>进一步得到<br>　　[(kp)^q-1]^h(p-1) × kp ≡ kp (mod q)<br>即<br>　　(kp)^ed ≡ kp (mod q)<br>将它改写成下面的等式<br>　  (kp)^ed = tq + kp<br>这时t必然能被p整除，即 t=t’p<br>　　(kp)^ed = t’pq + kp<br>因为 m=kp，n=pq，所以<br>　　m^ed ≡ m (mod n)<br>原式得到证明。</p>
+<h2 id="RSA缺陷"><a href="#RSA缺陷" class="headerlink" title="RSA缺陷:"></a>RSA缺陷:</h2><p>当p和q是一个大素数的时候，从它们的积pq去分解因子p和q，这是一个公认的数学难题。比如当pq大到1024位时，迄今为止还没有人能够利用任何计算工具去完成分解因子的任务。因此，RSA从提出到现在已近二十年，经历了各种攻击的考验，逐渐为人们接受，普遍认为是目前最优秀的公钥方案之一。<br>　　然而，虽然RSA的安全性依赖于大数的因子分解，但并没有从理论上证明破译RSA的难度与大数分解难度等价。即RSA的重大缺陷是无法从理论上把握它的保密性能如何。<br>　　此外，RSA的缺点还有：<br>A)产生密钥很麻烦，受到素数产生技术的限制，因而难以做到一次一密。<br>B)分组长度太大，为保证安全性，n 至少也要 600 bits 以上，使运算代价很高，尤其是速度较慢，较对称密码算法慢几个数量级；且随着大数分解技术的发展，这个长度还在增加，不利于数据格式的标准化。因此，使用RSA只能加密少量数据，大量的数据加密还要靠对称密码算法。</p>
+<p>参考自：<a href="http://blog.csdn.net/wm_1991/article/details/51954565" target="_blank" rel="external">http://blog.csdn.net/wm_1991/article/details/51954565</a></p>
+
       
       
         <div class="page-reward">
@@ -356,7 +381,7 @@
         <p><span>本文标题:</span><a href="/2017/06/20/RSA 公钥加密技术/">RSA 公钥加密技术</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Grip 的个人博客">Grip</a></p>
         <p><span>发布时间:</span>2017年06月20日 - 19时03分</p>
-        <p><span>最后更新:</span>2017年06月20日 - 19时05分</p>
+        <p><span>最后更新:</span>2017年06月21日 - 19时43分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2017/06/20/RSA 公钥加密技术/" title="RSA 公钥加密技术">http://stayfoolish.top/2017/06/20/RSA 公钥加密技术/</a>
             <span class="copy-path" data-clipboard-text="原文: http://stayfoolish.top/2017/06/20/RSA 公钥加密技术/　　作者: Grip" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -385,7 +410,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#介绍"><span class="toc-number">1.</span> <span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#理论基础"><span class="toc-number">2.</span> <span class="toc-text">理论基础:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是“素数”？"><span class="toc-number">2.1.</span> <span class="toc-text">什么是“素数”？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是“互质数”（或“互素数”）？"><span class="toc-number">2.2.</span> <span class="toc-text">什么是“互质数”（或“互素数”）？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是模指数运算？"><span class="toc-number">2.3.</span> <span class="toc-text">什么是模指数运算？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是同余式"><span class="toc-number">2.4.</span> <span class="toc-text">什么是同余式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是费马定理"><span class="toc-number">2.5.</span> <span class="toc-text">什么是费马定理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是欧拉定理"><span class="toc-number">2.6.</span> <span class="toc-text">什么是欧拉定理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是模反元素？"><span class="toc-number">2.7.</span> <span class="toc-text">什么是模反元素？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#密钥生成步骤"><span class="toc-number">2.8.</span> <span class="toc-text">密钥生成步骤</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RSA算法的可靠性"><span class="toc-number">3.</span> <span class="toc-text">RSA算法的可靠性:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#加密和解密："><span class="toc-number">4.</span> <span class="toc-text">加密和解密：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#加密要用公钥-n-e"><span class="toc-number">4.1.</span> <span class="toc-text">加密要用公钥 (n,e)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解密要用私钥-n-d"><span class="toc-number">4.2.</span> <span class="toc-text">解密要用私钥(n,d)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#私钥解密的证明"><span class="toc-number">4.3.</span> <span class="toc-text">私钥解密的证明:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RSA缺陷"><span class="toc-number">5.</span> <span class="toc-text">RSA缺陷:</span></a></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
