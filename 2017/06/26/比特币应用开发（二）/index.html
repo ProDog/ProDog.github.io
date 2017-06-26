@@ -3,18 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>搜索结果 | GripNotes</title>
+  <title>比特币应用开发（二） | GripNotes</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="123.hl &amp;#123;color: red;&amp;#125; 12345678910111213141516171819202122232425$data = simplexml_load_file(&amp;apos;search.xml&amp;apos;);define(LEN, 1000);echo &amp;apos;&amp;lt;div class=&amp;quot;article-inner article-entry">
-<meta property="og:type" content="website">
-<meta property="og:title" content="搜索结果">
-<meta property="og:url" content="http://stayfoolish.top/search/index.html">
+  <meta name="description" content="本次学习用 Node.js 为例，调用 RPC 接口执行一些操作，发送一个转账交易。 这里有必要先了解一下 RPC ： RPC 简介RPC（Remote Procedure Call Protocol）——远程过程调用协议，它是一种通过网络从远程计算机程序上请求服务，而不需要了解底层网络技术的协议。RPC 协议假定某些传输协议的存在，如 TCP 或 UDP，为通信程序之间携带信息数据。在 OSI">
+<meta name="keywords" content="Bitcoin,Ubuntu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="比特币应用开发（二）">
+<meta property="og:url" content="http://stayfoolish.top/2017/06/26/比特币应用开发（二）/index.html">
 <meta property="og:site_name" content="GripNotes">
-<meta property="og:description" content="123.hl &amp;#123;color: red;&amp;#125; 12345678910111213141516171819202122232425$data = simplexml_load_file(&amp;apos;search.xml&amp;apos;);define(LEN, 1000);echo &amp;apos;&amp;lt;div class=&amp;quot;article-inner article-entry">
-<meta property="og:updated_time" content="2017-05-28T06:47:27.243Z">
+<meta property="og:description" content="本次学习用 Node.js 为例，调用 RPC 接口执行一些操作，发送一个转账交易。 这里有必要先了解一下 RPC ： RPC 简介RPC（Remote Procedure Call Protocol）——远程过程调用协议，它是一种通过网络从远程计算机程序上请求服务，而不需要了解底层网络技术的协议。RPC 协议假定某些传输协议的存在，如 TCP 或 UDP，为通信程序之间携带信息数据。在 OSI">
+<meta property="og:updated_time" content="2017-06-26T15:38:22.647Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="搜索结果">
-<meta name="twitter:description" content="123.hl &amp;#123;color: red;&amp;#125; 12345678910111213141516171819202122232425$data = simplexml_load_file(&amp;apos;search.xml&amp;apos;);define(LEN, 1000);echo &amp;apos;&amp;lt;div class=&amp;quot;article-inner article-entry">
+<meta name="twitter:title" content="比特币应用开发（二）">
+<meta name="twitter:description" content="本次学习用 Node.js 为例，调用 RPC 接口执行一些操作，发送一个转账交易。 这里有必要先了解一下 RPC ： RPC 简介RPC（Remote Procedure Call Protocol）——远程过程调用协议，它是一种通过网络从远程计算机程序上请求服务，而不需要了解底层网络技术的协议。RPC 协议假定某些传输协议的存在，如 TCP 或 UDP，为通信程序之间携带信息数据。在 OSI">
   
     <link rel="alternative" href="/atom.xml" title="GripNotes" type="application/atom+xml">
   
@@ -40,7 +41,7 @@
           fancybox: true,
           animate: true,
           isHome: false,
-          isPost: false,
+          isPost: true,
           isArchive: false,
           isTag: false,
           isCategory: false,
@@ -228,11 +229,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="page-undefined" class="article article-type-page" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-比特币应用开发（二）" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/search/index.html" class="article-date">
-      <time datetime="2015-11-17T07:58:22.000Z" itemprop="datePublished">2015-11-17</time>
+      <a href="/2017/06/26/比特币应用开发（二）/" class="article-date">
+      <time datetime="2017-06-26T14:36:50.000Z" itemprop="datePublished">2017-06-26</time>
 </a>
     </div>
   
@@ -245,7 +246,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      搜索结果
+      比特币应用开发（二）
     </h1>
   
 
@@ -253,8 +254,16 @@
       
       <div class="article-info article-info-post">
         
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/比特币/">比特币</a>
+    </div>
+
 
         
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Bitcoin/">Bitcoin</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ubuntu/">Ubuntu</a></li></ul>
+    </div>
+
         <div class="clearfix"></div>
       </div>
       
@@ -262,55 +271,152 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <style>
-    .article-meta {
-        display: none;
-    }
-    #container .article .article-title {
-        padding-right: 0;
-    }
-    .article-header {
-        padding: 0;
-        padding-top: 26px;
-        border-left: none;
-        text-align: center;
-    }
-    .article-header:hover {
-        border-left: none;
-    }
-    .article-title {
-        font-size: 1.6em
-    }
-    .article-meta {
-        display: none;
-    }
-    .article-entry hr {
-        margin: 0;
-    }
-    #container .article-info-post.article-info {
-      display: none;
-      }
-    #container .article .article-title {
-    padding: 0;
-    }
-</style>
-
-
-          
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.hl &#123;</div><div class="line">color: red;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">$data = simplexml_load_file(&apos;search.xml&apos;);</div><div class="line">define(LEN, 1000);</div><div class="line"></div><div class="line">echo &apos;&lt;div class=&quot;article-inner article-entry&quot;&gt;&lt;h2&gt;Search Results for: &apos; . $_GET[&quot;s&quot;] . &apos;&lt;/h2&gt;&lt;/div&gt;&apos;;</div><div class="line"></div><div class="line">foreach($data-&gt;entry as $a) &#123;</div><div class="line">	// echo $a-&gt;title;</div><div class="line">// echo preg_replace(&quot;/http:\/\/(.*)\//&quot;,&quot;&lt;a href=\&quot;\$&#123;0&#125;\&quot;&gt;\$&#123;0&#125;&lt;/a&gt;&quot;,&quot;$a&quot;);</div><div class="line"></div><div class="line">	$pattern = &quot;/&quot; . $_GET[&quot;s&quot;] . &quot;/i&quot;;</div><div class="line">	$replace = &apos;&lt;span class=hl&gt;&apos; . $_GET[&quot;s&quot;] . &apos;&lt;/span&gt;&apos;;</div><div class="line">	// echo $pattern . &quot;&lt;BR&gt;&quot;;</div><div class="line">	// echo $replace . &quot;&lt;BR&gt;&quot;;</div><div class="line"></div><div class="line">	if(preg_match($pattern, $a-&gt;title)  or preg_match($pattern, $a-&gt;content)) &#123;</div><div class="line">		echo &apos;&lt;div class=&quot;article-inner article-entry&quot; itemprop=&quot;articleBody&quot;&gt;&lt;a href=&apos; . $a-&gt;url . &apos;&gt;&lt;h3&gt;&apos; . preg_replace($pattern, $replace, $a-&gt;title) . &apos;&lt;/h3&gt;&lt;/a&gt;&apos;;</div><div class="line">		$hl_keys = preg_replace($pattern, $replace, $a-&gt;content);</div><div class="line"></div><div class="line">		$strpos = stripos($a-&gt;content,  $_GET[&apos;s&apos;]);</div><div class="line">		$len = min(LEN, strlen($a-&gt;content) - $strpos - 1);</div><div class="line"></div><div class="line">		echo &apos;&lt;p&gt;&apos; . mb_strcut($hl_keys, $strpos, $len, &quot;utf-8&quot;) . &apos; &lt;span class=article-more-link&gt;&lt;a href=&apos;. $a-&gt;url .&apos;&gt; Detial&gt;&gt;&lt;/a&gt;&lt;/span&gt;&lt;/p&gt;&lt;/div&gt;&apos;;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
+        <p>本次学习用 Node.js 为例，调用 RPC 接口执行一些操作，发送一个转账交易。</p>
+<p>这里有必要先了解一下 RPC ：</p>
+<h2 id="RPC-简介"><a href="#RPC-简介" class="headerlink" title="RPC 简介"></a>RPC 简介</h2><p>RPC（Remote Procedure Call Protocol）——远程过程调用协议，它是一种通过网络从远程计算机程序上请求服务，而不需要了解底层网络技术的协议。RPC 协议假定某些传输协议的存在，如 TCP 或 UDP，为通信程序之间携带信息数据。在 OSI 网络通信模型中，RPC 跨越了传输层和应用层。RPC 使得开发包括网络分布式多程序在内的应用程序更加容易。<br>RPC 采用客户机/服务器模式。请求程序就是一个客户机，而服务提供程序就是一个服务器。首先，客户机调用进程发送一个有进程参数的调用信息到服务进程，然后等待应答信息。在服务器端，进程保持睡眠状态直到调用信息到达为止。当一个调用信息到达，服务器获得进程参数，计算结果，发送答复信息，然后等待下一个调用信息，最后，客户端调用进程接收答复信息，获得进程结果，然后调用执行继续进行。</p>
+<p>了解到 RPC 是一种远程调用协议，至于调用的原理先不做研究，这里主要用 Node.js 的 RPC 支持库 kapitalize 来实现 RPC远程调用。</p>
+<h2 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
       
+      
+        <div class="page-reward">
+          <p><a href="javascript:void(0)" onclick="dashangToggle()" class="dashang" title="打赏，支持一下">赏</a></p>
+          <div class="hide_box"></div>
+          <div class="shang_box">
+            <a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()" title="关闭">×</a>
+            <div class="shang_tit">
+              <p>打赏测试</p>
+            </div>
+            <div class="shang_payimg">
+              <img src="/img/alipayimg.jpg" alt="扫码支持" title="扫一扫" />
+            </div>
+              <div class="pay_explain">扫码打赏，你说多少就多少</div>
+            <div class="shang_payselect">
+              
+                <div class="pay_item checked" data-id="alipay">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/alipayimg.jpg" alt="支付宝" /></span>
+                </div>
+              
+              
+                <div class="pay_item" data-id="wechat">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/wechatimg.jpg" alt="微信" /></span>
+                </div>
+              
+              
+                <div class="pay_item" data-id="bitcoin">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/bitcoinimg.jpg" alt="比特币" /></span>
+                </div>
+              
+              
+                <div class="pay_item" data-id="litecoin">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/litecoinimg.jpg" alt="莱特币" /></span>
+                </div>
+              
+            </div>
+            <div class="shang_info">
+              <p>打开<span id="shang_pay_txt">支付宝</span>扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+        </div>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
+        <script type="text/javascript">
+          $(".pay_item").click(function(){
+            $(this).addClass('checked').siblings('.pay_item').removeClass('checked');
+            var dataid=$(this).attr('data-id');
+            $(".shang_payimg img").attr("src","/img/"+dataid+"img.jpg");
+            if (dataid=="alipay")
+            {
+              $("#shang_pay_txt").text(" 支付宝 ");
+            }
+            if (dataid=="wechat")
+            {
+              $("#shang_pay_txt").text(" 微信 ");
+            }
+            if (dataid=="bitcoin")
+            {
+              $("#shang_pay_txt").text(" 比特币钱包 ");
+            }
+            if (dataid=="litecoin")
+            {
+              $("#shang_pay_txt").text(" 莱特币钱包 ");
+            }
+            <!--$("#shang_pay_txt").text(dataid=="alipay"?"支付宝":"微信");-->
+          });
+          function dashangToggle(){
+            $(".hide_box").fadeToggle();
+            $(".shang_box").fadeToggle();
+          }
+        </script>
       
     </div>
     
   </div>
   
     
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2017/06/26/比特币应用开发（二）/">比特币应用开发（二）</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 Grip 的个人博客">Grip</a></p>
+        <p><span>发布时间:</span>2017年06月26日 - 22时36分</p>
+        <p><span>最后更新:</span>2017年06月26日 - 23时38分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/06/26/比特币应用开发（二）/" title="比特币应用开发（二）">http://stayfoolish.top/2017/06/26/比特币应用开发（二）/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://stayfoolish.top/2017/06/26/比特币应用开发（二）/　　作者: Grip" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
 
+
+
+<nav id="article-nav">
+  
+  
+    <a href="/2017/06/20/RSA 公钥加密技术/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">RSA 公钥加密技术</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
 
   
 </article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#RPC-简介"><span class="toc-number">1.</span> <span class="toc-text">RPC 简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#示例代码"><span class="toc-number">2.</span> <span class="toc-text">示例代码</span></a></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
 
 
 
@@ -328,7 +434,40 @@
 
 
 
+    
 
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2017/06/20/RSA 公钥加密技术/" title="下一篇: RSA 公钥加密技术">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/06/26/比特币应用开发（二）/">比特币应用开发（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/RSA 公钥加密技术/">RSA 公钥加密技术</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/10/C-使用火币网交易API/">C# 使用火币网交易 API</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/05/区块链技术核心/">区块链技术核心</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/30/比特币应用开发（一）/">比特币应用开发（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/30/Node.js 安装升级和 npm 使用/">Node.js 安装升级和 npm 使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/28/区块链技术在供应链管理的实践/">区块链技术在供应链管理的实践</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/27/hello-world/">Hello World</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
 
 
 
