@@ -3,18 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>关于我 | GripNotes</title>
+  <title>C# List &lt;T&gt; 用法总结 | GripNotes</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="这里写一些简单介绍 摘要： 区块链和供应链结合之处；如何通过区块链技术解决供应链中的假货的问题；区块链技术如何帮助我们重构供应链体系；探索区块链技术在供应链金融领域的广阔用途。区块链技术的特点从一个开发者的角度来说，区块链技术来源于传统的计算机科学里面的一些经典的问题，比如分布式系统的共识和数据一致性。从一个开发者的角度来说，区块链技术来源于传统的计算机科学里面的一些经典的问题，比如分布式系统的共">
-<meta property="og:type" content="website">
-<meta property="og:title" content="关于我">
-<meta property="og:url" content="http://stayfoolish.top/about/index.html">
+  <meta name="description" content="C# 中 List 在 System.Collections.Generic 命名空间下。 为什么会有 List？它是做什么的？ 首先，C# 中有数组 Array，数组中的数据连续存储，访问速度也最快，但是往数组中间插入数据就不方便了，另外，在声明数组时必须指定数组的长度和数据类型，使用时数组长度过长会造成资源浪费，数组长度过短则会溢出，而且当遇到一些不确定长度的数据处理问题时就会很麻烦。为了克服">
+<meta name="keywords" content="C#">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C# List &lt;T&gt; 用法总结">
+<meta property="og:url" content="http://stayfoolish.top/2017/07/04/C# List 用法总结/index.html">
 <meta property="og:site_name" content="GripNotes">
-<meta property="og:description" content="这里写一些简单介绍 摘要： 区块链和供应链结合之处；如何通过区块链技术解决供应链中的假货的问题；区块链技术如何帮助我们重构供应链体系；探索区块链技术在供应链金融领域的广阔用途。区块链技术的特点从一个开发者的角度来说，区块链技术来源于传统的计算机科学里面的一些经典的问题，比如分布式系统的共识和数据一致性。从一个开发者的角度来说，区块链技术来源于传统的计算机科学里面的一些经典的问题，比如分布式系统的共">
-<meta property="og:updated_time" content="2017-05-29T08:03:03.779Z">
+<meta property="og:description" content="C# 中 List 在 System.Collections.Generic 命名空间下。 为什么会有 List？它是做什么的？ 首先，C# 中有数组 Array，数组中的数据连续存储，访问速度也最快，但是往数组中间插入数据就不方便了，另外，在声明数组时必须指定数组的长度和数据类型，使用时数组长度过长会造成资源浪费，数组长度过短则会溢出，而且当遇到一些不确定长度的数据处理问题时就会很麻烦。为了克服">
+<meta property="og:updated_time" content="2017-07-04T08:48:26.024Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于我">
-<meta name="twitter:description" content="这里写一些简单介绍 摘要： 区块链和供应链结合之处；如何通过区块链技术解决供应链中的假货的问题；区块链技术如何帮助我们重构供应链体系；探索区块链技术在供应链金融领域的广阔用途。区块链技术的特点从一个开发者的角度来说，区块链技术来源于传统的计算机科学里面的一些经典的问题，比如分布式系统的共识和数据一致性。从一个开发者的角度来说，区块链技术来源于传统的计算机科学里面的一些经典的问题，比如分布式系统的共">
+<meta name="twitter:title" content="C# List &lt;T&gt; 用法总结">
+<meta name="twitter:description" content="C# 中 List 在 System.Collections.Generic 命名空间下。 为什么会有 List？它是做什么的？ 首先，C# 中有数组 Array，数组中的数据连续存储，访问速度也最快，但是往数组中间插入数据就不方便了，另外，在声明数组时必须指定数组的长度和数据类型，使用时数组长度过长会造成资源浪费，数组长度过短则会溢出，而且当遇到一些不确定长度的数据处理问题时就会很麻烦。为了克服">
   
     <link rel="alternative" href="/atom.xml" title="GripNotes" type="application/atom+xml">
   
@@ -40,7 +41,7 @@
           fancybox: true,
           animate: true,
           isHome: false,
-          isPost: false,
+          isPost: true,
           isArchive: false,
           isTag: false,
           isCategory: false,
@@ -228,11 +229,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="page-undefined" class="article article-type-page" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-C# List 用法总结" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/about/index.html" class="article-date">
-      <time datetime="2017-05-28T02:49:03.000Z" itemprop="datePublished">2017-05-28</time>
+      <a href="/2017/07/04/C# List 用法总结/" class="article-date">
+      <time datetime="2017-07-04T06:40:12.000Z" itemprop="datePublished">2017-07-04</time>
 </a>
     </div>
   
@@ -245,7 +246,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      关于我
+      C# List &lt;T&gt; 用法总结
     </h1>
   
 
@@ -253,8 +254,16 @@
       
       <div class="article-info article-info-post">
         
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/C/">C#</a>
+    </div>
+
 
         
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C#</a></li></ul>
+    </div>
+
         <div class="clearfix"></div>
       </div>
       
@@ -262,55 +271,152 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <style>
-    .article-meta {
-        display: none;
-    }
-    #container .article .article-title {
-        padding-right: 0;
-    }
-    .article-header {
-        padding: 0;
-        padding-top: 26px;
-        border-left: none;
-        text-align: center;
-    }
-    .article-header:hover {
-        border-left: none;
-    }
-    .article-title {
-        font-size: 1.6em
-    }
-    .article-meta {
-        display: none;
-    }
-    .article-entry hr {
-        margin: 0;
-    }
-    #container .article-info-post.article-info {
-      display: none;
-      }
-    #container .article .article-title {
-    padding: 0;
-    }
-</style>
-
-
-          
-        <p>这里写一些简单介绍</p>
-<h3 id="摘要：-区块链和供应链结合之处；如何通过区块链技术解决供应链中的假货的问题；区块链技术如何帮助我们重构供应链体系；探索区块链技术在供应链金融领域的广阔用途。"><a href="#摘要：-区块链和供应链结合之处；如何通过区块链技术解决供应链中的假货的问题；区块链技术如何帮助我们重构供应链体系；探索区块链技术在供应链金融领域的广阔用途。" class="headerlink" title="摘要： 区块链和供应链结合之处；如何通过区块链技术解决供应链中的假货的问题；区块链技术如何帮助我们重构供应链体系；探索区块链技术在供应链金融领域的广阔用途。"></a>摘要： 区块链和供应链结合之处；如何通过区块链技术解决供应链中的假货的问题；区块链技术如何帮助我们重构供应链体系；探索区块链技术在供应链金融领域的广阔用途。</h3><h2 id="区块链技术的特点"><a href="#区块链技术的特点" class="headerlink" title="区块链技术的特点"></a>区块链技术的特点</h2><p>从一个开发者的角度来说，区块链技术来源于传统的计算机科学里面的一些经典的问题，比如分布式系统的共识和数据一致性。<br>从一个开发者的角度来说，区块链技术来源于传统的计算机科学里面的一些经典的问题，比如分布式系统的共识和数据一致性。<br>从一个开发者的角度来说，区块链技术来源于传统的计算机科学里面的一些经典的问题，比如分布式系统的共识和数据一致性。</p>
+        <p>C# 中 List<t> 在 System.Collections.Generic 命名空间下。</t></p>
+<p>为什么会有 List？它是做什么的？</p>
+<p>首先，C# 中有数组 Array，数组中的数据连续存储，访问速度也最快，但是往数组中间插入数据就不方便了，另外，在声明数组时必须指定数组的长度和数据类型，使用时数组长度过长会造成资源浪费，数组长度过短则会溢出，而且当遇到一些不确定长度的数据处理问题时就会很麻烦。为了克服数组的这些不足，就有了 ArrayList，ArrayList 在 System.Collections 命名空间下，也继承了 IList 接口，ArrayList 可以根据存储的数据大小来动态扩展和收缩对象大小，声明是不需要指定长度，也不需指定数据类型，这就意味着 ArrayList 中可以存储不同的数据类型的数据，ArrayList 会把所有数据当做 object 类型来处理，这样使用简单的同时也导致了它不是类型安全的，类型的不统一也导致它在存储和检索数据时需要进行装箱和拆箱操作，而装箱拆箱操作又是十分损耗性能的。所以 List 就出现了，List 是一种泛型类，相当于是 ArrayList 的泛型等效类，它的用法和 ArrayList 类似，同时也继承了 IList 接口，只不过在使用 List 时需要指定数据类型。</p>
+<p>声明示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Array:</div><div class="line">string[] s=new string[2];</div><div class="line">int[] iArray=new int[8];</div><div class="line"></div><div class="line">ArrayList:</div><div class="line">ArrayList list1 = new ArrayList(); </div><div class="line"></div><div class="line">List&lt;T&gt;:</div><div class="line">List&lt;string&gt; list = new List&lt;string&gt;();</div></pre></td></tr></table></figure></p>
 
       
+      
+        <div class="page-reward">
+          <p><a href="javascript:void(0)" onclick="dashangToggle()" class="dashang" title="打赏，支持一下">赏</a></p>
+          <div class="hide_box"></div>
+          <div class="shang_box">
+            <a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()" title="关闭">×</a>
+            <div class="shang_tit">
+              <p>打赏测试</p>
+            </div>
+            <div class="shang_payimg">
+              <img src="/img/alipayimg.jpg" alt="扫码支持" title="扫一扫" />
+            </div>
+              <div class="pay_explain">扫码打赏，你说多少就多少</div>
+            <div class="shang_payselect">
+              
+                <div class="pay_item checked" data-id="alipay">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/alipayimg.jpg" alt="支付宝" /></span>
+                </div>
+              
+              
+                <div class="pay_item" data-id="wechat">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/wechatimg.jpg" alt="微信" /></span>
+                </div>
+              
+              
+                <div class="pay_item" data-id="bitcoin">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/bitcoinimg.jpg" alt="比特币" /></span>
+                </div>
+              
+              
+                <div class="pay_item" data-id="litecoin">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/litecoinimg.jpg" alt="莱特币" /></span>
+                </div>
+              
+            </div>
+            <div class="shang_info">
+              <p>打开<span id="shang_pay_txt">支付宝</span>扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+        </div>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
+        <script type="text/javascript">
+          $(".pay_item").click(function(){
+            $(this).addClass('checked').siblings('.pay_item').removeClass('checked');
+            var dataid=$(this).attr('data-id');
+            $(".shang_payimg img").attr("src","/img/"+dataid+"img.jpg");
+            if (dataid=="alipay")
+            {
+              $("#shang_pay_txt").text(" 支付宝 ");
+            }
+            if (dataid=="wechat")
+            {
+              $("#shang_pay_txt").text(" 微信 ");
+            }
+            if (dataid=="bitcoin")
+            {
+              $("#shang_pay_txt").text(" 比特币钱包 ");
+            }
+            if (dataid=="litecoin")
+            {
+              $("#shang_pay_txt").text(" 莱特币钱包 ");
+            }
+            <!--$("#shang_pay_txt").text(dataid=="alipay"?"支付宝":"微信");-->
+          });
+          function dashangToggle(){
+            $(".hide_box").fadeToggle();
+            $(".shang_box").fadeToggle();
+          }
+        </script>
       
     </div>
     
   </div>
   
     
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2017/07/04/C# List 用法总结/">C# List &lt;T&gt; 用法总结</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 Grip 的个人博客">Grip</a></p>
+        <p><span>发布时间:</span>2017年07月04日 - 14时40分</p>
+        <p><span>最后更新:</span>2017年07月04日 - 16时48分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/07/04/C# List 用法总结/" title="C# List &lt;T&gt; 用法总结">http://stayfoolish.top/2017/07/04/C# List 用法总结/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://stayfoolish.top/2017/07/04/C# List 用法总结/　　作者: Grip" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
 
+
+
+<nav id="article-nav">
+  
+  
+    <a href="/2017/06/26/比特币应用开发（二）/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">比特币应用开发（二）</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
 
   
 </article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
 
 
 
@@ -331,6 +437,37 @@
     
 
 
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2017/06/26/比特币应用开发（二）/" title="下一篇: 比特币应用开发（二）">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/07/04/C# List 用法总结/">C# List <T> 用法总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/26/比特币应用开发（二）/">比特币应用开发（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/RSA 公钥加密技术/">RSA 公钥加密技术</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/10/C#使用火币网交易API/">C# 使用火币网交易 API</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/05/区块链技术核心/">区块链技术核心</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/30/比特币应用开发（一）/">比特币应用开发（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/30/Node.js 安装升级和 npm 使用/">Node.js 安装升级和 npm 使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/28/区块链技术在供应链管理的实践/">区块链技术在供应链管理的实践</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/27/hello-world/">Hello World</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
 
 
 
