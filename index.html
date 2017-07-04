@@ -259,11 +259,9 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>C# 中 List<t> 在 System.Collections.Generic 命名空间下。</t></p>
-<p>为什么会有 List？它是做什么的？</p>
-<p>首先，C# 中有数组 Array，数组中的数据连续存储，访问速度也最快，但是往数组中间插入数据就不方便了，另外，在声明数组时必须指定数组的长度和数据类型，使用时数组长度过长会造成资源浪费，数组长度过短则会溢出，而且当遇到一些不确定长度的数据处理问题时就会很麻烦。为了克服数组的这些不足，就有了 ArrayList，ArrayList 在 System.Collections 命名空间下，也继承了 IList 接口，ArrayList 可以根据存储的数据大小来动态扩展和收缩对象大小，声明是不需要指定长度，也不需指定数据类型，这就意味着 ArrayList 中可以存储不同的数据类型的数据，ArrayList 会把所有数据当做 object 类型来处理，这样使用简单的同时也导致了它不是类型安全的，类型的不统一也导致它在存储和检索数据时需要进行装箱和拆箱操作，而装箱拆箱操作又是十分损耗性能的。所以 List 就出现了，List 是一种泛型类，相当于是 ArrayList 的泛型等效类，它的用法和 ArrayList 类似，同时也继承了 IList 接口，只不过在使用 List 时需要指定数据类型。</p>
-<p>声明示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Array:</div><div class="line">string[] s=new string[2];</div><div class="line">int[] iArray=new int[8];</div><div class="line"></div><div class="line">ArrayList:</div><div class="line">ArrayList list1 = new ArrayList(); </div><div class="line"></div><div class="line">List&lt;T&gt;:</div><div class="line">List&lt;string&gt; list = new List&lt;string&gt;();</div></pre></td></tr></table></figure></p>
-
+              <p>C# 中 List<t> 在 System.Collections.Generic 命名空间下。</t></p>
+<h2 id="为什么会有-List？它是做什么的？"><a href="#为什么会有-List？它是做什么的？" class="headerlink" title="为什么会有 List？它是做什么的？"></a>为什么会有 List？它是做什么的？</h2><p>首先，C# 中有数组 Array，数组中的数据连续存储，访问速度也最快，但是往数组中间插入数据就不方便了，另外，在声明数组时必须指定数组的长度和数据类型，使用时数组长度过长会造成资源浪费，数组长度过短则会溢出，而且当遇到一些不确定长度的数据处理问题时就会很麻烦。为了克服数组的这些不足，就有了 ArrayList，ArrayList 在 System.Collections 命名空间下，也继承了 IList 接口，ArrayList 可以根据存储的数据大小来动态扩展和收缩对象大小，声明是不需要指定长度，也不需指定数据类型，
+          
       
       
     </div>
@@ -281,6 +279,10 @@
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C#</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a  href="/2017/07/04/C# List 用法总结/#more">全文 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
