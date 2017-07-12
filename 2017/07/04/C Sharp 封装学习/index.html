@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>C Sharp List &lt;T&gt; 用法总结 | GripNotes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="C# 中 List 在 System.Collections.Generic 命名空间下。 为什么会有 List？它是做什么的？首先，C# 中有数组 Array，数组中的数据连续存储，访问速度也最快，但是往数组中间插入数据就不方便了，另外，在声明数组时必须指定数组的长度和数据类型，使用时数组长度过长会造成资源浪费，数组长度过短则会溢出，而且当遇到一些不确定长度的数据处理问题时就会很麻烦。为了克服数">
+<meta name="keywords" content="C#">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C Sharp List &lt;T&gt; 用法总结">
+<meta property="og:url" content="http://stayfoolish.top/2017/07/04/C Sharp 封装学习/index.html">
+<meta property="og:site_name" content="GripNotes">
+<meta property="og:description" content="C# 中 List 在 System.Collections.Generic 命名空间下。 为什么会有 List？它是做什么的？首先，C# 中有数组 Array，数组中的数据连续存储，访问速度也最快，但是往数组中间插入数据就不方便了，另外，在声明数组时必须指定数组的长度和数据类型，使用时数组长度过长会造成资源浪费，数组长度过短则会溢出，而且当遇到一些不确定长度的数据处理问题时就会很麻烦。为了克服数">
+<meta property="og:updated_time" content="2017-07-05T13:51:17.179Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C Sharp List &lt;T&gt; 用法总结">
+<meta name="twitter:description" content="C# 中 List 在 System.Collections.Generic 命名空间下。 为什么会有 List？它是做什么的？首先，C# 中有数组 Array，数组中的数据连续存储，访问速度也最快，但是往数组中间插入数据就不方便了，另外，在声明数组时必须指定数组的长度和数据类型，使用时数组长度过长会造成资源浪费，数组长度过短则会溢出，而且当遇到一些不确定长度的数据处理问题时就会很麻烦。为了克服数">
+  
+    <link rel="alternative" href="/atom.xml" title="GripNotes" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.jpg">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          rootUrl: '/',
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/head.jpg" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/" title="Hi Mate">Grip</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">总结 · 记录 · 分享</p>
+        
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">博客首页</a></li>
+                        
+                            <li><a href="/archives">全部文章</a></li>
+                        
+                            <li><a href="/tags">标签目录</a></li>
+                        
+                            <li><a href="/works">作品展示</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=jvbn__zh7-zqzujh9uPv5_Kg7eHj" title="mail">mail</a>
+                            
+                                <a class="fl zhihu" target="_blank" href="https://www.zhihu.com/people/xiuboard/" title="zhihu">zhihu</a>
+                            
+                                <a class="fl weibo" target="_blank" href="http://weibo.com/p/1005053209397292/" title="weibo">weibo</a>
+                            
+                                <a class="fl QQ" target="_blank" href="/img/qq.jpg" title="QQ">QQ</a>
+                            
+                                <a class="fl wechat" target="_blank" href="/img/weixin.jpg" title="wechat">wechat</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/ProDog" title="github">github</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/Bitcoin/" style="font-size: 20px;">Bitcoin</a> <a href="/tags/Blockchain/" style="font-size: 15px;">Blockchain</a> <a href="/tags/C/" style="font-size: 20px;">C#</a> <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/RSA/" style="font-size: 10px;">RSA</a> <a href="/tags/Ubuntu/" style="font-size: 20px;">Ubuntu</a> <a href="/tags/供应链/" style="font-size: 10px;">供应链</a>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://prodog.github.io/">Grip-Zhang</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">目前从事.NET开发工作，供应链管理方向，主要使用 C#、SQL 语言；业余时间研究区块链技术，Python脚本，微信小程序等。</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">Grip</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/head.jpg" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me">Grip</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">总结 · 记录 · 分享</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">博客首页</a></li>
+                
+                    <li><a href="/archives">全部文章</a></li>
+                
+                    <li><a href="/tags">标签目录</a></li>
+                
+                    <li><a href="/works">作品展示</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=jvbn__zh7-zqzujh9uPv5_Kg7eHj" title="mail">mail</a>
+                    
+                        <a class="zhihu" target="_blank" href="https://www.zhihu.com/people/xiuboard/" title="zhihu">zhihu</a>
+                    
+                        <a class="weibo" target="_blank" href="http://weibo.com/p/1005053209397292/" title="weibo">weibo</a>
+                    
+                        <a class="QQ" target="_blank" href="/img/qq.jpg" title="QQ">QQ</a>
+                    
+                        <a class="wechat" target="_blank" href="/img/weixin.jpg" title="wechat">wechat</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/ProDog" title="github">github</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-C Sharp 封装学习" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/07/04/C Sharp 封装学习/" class="article-date">
+      <time datetime="2017-07-04T06:40:12.000Z" itemprop="datePublished">2017-07-04</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      C Sharp List &lt;T&gt; 用法总结
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/C/">C#</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C#</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>C# 中 List<t> 在 System.Collections.Generic 命名空间下。</t></p>
+<h2 id="为什么会有-List？它是做什么的？"><a href="#为什么会有-List？它是做什么的？" class="headerlink" title="为什么会有 List？它是做什么的？"></a>为什么会有 List？它是做什么的？</h2><p>首先，C# 中有数组 Array，数组中的数据连续存储，访问速度也最快，但是往数组中间插入数据就不方便了，另外，在声明数组时必须指定数组的长度和数据类型，使用时数组长度过长会造成资源浪费，数组长度过短则会溢出，而且当遇到一些不确定长度的数据处理问题时就会很麻烦。为了克服数组的这些不足，就有了 ArrayList，ArrayList 在 System.Collections 命名空间下，也继承了 IList 接口，ArrayList 可以根据存储的数据大小来动态扩展和收缩对象大小，声明是不需要指定长度，也不需指定数据类型，<a id="more"></a>这就意味着 ArrayList 中可以存储不同的数据类型的数据，ArrayList 会把所有数据当做 object 类型来处理，这样使用简单的同时也导致了它不是类型安全的，类型的不统一也导致它在存储和检索数据时需要进行装箱和拆箱操作，而装箱拆箱操作又是十分损耗性能的。所以 List 就出现了， List<t>类是 ArrayList 类的泛型等效类。该类使用大小可按需动态增加的数组实现 IList<t> 泛型接口。泛型的是它为使用 C# 语言编写面向对象程序增加了极大的效力和灵活性，不会强行对值类型进行装箱和拆箱，或对引用类型进行向下强制类型转换，所以性能得到提高。List 的用法和 ArrayList 类似，只不过在使用 List 时需要指定数据类型。</t></t></p>
+<p>数组容量固定，可以有多个维度；ArrayList或List<t>的容量可根据需要自动扩充、修改、删除或插入数据，只有一个维度。特定类型（Object 除外）的数组 的性能优于 ArrayList的性能。 这是因为 ArrayList的元素属于 Object 类型；<br>在决定使用 List<t> 还是使用ArrayList 类（两者具有类似的功能）时，List<t> 类在大多数情况下执行得更好并且是类型安全的。如果对List&lt; T&gt; 类的类型 T 使用引用类型，则两个类的行为是完全相同的。如果对类型 T 使用值类型，则需要考虑实现和装箱问题。</t></t></t></p>
+<p> 添加到 ArrayList 中的任何引用或值类型都将隐式地向上强制转换为 Object。如果项是值类型，则必须在将其添加到列表中时进行装箱操作，在检索时进行取消装箱操作。强制转换以及装箱和取消装箱操作都会降低性能；在必须对大型集合进行循环访问的情况下，装箱和取消装箱的影响非常明显。</p>
+<p>声明示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Array:</div><div class="line">string[] s=new string[2];</div><div class="line">int[] iArray=new int[8];</div><div class="line"></div><div class="line">ArrayList:</div><div class="line">ArrayList list1 = new ArrayList(); </div><div class="line"></div><div class="line">List&lt;T&gt;:</div><div class="line">List&lt;string&gt; list = new List&lt;string&gt;();</div></pre></td></tr></table></figure></p>
+<h2 id="List-的基础、常用方法："><a href="#List-的基础、常用方法：" class="headerlink" title="List 的基础、常用方法："></a>List 的基础、常用方法：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div></pre></td><td class="code"><pre><div class="line">声明： </div><div class="line"></div><div class="line">1、List&lt;T&gt; mList = new List&lt;T&gt;();  </div><div class="line"></div><div class="line">T为列表中元素类型，现在以string类型作为例子</div><div class="line"></div><div class="line">E.g.： List&lt;string&gt; mList = new List&lt;string&gt;();</div><div class="line"></div><div class="line">2、List&lt;T&gt; testList =new List&lt;T&gt; (IEnumerable&lt;T&gt; collection);</div><div class="line"></div><div class="line">     以一个集合作为参数创建List</div><div class="line"></div><div class="line">     E.g.：</div><div class="line"></div><div class="line">string[] temArr = &#123; &quot;Ha&quot;, &quot;Hunter&quot;, &quot;Tom&quot;, &quot;Lily&quot;, &quot;Jay&quot;, &quot;Jim&quot;, &quot;Kuku&quot;, &quot;Locu&quot; &#125;;</div><div class="line"></div><div class="line">List&lt;string&gt; testList = new List&lt;string&gt;(temArr);</div><div class="line"></div><div class="line">添加元素:</div><div class="line"></div><div class="line">1、 List. Add(T item)   添加一个元素</div><div class="line"></div><div class="line">E.g.：    mList.Add(&quot;John&quot;);</div><div class="line"></div><div class="line">2、  List. AddRange(IEnumerable&lt;T&gt; collection)   添加一组元素</div><div class="line"></div><div class="line">E.g.：</div><div class="line"></div><div class="line">string[] temArr = &#123; &quot;Ha&quot;,&quot;Hunter&quot;, &quot;Tom&quot;, &quot;Lily&quot;, &quot;Jay&quot;, &quot;Jim&quot;, &quot;Kuku&quot;,  &quot;Locu&quot; &#125;;</div><div class="line"></div><div class="line">mList.AddRange(temArr);</div><div class="line"></div><div class="line">3、Insert(int index, T item);    在index位置添加一个元素</div><div class="line"></div><div class="line">E.g.：    mList.Insert(1, &quot;Hei&quot;);</div><div class="line"></div><div class="line">遍历List中元素:</div><div class="line"></div><div class="line">foreach (T element in mList)  T的类型与mList声明时一样</div><div class="line"></div><div class="line">            &#123;</div><div class="line"></div><div class="line">                Console.WriteLine(element);</div><div class="line"></div><div class="line">            &#125;</div><div class="line"></div><div class="line">E.g.：</div><div class="line"></div><div class="line">foreach (string s in mList)</div><div class="line"></div><div class="line">            &#123;</div><div class="line"></div><div class="line">                Console.WriteLine(s);</div><div class="line"></div><div class="line">            &#125;</div><div class="line"></div><div class="line">删除元素:</div><div class="line"></div><div class="line">  1、 List. Remove(T item)       删除一个值</div><div class="line"></div><div class="line">E.g.：   mList.Remove(&quot;Hunter&quot;);</div><div class="line"></div><div class="line">  2、 List. RemoveAt(int index);   删除下标为index的元素</div><div class="line"></div><div class="line">E.g.：   mList.RemoveAt(0);</div><div class="line"></div><div class="line">  3、 List. RemoveRange(int index, int count);</div><div class="line"></div><div class="line">从下标index开始，删除count个元素</div><div class="line"></div><div class="line">      E.g.：   mList.RemoveRange(3, 2);</div><div class="line"></div><div class="line">判断某个元素是否在该List中：</div><div class="line"></div><div class="line">List. Contains(T item)   返回true或false，很实用</div><div class="line"></div><div class="line">E.g.：</div><div class="line"></div><div class="line">if (mList.Contains(&quot;Hunter&quot;))</div><div class="line"></div><div class="line">            &#123;</div><div class="line"></div><div class="line">                Console.WriteLine(&quot;There is Hunter in the list&quot;);</div><div class="line"></div><div class="line">            &#125;</div><div class="line"></div><div class="line">            else</div><div class="line"></div><div class="line">            &#123;</div><div class="line"></div><div class="line">                mList.Add(&quot;Hunter&quot;);</div><div class="line"></div><div class="line">                Console.WriteLine(&quot;Add Hunter successfully.&quot;);</div><div class="line"></div><div class="line">            &#125;</div><div class="line"></div><div class="line">给List里面元素排序：</div><div class="line"></div><div class="line">List. Sort ()   默认是元素第一个字母按升序</div><div class="line"></div><div class="line">E.g.：   mList.Sort();</div><div class="line"></div><div class="line">给List里面元素顺序反转：</div><div class="line"></div><div class="line">List. Reverse ()   可以与List. Sort ()配合使用，达到想要的效果</div><div class="line"></div><div class="line">E.g.：   mList.Sort();</div><div class="line"></div><div class="line"> List清空：List. Clear () </div><div class="line"></div><div class="line">E.g.：   mList.Clear();</div><div class="line"></div><div class="line">  获得List中元素数目：</div><div class="line"></div><div class="line">List. Count ()    返回int值</div><div class="line"></div><div class="line">E.g.：</div><div class="line"></div><div class="line">int count = mList.Count();</div><div class="line"></div><div class="line">       Console.WriteLine(&quot;The num of elements in the list: &quot; +count);</div></pre></td></tr></table></figure>
+<h2 id="List的进阶："><a href="#List的进阶：" class="headerlink" title="List的进阶："></a>List的进阶：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div><div class="line">201</div><div class="line">202</div><div class="line">203</div><div class="line">204</div><div class="line">205</div><div class="line">206</div><div class="line">207</div><div class="line">208</div><div class="line">209</div><div class="line">210</div><div class="line">211</div><div class="line">212</div><div class="line">213</div><div class="line">214</div><div class="line">215</div><div class="line">216</div><div class="line">217</div><div class="line">218</div><div class="line">219</div><div class="line">220</div><div class="line">221</div><div class="line">222</div><div class="line">223</div><div class="line">224</div><div class="line">225</div><div class="line">226</div><div class="line">227</div><div class="line">228</div><div class="line">229</div><div class="line">230</div><div class="line">231</div><div class="line">232</div><div class="line">233</div><div class="line">234</div><div class="line">235</div><div class="line">236</div></pre></td><td class="code"><pre><div class="line">举例用的List：</div><div class="line"></div><div class="line">string[] temArr = &#123; Ha&quot;,&quot;Hunter&quot;, &quot;Tom&quot;, &quot;Lily&quot;, &quot;Jay&quot;, &quot;Jim&quot;, &quot;Kuku&quot;, &quot; &quot;Locu&quot; &#125;;</div><div class="line"></div><div class="line">mList.AddRange(temArr);</div><div class="line"></div><div class="line">List.Find 方法：搜索与指定谓词所定义的条件相匹配的元素，并返回整个 List 中的第一个匹配元素。 </div><div class="line"></div><div class="line">public T Find(Predicate&lt;T&gt; match);</div><div class="line"></div><div class="line">Predicate 是对方法的委托，如果传递给它的对象与委托中定义的条件匹配，则该方法返回 true。当前 List 的元素被逐个传递给Predicate委托，并在 List 中向前移动，从第一个元素开始，到最后一个元素结束。当找到匹配项时处理即停止。</div><div class="line"></div><div class="line">Predicate 可以委托给一个函数或者一个拉姆达表达式:</div><div class="line"></div><div class="line">委托给拉姆达表达式：</div><div class="line"></div><div class="line">E.g.：</div><div class="line"></div><div class="line">      string listFind = mList.Find(name =&gt;  //name是变量，代表的是mList</div><div class="line"></div><div class="line">      &#123;                              //中元素，自己设定</div><div class="line"></div><div class="line">          if (name.Length &gt; 3)</div><div class="line"></div><div class="line">          &#123;</div><div class="line"></div><div class="line">              return true;</div><div class="line"></div><div class="line">          &#125;</div><div class="line"></div><div class="line">              return false;</div><div class="line"></div><div class="line">       &#125;);</div><div class="line"></div><div class="line">       Console.WriteLine(listFind);     //输出是Hunter</div><div class="line"></div><div class="line">委托给一个函数：</div><div class="line"></div><div class="line">E.g.：</div><div class="line"></div><div class="line">string listFind1 = mList.Find(ListFind);  //委托给ListFind函数</div><div class="line"></div><div class="line">Console.WriteLine(listFind);           //输出是Hunter</div><div class="line"></div><div class="line">ListFind函数： </div><div class="line"></div><div class="line">public bool ListFind(string name)</div><div class="line"></div><div class="line">        &#123;</div><div class="line"></div><div class="line">            if (name.Length &gt; 3)</div><div class="line"></div><div class="line">            &#123;</div><div class="line"></div><div class="line">                return true;</div><div class="line"></div><div class="line">            &#125;</div><div class="line"></div><div class="line">            return false;</div><div class="line"></div><div class="line">        &#125;</div><div class="line"></div><div class="line">这两种方法的结果是一样的。</div><div class="line"></div><div class="line">List.FindLast 方法：搜索与指定谓词所定义的条件相匹配的元素，并返回整个 List 中的最后一个匹配元素。 </div><div class="line"></div><div class="line">public T FindLast(Predicate&lt;T&gt; match);</div><div class="line"></div><div class="line">用法与List.Find相同。</div><div class="line"></div><div class="line">List.TrueForAll方法：  确定是否 List 中的每个元素都与指定的谓词所定义的条件相匹配。</div><div class="line"></div><div class="line"> public bool TrueForAll(Predicate&lt;T&gt; match);</div><div class="line"></div><div class="line">委托给拉姆达表达式：</div><div class="line"></div><div class="line">E.g.：</div><div class="line"></div><div class="line">            bool flag = mList.TrueForAll(name =&gt;</div><div class="line"></div><div class="line">            &#123;</div><div class="line"></div><div class="line">                if (name.Length &gt; 3)</div><div class="line"></div><div class="line">                &#123;</div><div class="line"></div><div class="line">                    return true;</div><div class="line"></div><div class="line">                &#125;</div><div class="line"></div><div class="line">                else</div><div class="line"></div><div class="line">                &#123;</div><div class="line"></div><div class="line">                    return false;</div><div class="line"></div><div class="line">                &#125;</div><div class="line"></div><div class="line">            &#125;</div><div class="line"></div><div class="line">            );</div><div class="line"></div><div class="line">   Console.WriteLine(&quot;True for all:  &quot;+flag);  //flag值为false</div><div class="line"></div><div class="line">委托给一个函数，这里用到上面的ListFind函数：</div><div class="line"></div><div class="line">E.g.：</div><div class="line"></div><div class="line">  bool flag = mList.TrueForAll(ListFind); //委托给ListFind函数</div><div class="line"></div><div class="line">Console.WriteLine(&quot;True for all:  &quot;+flag);  //flag值为false</div><div class="line"></div><div class="line">这两种方法的结果是一样的。</div><div class="line"></div><div class="line">List.FindAll方法：检索与指定谓词所定义的条件相匹配的所有元素。</div><div class="line"></div><div class="line">public List&lt;T&gt; FindAll(Predicate&lt;T&gt; match);</div><div class="line"></div><div class="line">E.g.：</div><div class="line"></div><div class="line">List&lt;string&gt; subList = mList.FindAll(ListFind); //委托给ListFind函数</div><div class="line"></div><div class="line">        foreach (string s in subList)</div><div class="line"></div><div class="line">        &#123;</div><div class="line"></div><div class="line">            Console.WriteLine(&quot;element in subList: &quot;+s);</div><div class="line"></div><div class="line">        &#125;</div><div class="line"></div><div class="line">        这时subList存储的就是所有长度大于3的元素</div><div class="line"></div><div class="line">List.Take(n)：  获得前n行 返回值为IEnumetable&lt;T&gt;，T的类型与List&lt;T&gt;的类型一样</div><div class="line"></div><div class="line">E.g.：</div><div class="line"></div><div class="line">IEnumerable&lt;string&gt; takeList=  mList.Take(5);</div><div class="line"></div><div class="line">          foreach (string s in takeList)</div><div class="line"></div><div class="line">          &#123;</div><div class="line"></div><div class="line">              Console.WriteLine(&quot;element in takeList: &quot; + s);</div><div class="line"></div><div class="line">          &#125;</div><div class="line"></div><div class="line">       这时takeList存放的元素就是mList中的前5个</div><div class="line"></div><div class="line">List.Where方法：检索与指定谓词所定义的条件相匹配的所有元素。跟List.FindAll方法类似。</div><div class="line"></div><div class="line">E.g.：</div><div class="line"></div><div class="line">            IEnumerable&lt;string&gt; whereList = mList.Where(name =&gt;</div><div class="line"></div><div class="line">                &#123;</div><div class="line"></div><div class="line">                    if (name.Length &gt; 3)</div><div class="line"></div><div class="line">                    &#123;</div><div class="line"></div><div class="line">                        return true;</div><div class="line"></div><div class="line">                    &#125;</div><div class="line"></div><div class="line">                    else</div><div class="line"></div><div class="line">                    &#123;</div><div class="line"></div><div class="line">                        return false;</div><div class="line"></div><div class="line">                    &#125;</div><div class="line"></div><div class="line">                &#125;);</div><div class="line"></div><div class="line">         foreach (string s in subList)</div><div class="line"></div><div class="line">         &#123;</div><div class="line"></div><div class="line">             Console.WriteLine(&quot;element in subList: &quot;+s);</div><div class="line"></div><div class="line">         &#125;</div><div class="line"></div><div class="line">         这时subList存储的就是所有长度大于3的元素</div><div class="line"></div><div class="line">List.RemoveAll方法：移除与指定的谓词所定义的条件相匹配的所有元素。</div><div class="line"></div><div class="line">public int RemoveAll(Predicate&lt;T&gt; match);</div><div class="line"></div><div class="line">E.g.：</div><div class="line"></div><div class="line">            mList.RemoveAll(name =&gt;</div><div class="line"></div><div class="line">                &#123;</div><div class="line"></div><div class="line">                    if (name.Length &gt; 3)</div><div class="line"></div><div class="line">                    &#123;</div><div class="line"></div><div class="line">                        return true;</div><div class="line"></div><div class="line">                    &#125;</div><div class="line"></div><div class="line">                    else</div><div class="line"></div><div class="line">                    &#123;</div><div class="line"></div><div class="line">                        return false;</div><div class="line"></div><div class="line">                    &#125;</div><div class="line"></div><div class="line">                &#125;);</div><div class="line"></div><div class="line">            foreach (string s in mList)</div><div class="line"></div><div class="line">            &#123;</div><div class="line"></div><div class="line">                Console.WriteLine(&quot;element in mList:     &quot; + s);</div><div class="line"></div><div class="line">            &#125;</div><div class="line"></div><div class="line">      这时mList存储的就是移除长度大于3之后的元素。</div><div class="line"></div><div class="line">List&lt;T&gt; 是一个泛型链表...T表示节点元素类型</div><div class="line">比如</div><div class="line">List&lt;int&gt; intList;表示一个元素为int的链表</div><div class="line">intList.Add(34); //添加</div><div class="line">intList.Remove(34);//删除</div><div class="line">intList.RemoveAt(0); //删除位于某处的元素</div><div class="line">intList.Count; //链表长度</div><div class="line"></div><div class="line">还有Insert,Find,FindAll,Contains等方法,也有索引方法 intList[0] = 23;</div><div class="line"></div><div class="line">1.减少了装箱拆箱</div><div class="line">2.便于编译时检查数据类型</div><div class="line"></div><div class="line">List&lt;Object&gt; 就相当于 System.Collections命名空间里面的List</div></pre></td></tr></table></figure>
+
+      
+      
+        <div class="page-reward">
+          <p><a href="javascript:void(0)" onclick="dashangToggle()" class="dashang" title="打赏，支持一下">赏</a></p>
+          <div class="hide_box"></div>
+          <div class="shang_box">
+            <a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()" title="关闭">×</a>
+            <div class="shang_tit">
+              <p>打赏测试</p>
+            </div>
+            <div class="shang_payimg">
+              <img src="/img/alipayimg.jpg" alt="扫码支持" title="扫一扫" />
+            </div>
+              <div class="pay_explain">扫码打赏，你说多少就多少</div>
+            <div class="shang_payselect">
+              
+                <div class="pay_item checked" data-id="alipay">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/alipayimg.jpg" alt="支付宝" /></span>
+                </div>
+              
+              
+                <div class="pay_item" data-id="wechat">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/wechatimg.jpg" alt="微信" /></span>
+                </div>
+              
+              
+                <div class="pay_item" data-id="bitcoin">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/bitcoinimg.jpg" alt="比特币" /></span>
+                </div>
+              
+              
+                <div class="pay_item" data-id="litecoin">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/litecoinimg.jpg" alt="莱特币" /></span>
+                </div>
+              
+            </div>
+            <div class="shang_info">
+              <p>打开<span id="shang_pay_txt">支付宝</span>扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+        </div>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
+        <script type="text/javascript">
+          $(".pay_item").click(function(){
+            $(this).addClass('checked').siblings('.pay_item').removeClass('checked');
+            var dataid=$(this).attr('data-id');
+            $(".shang_payimg img").attr("src","/img/"+dataid+"img.jpg");
+            if (dataid=="alipay")
+            {
+              $("#shang_pay_txt").text(" 支付宝 ");
+            }
+            if (dataid=="wechat")
+            {
+              $("#shang_pay_txt").text(" 微信 ");
+            }
+            if (dataid=="bitcoin")
+            {
+              $("#shang_pay_txt").text(" 比特币钱包 ");
+            }
+            if (dataid=="litecoin")
+            {
+              $("#shang_pay_txt").text(" 莱特币钱包 ");
+            }
+            <!--$("#shang_pay_txt").text(dataid=="alipay"?"支付宝":"微信");-->
+          });
+          function dashangToggle(){
+            $(".hide_box").fadeToggle();
+            $(".shang_box").fadeToggle();
+          }
+        </script>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2017/07/04/C Sharp 封装学习/">C Sharp List &lt;T&gt; 用法总结</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 Grip 的个人博客">Grip</a></p>
+        <p><span>发布时间:</span>2017年07月04日 - 14时40分</p>
+        <p><span>最后更新:</span>2017年07月05日 - 21时51分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/07/04/C Sharp 封装学习/" title="C Sharp List &lt;T&gt; 用法总结">http://stayfoolish.top/2017/07/04/C Sharp 封装学习/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://stayfoolish.top/2017/07/04/C Sharp 封装学习/　　作者: Grip" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+  
+    <a href="/2017/07/04/C Sharp List 总结/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">C Sharp List &lt;T&gt; 用法总结</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么会有-List？它是做什么的？"><span class="toc-number">1.</span> <span class="toc-text">为什么会有 List？它是做什么的？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#List-的基础、常用方法："><span class="toc-number">2.</span> <span class="toc-text">List 的基础、常用方法：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#List的进阶："><span class="toc-number">3.</span> <span class="toc-text">List的进阶：</span></a></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2017/07/04/C Sharp List 总结/" title="下一篇: C Sharp List &lt;T&gt; 用法总结">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/07/04/C Sharp 封装学习/">C Sharp List <T> 用法总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/04/C Sharp List 总结/">C Sharp List <T> 用法总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/26/比特币应用开发（二）/">比特币应用开发（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/RSA 公钥加密技术/">RSA 公钥加密技术</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/10/C Sharp 使用火币网交易API/">C Sharp 使用火币网交易 API</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/05/区块链技术核心/">区块链技术核心</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/30/比特币应用开发（一）/">比特币应用开发（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/30/Node.js 安装升级和 npm 使用/">Node.js 安装升级和 npm 使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/28/区块链技术在供应链管理的实践/">区块链技术在供应链管理的实践</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/27/hello-world/">Hello World</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2017 Grip
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/luuman/hexo-theme-spfk" target="_blank">spfk</a> by luuman
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >累计访问数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+ 
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = undefined;
+            var backgroundimg = "url(/background/bg-" + backgroundnum +".jpg)";
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>
