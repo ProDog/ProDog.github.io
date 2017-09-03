@@ -150,7 +150,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/NET/" style="font-size: 10px;">.NET</a> <a href="/tags/Bitcoin/" style="font-size: 20px;">Bitcoin</a> <a href="/tags/Blockchain/" style="font-size: 13.33px;">Blockchain</a> <a href="/tags/C/" style="font-size: 20px;">C#</a> <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/RSA/" style="font-size: 10px;">RSA</a> <a href="/tags/Ubuntu/" style="font-size: 16.67px;">Ubuntu</a> <a href="/tags/供应链/" style="font-size: 10px;">供应链</a>
+                        <a href="/tags/NET/" style="font-size: 10px;">.NET</a> <a href="/tags/Bitcoin/" style="font-size: 20px;">Bitcoin</a> <a href="/tags/Blockchain/" style="font-size: 12.5px;">Blockchain</a> <a href="/tags/C/" style="font-size: 17.5px;">C#</a> <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/RSA/" style="font-size: 10px;">RSA</a> <a href="/tags/Ubuntu/" style="font-size: 15px;">Ubuntu</a> <a href="/tags/供应链/" style="font-size: 10px;">供应链</a>
                     </div>
                 </section>
                 
@@ -231,6 +231,73 @@
     </div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-比特币地址生成" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/08/30/比特币地址生成/" class="article-date">
+      <time datetime="2017-08-30T07:28:52.000Z" itemprop="datePublished">2017-08-30</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/30/比特币地址生成/">比特币地址生成</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h1 id="比特币地址生成："><a href="#比特币地址生成：" class="headerlink" title="比特币地址生成："></a>比特币地址生成：</h1><h2 id="1、产生私钥："><a href="#1、产生私钥：" class="headerlink" title="1、产生私钥："></a>1、产生私钥：</h2><p>私钥可以是 1 和 n-1 之间的任何数字，其中 n 是一个常数（n=1.158*1077，略小于 2256），并由比特币所使用的椭圆曲线的阶所定义。要生成这样的一个私钥，我们随机选择一个 256 位的数字，并检查它是否小于 n-1。从编程的角度来看，一般是通过在一个密码学安全的随机源中取出一长串随机字节，对其使用 SHA256 哈希算法进行运算，这样就可以方便地产生一个 256 位的数字。如果运算结果小于 n-1，我们就有了一个合适的私钥。否则，我们就用另一个随机数再重复一次。<br>
+          
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/比特币/">比特币</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Bitcoin/">Bitcoin</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2017/08/30/比特币地址生成/#more">全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-C Sharp  重载 重写" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -816,76 +883,6 @@
       
         <p class="article-more-link">
           <a  href="/2017/06/05/区块链技术核心/#more">全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-比特币应用开发（一）" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/05/30/比特币应用开发（一）/" class="article-date">
-      <time datetime="2017-05-30T11:44:55.000Z" itemprop="datePublished">2017-05-30</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/30/比特币应用开发（一）/">比特币应用开发（一）</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h3 id="Ubuntu-下搭建比特币测试网络"><a href="#Ubuntu-下搭建比特币测试网络" class="headerlink" title="Ubuntu 下搭建比特币测试网络"></a>Ubuntu 下搭建比特币测试网络</h3><p> 最近想入门区块链开发，先学习一下比特币网络，用测试网络来熟悉比特币的运行机制，在虚拟机上安装 Ubuntu14.04 作为开发环境，分享一下环境配置的方法。</p>
-<h3 id="安装虚拟机-Ubuntu-和-Node-js"><a href="#安装虚拟机-Ubuntu-和-Node-js" class="headerlink" title="安装虚拟机 Ubuntu 和 Node.js"></a>安装虚拟机 Ubuntu 和 Node.js</h3><p>1、虚拟机和 Ubuntu 的安装可以参考：<a href="https://jingyan.baidu.com/article/0320e2c1ef9f6c1b87507bf6.html" target="_blank" rel="external">Vmware Workstation 安装 Ubuntu14.04</a>；</p>
-<p>2、安装完成后打开 Ubuntu，用 CTRL+ALT+T 组合键可以打开 Ubuntu 终端，以后的操作都要在终端下以命令的方式进行；熟悉一些常用的 Ubuntu 快捷键和命令再好不过了，不懂的用到时再查，用几次也就熟了；</p>
-<p>3、Ubuntu14.04 默认带有 Node.js，查询是否安装 Node.js 和相应版本用如下命令：<br>
-          
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/区块链/">区块链</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Bitcoin/">Bitcoin</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ubuntu/">Ubuntu</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2017/05/30/比特币应用开发（一）/#more">全文 >></a>
         </p>
       
       <div class="clearfix"></div>
