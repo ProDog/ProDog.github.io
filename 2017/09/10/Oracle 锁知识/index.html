@@ -3,18 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hello World | GripNotes</title>
+  <title>Oracle 锁知识 | GripNotes</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <meta name="description" content="常见问题最近使用 Oracle 遇到一个报错，信息如下 异常提示:Oracle数据执行异常，请联系管理员处理异常信息:ORA-14450: 试图访问已经在使用的事务处理临时表 原因分析查找相关资料，发现报错原因如下：在存储过程中使用了 alter 等语句操作临时表，">
+<meta name="keywords" content="Oracle">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://stayfoolish.top/2017/05/27/hello-world/index.html">
+<meta property="og:title" content="Oracle 锁知识">
+<meta property="og:url" content="http://stayfoolish.top/2017/09/10/Oracle 锁知识/index.html">
 <meta property="og:site_name" content="GripNotes">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
-<meta property="og:updated_time" content="2017-05-29T06:35:32.120Z">
+<meta property="og:description" content="常见问题最近使用 Oracle 遇到一个报错，信息如下 异常提示:Oracle数据执行异常，请联系管理员处理异常信息:ORA-14450: 试图访问已经在使用的事务处理临时表 原因分析查找相关资料，发现报错原因如下：在存储过程中使用了 alter 等语句操作临时表，">
+<meta property="og:updated_time" content="2017-11-01T11:33:32.340Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="Oracle 锁知识">
+<meta name="twitter:description" content="常见问题最近使用 Oracle 遇到一个报错，信息如下 异常提示:Oracle数据执行异常，请联系管理员处理异常信息:ORA-14450: 试图访问已经在使用的事务处理临时表 原因分析查找相关资料，发现报错原因如下：在存储过程中使用了 alter 等语句操作临时表，">
   
     <link rel="alternative" href="/atom.xml" title="GripNotes" type="application/atom+xml">
   
@@ -232,11 +233,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Oracle 锁知识" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/05/27/hello-world/" class="article-date">
-      <time datetime="2017-05-27T05:35:06.334Z" itemprop="datePublished">2017-05-27</time>
+      <a href="/2017/09/10/Oracle 锁知识/" class="article-date">
+      <time datetime="2017-09-10T11:30:50.000Z" itemprop="datePublished">2017-09-10</time>
 </a>
     </div>
   
@@ -249,7 +250,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      Oracle 锁知识
     </h1>
   
 
@@ -257,8 +258,16 @@
       
       <div class="article-info article-info-post">
         
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/DBA/">DBA</a>
+    </div>
+
 
         
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Oracle/">Oracle</a></li></ul>
+    </div>
+
         <div class="clearfix"></div>
       </div>
       
@@ -266,16 +275,10 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><a id="more"></a>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <h3 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h3><p>最近使用 Oracle 遇到一个报错，信息如下</p>
+<p>异常提示:Oracle数据执行异常，请联系管理员处理<br>异常信息:ORA-14450: 试图访问已经在使用的事务处理临时表</p>
+<h3 id="原因分析"><a href="#原因分析" class="headerlink" title="原因分析"></a>原因分析</h3><p>查找相关资料，发现报错原因如下：<br>在存储过程中使用了 alter 等语句操作临时表，<a id="more"></a>当两个用户(会话)同时执行该处时就会报错，因为执行语句时会给临时表添加 type 为 ‘TO’ 的 Temporary Object 锁，可以理解为临时表操作锁，此时第一个会话如果未正确结束，锁得不到释放，后面的会话处理时就会报错，解决方法可以是手动清掉临时表锁：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">select SID,SERIAL# from V$session  where SID in </div><div class="line">(select sid from v$enqueue_lock t where t.type=&apos;TO&apos;)  --查找锁</div><div class="line">alter system kill session &apos;929, 12233&apos;; --清理锁</div></pre></td></tr></table></figure></p>
+<h3 id="扩展学习"><a href="#扩展学习" class="headerlink" title="扩展学习"></a>扩展学习</h3><p>通过这次的处理研究一下 Oracle 锁相关知识：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">select * from V$session  --会话表</div><div class="line">select * from v$enqueue_lock  where type=&apos;TO&apos;    --队列锁表</div><div class="line">select * from v$lock   --锁</div><div class="line"></div><div class="line">常见的队列锁有：</div><div class="line">TM锁：Table Clock  表的锁</div><div class="line">TX锁：Transaction Clock   事务锁</div><div class="line">HW锁：High Watermark Clock  高水位线锁 高水位线存在于段（segment)中，</div><div class="line">它用于标识段中已使用过的数据块与未使用地的数据块二者间交界，扫描表数据的时候，高水位线以下的所有数据块都必须被扫描。</div><div class="line">US锁：Undo Segment Clock  撤销数据段锁</div><div class="line">TO锁：Temporary Object Clock 临时对象锁</div><div class="line">CF锁：Control File Clock 文件控制锁</div><div class="line">JO锁：Job Queue Clock  作业队列锁</div><div class="line">SQ锁：Sequence Cache  序列缓存锁</div></pre></td></tr></table></figure></p>
 
       
       
@@ -358,13 +361,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/05/27/hello-world/">Hello World</a></p>
+        <p><span>本文标题:</span><a href="/2017/09/10/Oracle 锁知识/">Oracle 锁知识</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 ZhangHQ 的个人博客">ZhangHQ</a></p>
-        <p><span>发布时间:</span>2017年05月27日 - 13时35分</p>
-        <p><span>最后更新:</span>2017年05月29日 - 14时35分</p>
+        <p><span>发布时间:</span>2017年09月10日 - 19时30分</p>
+        <p><span>最后更新:</span>2017年11月01日 - 19时33分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/05/27/hello-world/" title="Hello World">http://stayfoolish.top/2017/05/27/hello-world/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://stayfoolish.top/2017/05/27/hello-world/　　作者: ZhangHQ" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/09/10/Oracle 锁知识/" title="Oracle 锁知识">http://stayfoolish.top/2017/09/10/Oracle 锁知识/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://stayfoolish.top/2017/09/10/Oracle 锁知识/　　作者: ZhangHQ" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -377,15 +380,20 @@
 
 <nav id="article-nav">
   
-    <a href="/2017/05/28/区块链技术在供应链管理的实践/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/09/30/C Sharp 构造函数/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          区块链技术在供应链管理的实践
+          C# 构造函数学习
         
       </div>
     </a>
   
+  
+    <a href="/2017/08/30/比特币地址生成/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">比特币地址生成</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
   
 </nav>
 
@@ -394,7 +402,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-number">1.1.</span> <span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-number">1.2.</span> <span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-number">1.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-number">1.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#常见问题"><span class="toc-number">1.</span> <span class="toc-text">常见问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#原因分析"><span class="toc-number">2.</span> <span class="toc-text">原因分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#扩展学习"><span class="toc-number">3.</span> <span class="toc-text">扩展学习</span></a></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -445,13 +453,15 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/05/28/区块链技术在供应链管理的实践/" title="上一篇: 区块链技术在供应链管理的实践">
+            <a href="/2017/09/30/C Sharp 构造函数/" title="上一篇: C# 构造函数学习">
                 <i class="fa fa-angle-left"></i>
             </a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2017/08/30/比特币地址生成/" title="下一篇: 比特币地址生成">
+                <i class="fa fa-angle-right"></i>
+            </a>
         
     </div>
     <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/10/10/Oracle 数据字典整理/">Oracle DBA 数据字典整理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/30/C Sharp 构造函数/">C# 构造函数学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/10/Oracle 锁知识/">Oracle 锁知识</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/30/比特币地址生成/">比特币地址生成</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/02/C Sharp  重载 重写/">C# 重载（overload），重写（override）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/25/DOTNET 框架整理/">.NET 框架整理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/16/比特币分叉到底怎么分/">比特币分叉到底怎么分？</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/10/C Sharp  封装学习/">C# 封装学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/04/C Sharp List 总结/">C# List <T> 用法总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/26/比特币应用开发（二）/">比特币应用开发（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/比特币应用开发（一）/">比特币应用开发（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/RSA 公钥加密技术/">RSA 公钥加密技术</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/10/C Sharp  使用火币网交易API/">C# 使用火币网交易 API</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/05/区块链技术核心/">区块链技术核心</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/30/Node.js 安装升级和 npm 使用/">Node.js 安装升级和 npm 使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/28/区块链技术在供应链管理的实践/">区块链技术在供应链管理的实践</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/27/hello-world/">Hello World</a></li></ul>

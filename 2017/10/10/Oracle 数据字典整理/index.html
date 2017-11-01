@@ -3,18 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hello World | GripNotes</title>
+  <title>Oracle DBA 数据字典整理 | GripNotes</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <meta name="description" content="整理下 Oracle 常用的数据字典Oracle 系统的管理信息存放在元数据表中，为了便于访问这些元数据建立了很多视图，称为数据字典。这些视图可以分为动态和静态两大类。DBA 是只有 DBA 权限的用户才能查询，内容包含了系统全部；ALL 是普通用户可以查询，内容包含了该用户所能访问的部分；User 是普通用户可以查询，内容包含了该用户是所有者的部分；">
+<meta name="keywords" content="Oracle">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://stayfoolish.top/2017/05/27/hello-world/index.html">
+<meta property="og:title" content="Oracle DBA 数据字典整理">
+<meta property="og:url" content="http://stayfoolish.top/2017/10/10/Oracle 数据字典整理/index.html">
 <meta property="og:site_name" content="GripNotes">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
-<meta property="og:updated_time" content="2017-05-29T06:35:32.120Z">
+<meta property="og:description" content="整理下 Oracle 常用的数据字典Oracle 系统的管理信息存放在元数据表中，为了便于访问这些元数据建立了很多视图，称为数据字典。这些视图可以分为动态和静态两大类。DBA 是只有 DBA 权限的用户才能查询，内容包含了系统全部；ALL 是普通用户可以查询，内容包含了该用户所能访问的部分；User 是普通用户可以查询，内容包含了该用户是所有者的部分；">
+<meta property="og:updated_time" content="2017-11-01T11:41:21.532Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="Oracle DBA 数据字典整理">
+<meta name="twitter:description" content="整理下 Oracle 常用的数据字典Oracle 系统的管理信息存放在元数据表中，为了便于访问这些元数据建立了很多视图，称为数据字典。这些视图可以分为动态和静态两大类。DBA 是只有 DBA 权限的用户才能查询，内容包含了系统全部；ALL 是普通用户可以查询，内容包含了该用户所能访问的部分；User 是普通用户可以查询，内容包含了该用户是所有者的部分；">
   
     <link rel="alternative" href="/atom.xml" title="GripNotes" type="application/atom+xml">
   
@@ -232,11 +233,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Oracle 数据字典整理" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/05/27/hello-world/" class="article-date">
-      <time datetime="2017-05-27T05:35:06.334Z" itemprop="datePublished">2017-05-27</time>
+      <a href="/2017/10/10/Oracle 数据字典整理/" class="article-date">
+      <time datetime="2017-10-10T11:23:30.000Z" itemprop="datePublished">2017-10-10</time>
 </a>
     </div>
   
@@ -249,7 +250,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      Oracle DBA 数据字典整理
     </h1>
   
 
@@ -257,8 +258,16 @@
       
       <div class="article-info article-info-post">
         
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/DBA/">DBA</a>
+    </div>
+
 
         
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Oracle/">Oracle</a></li></ul>
+    </div>
+
         <div class="clearfix"></div>
       </div>
       
@@ -266,16 +275,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><a id="more"></a>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <h3 id="整理下-Oracle-常用的数据字典"><a href="#整理下-Oracle-常用的数据字典" class="headerlink" title="整理下 Oracle 常用的数据字典"></a>整理下 Oracle 常用的数据字典</h3><p>Oracle 系统的管理信息存放在元数据表中，为了便于访问这些元数据建立了很多视图，称为数据字典。这些视图可以分为动态和静态两大类。<br>DBA 是只有 DBA 权限的用户才能查询，内容包含了系统全部；<br>ALL 是普通用户可以查询，内容包含了该用户所能访问的部分；<br>User 是普通用户可以查询，内容包含了该用户是所有者的部分；<br><a id="more"></a><br>V$ 是数据字典动态视图，显示系统当前的状态。它的值在随时都可能发生变化。</p>
+<h3 id="DBA-视图："><a href="#DBA-视图：" class="headerlink" title="DBA 视图："></a>DBA 视图：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">dba_data_files                            关于数据库文件的信息</div><div class="line">dba_db_links                              数据库中的所有数据库链路</div><div class="line">dba_extents                               数据库中包括所有分区</div><div class="line">dba_free_space                          所有表空间中自由分区</div><div class="line">dba_indexes                              数据库中所有索引的描述</div><div class="line">dba_ind_columns                       在所有表及聚族上压缩索引的列</div><div class="line">dba_objects                               数据库中所有的对象</div><div class="line">dba_rollback_segs                      回滚段的描述</div><div class="line">dba_segments                           为所有数据库段分配的存储空间</div><div class="line">dba_sequences                         数据库中所有顺序书的描述</div><div class="line">dba_synonyms                         数据库中所有同义词</div><div class="line">dba_tables                               数据库中所有表的描述</div><div class="line">dba_tablespaces                      数据库中所有表空间的描述</div><div class="line">dba_tab_columns                     所有表描述、视图以及聚族的列</div><div class="line">dba_tab_grants                       数据库中对象所授的权限</div><div class="line">dba_tab_privs                         数据库中对象所授的权限</div><div class="line">dba_ts_quotas                        所有用户表空间限额</div><div class="line">dba_users                             关于数据库的所有用户信息</div><div class="line">dba_views                             数据库中所有视图</div></pre></td></tr></table></figure>
 
       
       
@@ -358,13 +359,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/05/27/hello-world/">Hello World</a></p>
+        <p><span>本文标题:</span><a href="/2017/10/10/Oracle 数据字典整理/">Oracle DBA 数据字典整理</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 ZhangHQ 的个人博客">ZhangHQ</a></p>
-        <p><span>发布时间:</span>2017年05月27日 - 13时35分</p>
-        <p><span>最后更新:</span>2017年05月29日 - 14时35分</p>
+        <p><span>发布时间:</span>2017年10月10日 - 19时23分</p>
+        <p><span>最后更新:</span>2017年11月01日 - 19时41分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/05/27/hello-world/" title="Hello World">http://stayfoolish.top/2017/05/27/hello-world/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://stayfoolish.top/2017/05/27/hello-world/　　作者: ZhangHQ" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/10/10/Oracle 数据字典整理/" title="Oracle DBA 数据字典整理">http://stayfoolish.top/2017/10/10/Oracle 数据字典整理/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://stayfoolish.top/2017/10/10/Oracle 数据字典整理/　　作者: ZhangHQ" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -377,15 +378,11 @@
 
 <nav id="article-nav">
   
-    <a href="/2017/05/28/区块链技术在供应链管理的实践/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          区块链技术在供应链管理的实践
-        
-      </div>
-    </a>
   
+    <a href="/2017/09/30/C Sharp 构造函数/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">C# 构造函数学习</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
   
 </nav>
 
@@ -394,7 +391,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-number">1.1.</span> <span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-number">1.2.</span> <span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-number">1.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-number">1.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#整理下-Oracle-常用的数据字典"><span class="toc-number">1.</span> <span class="toc-text">整理下 Oracle 常用的数据字典</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DBA-视图："><span class="toc-number">2.</span> <span class="toc-text">DBA 视图：</span></a></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -445,13 +442,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/05/28/区块链技术在供应链管理的实践/" title="上一篇: 区块链技术在供应链管理的实践">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2017/09/30/C Sharp 构造函数/" title="下一篇: C# 构造函数学习">
+                <i class="fa fa-angle-right"></i>
+            </a>
         
     </div>
     <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/10/10/Oracle 数据字典整理/">Oracle DBA 数据字典整理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/30/C Sharp 构造函数/">C# 构造函数学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/10/Oracle 锁知识/">Oracle 锁知识</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/30/比特币地址生成/">比特币地址生成</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/02/C Sharp  重载 重写/">C# 重载（overload），重写（override）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/25/DOTNET 框架整理/">.NET 框架整理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/16/比特币分叉到底怎么分/">比特币分叉到底怎么分？</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/10/C Sharp  封装学习/">C# 封装学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/04/C Sharp List 总结/">C# List <T> 用法总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/26/比特币应用开发（二）/">比特币应用开发（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/比特币应用开发（一）/">比特币应用开发（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/RSA 公钥加密技术/">RSA 公钥加密技术</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/10/C Sharp  使用火币网交易API/">C# 使用火币网交易 API</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/05/区块链技术核心/">区块链技术核心</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/30/Node.js 安装升级和 npm 使用/">Node.js 安装升级和 npm 使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/28/区块链技术在供应链管理的实践/">区块链技术在供应链管理的实践</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/27/hello-world/">Hello World</a></li></ul>
