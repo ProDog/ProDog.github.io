@@ -3,19 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Oracle 锁知识 | GripNotes</title>
+  <title>省市区地址选择三级联动效果 | GripNotes</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="常见问题最近使用 Oracle 遇到一个报错，信息如下 异常提示:Oracle数据执行异常，请联系管理员处理异常信息:ORA-14450: 试图访问已经在使用的事务处理临时表 原因分析查找相关资料，发现报错原因如下：在存储过程中使用了 alter 等语句操作临时表，">
-<meta name="keywords" content="Oracle">
+  <meta name="description" content="介绍经常会遇到填写地址的需求，地址选择比较常用的一种方式就是省市区三级联动，选择省份，市区的选择项根据省份自动匹配，十分方便，查找资料发现实现方式也有多种，比如将行政区划存入数据库中，取出数据再绑定到选择控件上；以各种格式将行政区划存储在服务端或本地，读取文件解析再绑定到选择控件；还有调用相关接口实现等。">
+<meta name="keywords" content="C#">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Oracle 锁知识">
-<meta property="og:url" content="http://stayfoolish.top/2017/09/10/Oracle 锁知识/index.html">
+<meta property="og:title" content="省市区地址选择三级联动效果">
+<meta property="og:url" content="http://stayfoolish.top/2017/10/30/省市区地址选择三级联动效果/index.html">
 <meta property="og:site_name" content="GripNotes">
-<meta property="og:description" content="常见问题最近使用 Oracle 遇到一个报错，信息如下 异常提示:Oracle数据执行异常，请联系管理员处理异常信息:ORA-14450: 试图访问已经在使用的事务处理临时表 原因分析查找相关资料，发现报错原因如下：在存储过程中使用了 alter 等语句操作临时表，">
-<meta property="og:updated_time" content="2017-11-01T11:33:32.340Z">
+<meta property="og:description" content="介绍经常会遇到填写地址的需求，地址选择比较常用的一种方式就是省市区三级联动，选择省份，市区的选择项根据省份自动匹配，十分方便，查找资料发现实现方式也有多种，比如将行政区划存入数据库中，取出数据再绑定到选择控件上；以各种格式将行政区划存储在服务端或本地，读取文件解析再绑定到选择控件；还有调用相关接口实现等。">
+<meta property="og:updated_time" content="2017-11-07T11:39:28.956Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Oracle 锁知识">
-<meta name="twitter:description" content="常见问题最近使用 Oracle 遇到一个报错，信息如下 异常提示:Oracle数据执行异常，请联系管理员处理异常信息:ORA-14450: 试图访问已经在使用的事务处理临时表 原因分析查找相关资料，发现报错原因如下：在存储过程中使用了 alter 等语句操作临时表，">
+<meta name="twitter:title" content="省市区地址选择三级联动效果">
+<meta name="twitter:description" content="介绍经常会遇到填写地址的需求，地址选择比较常用的一种方式就是省市区三级联动，选择省份，市区的选择项根据省份自动匹配，十分方便，查找资料发现实现方式也有多种，比如将行政区划存入数据库中，取出数据再绑定到选择控件上；以各种格式将行政区划存储在服务端或本地，读取文件解析再绑定到选择控件；还有调用相关接口实现等。">
   
     <link rel="alternative" href="/atom.xml" title="GripNotes" type="application/atom+xml">
   
@@ -233,11 +233,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-Oracle 锁知识" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-省市区地址选择三级联动效果" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/09/10/Oracle 锁知识/" class="article-date">
-      <time datetime="2017-09-10T11:30:50.000Z" itemprop="datePublished">2017-09-10</time>
+      <a href="/2017/10/30/省市区地址选择三级联动效果/" class="article-date">
+      <time datetime="2017-10-30T10:31:22.000Z" itemprop="datePublished">2017-10-30</time>
 </a>
     </div>
   
@@ -250,7 +250,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Oracle 锁知识
+      省市区地址选择三级联动效果
     </h1>
   
 
@@ -259,13 +259,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/DBA/">DBA</a>
+    <a class="article-category-link" href="/categories/C/">C#</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Oracle/">Oracle</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C#</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -275,10 +275,9 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h3 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h3><p>最近使用 Oracle 遇到一个报错，信息如下</p>
-<p>异常提示:Oracle数据执行异常，请联系管理员处理<br>异常信息:ORA-14450: 试图访问已经在使用的事务处理临时表</p>
-<h3 id="原因分析"><a href="#原因分析" class="headerlink" title="原因分析"></a>原因分析</h3><p>查找相关资料，发现报错原因如下：<br>在存储过程中使用了 alter 等语句操作临时表，<a id="more"></a>当两个用户(会话)同时执行该处时就会报错，因为执行语句时会给临时表添加 type 为 ‘TO’ 的 Temporary Object 锁，可以理解为临时表操作锁，此时第一个会话如果未正确结束，锁得不到释放，后面的会话处理时就会报错，解决方法可以是手动清掉临时表锁：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">select SID,SERIAL# from V$session  where SID in </div><div class="line">(select sid from v$enqueue_lock t where t.type=&apos;TO&apos;)  --查找锁</div><div class="line">alter system kill session &apos;929, 12233&apos;; --清理锁</div></pre></td></tr></table></figure></p>
-<h3 id="扩展学习"><a href="#扩展学习" class="headerlink" title="扩展学习"></a>扩展学习</h3><p>通过这次的处理研究一下 Oracle 锁相关知识：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">select * from V$session  --会话表</div><div class="line">select * from v$enqueue_lock  where type=&apos;TO&apos;    --队列锁表</div><div class="line">select * from v$lock   --锁</div><div class="line"></div><div class="line">常见的队列锁有：</div><div class="line">TM锁：Table Clock  表的锁</div><div class="line">TX锁：Transaction Clock   事务锁</div><div class="line">HW锁：High Watermark Clock  高水位线锁 高水位线存在于段（segment)中，</div><div class="line">它用于标识段中已使用过的数据块与未使用地的数据块二者间交界，扫描表数据的时候，高水位线以下的所有数据块都必须被扫描。</div><div class="line">US锁：Undo Segment Clock  撤销数据段锁</div><div class="line">TO锁：Temporary Object Clock 临时对象锁</div><div class="line">CF锁：Control File Clock 文件控制锁</div><div class="line">JO锁：Job Queue Clock  作业队列锁</div><div class="line">SQ锁：Sequence Cache  序列缓存锁</div></pre></td></tr></table></figure></p>
+        <h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>经常会遇到填写地址的需求，地址选择比较常用的一种方式就是省市区三级联动，选择省份，市区的选择项根据省份自动匹配，十分方便，查找资料发现实现方式也有多种，比如将行政区划存入数据库中，取出数据再绑定到选择控件上；以各种格式将行政区划存储在服务端或本地，读取文件解析再绑定到选择控件；还有调用相关接口实现等。<a id="more"></a>今天来研究一下，选择下载行政区划 xml 文件，在程序中解析然后绑定到控件上来实现。</p>
+<h3 id="行政区资源"><a href="#行政区资源" class="headerlink" title="行政区资源"></a>行政区资源</h3><p>最权威的行政区划来源当然是 <a href="http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2016/index.html" target="_blank" rel="external">国家统计局</a>的数据了，接下来要写个爬虫爬取最新行政区划信息，先留个坑，本次使用前人整理好的数据，xml 格式，可以从 <a href="http://pan.baidu.com/s/1qXZo4yg" target="_blank" rel="external">这里</a> 下载。<br>下载的文件中有省市区的 xml 记录，程序中解析该文件绑定值到控件上实现联动效果。</p>
+<h3 id="实现过程"><a href="#实现过程" class="headerlink" title="实现过程"></a>实现过程</h3><p>在 VS 中创建窗体应用程序，分别添加 ComboBox 的省、市、区县控件，命名分别为：cbxProvince，cbxCity，cbxDistrict<br>在窗体对应程序中这样写：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div></pre></td><td class="code"><pre><div class="line">using System;</div><div class="line">using System.Collections.Generic;</div><div class="line">using System.ComponentModel;</div><div class="line">using System.Data;</div><div class="line">using System.Drawing;</div><div class="line">using System.Linq;</div><div class="line">using System.Text;</div><div class="line">using System.Threading.Tasks;</div><div class="line">using System.Windows.Forms;</div><div class="line">using System.Xml; //解析 xml 使用此引用</div><div class="line"></div><div class="line">namespace MyTest</div><div class="line">&#123;</div><div class="line">	public partial class TestForm:Form</div><div class="line">	&#123;</div><div class="line">		//xml 文档</div><div class="line">		private XmlDocument Provincedoc;</div><div class="line">		private XmlDocument Citydoc;</div><div class="line">		private XmlDocument Districtdoc;</div><div class="line"></div><div class="line">		//xml 元素</div><div class="line">		private XmlElement ProvincerootElem;</div><div class="line">		private XmlElement CityrootElem;</div><div class="line">		private XmlElement DistrictrootElem;</div><div class="line"></div><div class="line">		// 节点</div><div class="line">		private XmlNodeList ProvinceNodes;</div><div class="line">		private XmlNodeList CityNodes;</div><div class="line">		private XmlNodeList DistrictNodes;</div><div class="line"></div><div class="line">		//变量保存绑定到控件的值</div><div class="line">		public string ProvinceName;</div><div class="line">		public string ProvinceID;</div><div class="line">		public string CityName;</div><div class="line">		public string CityID;  </div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public TestForm()</div><div class="line">	&#123;</div><div class="line">		InitializeComponent();</div><div class="line">		//加载页面时读取 xml 文件</div><div class="line">		Provincedoc = new XmlDocument();//实例化 XmlDocument() 对象</div><div class="line">		Provincedoc.Load(System.Windows.Forms.Application.StartupPath + &quot;/xml/Provinces.xml&quot;);	//加载 Xml 文件，文件路径在 xml 文件夹下  </div><div class="line">		ProvincerootElem = Provincedoc.DocumentElement;   //获取根节点	</div><div class="line">		ProvinceNodes = ProvincerootElem.GetElementsByTagName(&quot;Province&quot;); //获取 Province 子节点集合，xml 中省份信息在 Province 标签中</div><div class="line"></div><div class="line">		Citydoc = new XmlDocument();</div><div class="line">		Citydoc.Load(System.Windows.Forms.Application.StartupPath + &quot;/xml/Cities.xml&quot;);	//加载 Xml 文件	</div><div class="line">		CityrootElem = Citydoc.DocumentElement;   //获取根节点	</div><div class="line">		CityNodes = CityrootElem.GetElementsByTagName(&quot;City&quot;); //获取 City 子节点集合   </div><div class="line"></div><div class="line">		Districtdoc = new XmlDocument();</div><div class="line">		Districtdoc.Load(System.Windows.Forms.Application.StartupPath + &quot;/xml/Districts.xml&quot;);	//加载 Xml 文件	</div><div class="line">		DistrictrootElem = Districtdoc.DocumentElement;   //获取根节点	</div><div class="line">		DistrictNodes = DistrictrootElem.GetElementsByTagName(&quot;District&quot;); //获取 District 子节点集合   </div><div class="line"></div><div class="line">		//遍历 ProvinceNodes，从中取出 ProvinceName 的值</div><div class="line">		foreach (XmlNode ProvinceNode in ProvinceNodes)</div><div class="line">		&#123;</div><div class="line">			string strProvinceName = ((XmlElement)ProvinceNode).GetAttribute(&quot;ProvinceName&quot;);   //获取 name 属性值	</div><div class="line">			string strProvinceID = ((XmlElement)ProvinceNode).GetAttribute(&quot;ID&quot;);</div><div class="line">			//将 strProvinceName 值添加绑定到 cbxProvince 控件上</div><div class="line">			cbxProvince.Items.Add(strProvinceName);</div><div class="line">		&#125;</div><div class="line">		// 默认选择第一项</div><div class="line">		cbxProvince.SelectedIndex = 0;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	// 设置省份值改变时市的联动事件</div><div class="line">	private void cbxProvince_SelectedIndexChanged(object sender, EventArgs e)</div><div class="line">	&#123;</div><div class="line">		//取出当前省份名称</div><div class="line">		ProvinceName = cbxProvince.SelectedItem.ToString();</div><div class="line">		//清空市控件的信息</div><div class="line">		cbxDistrict.Text = &quot;&quot;;</div><div class="line">		cbxCity.Text = &quot;&quot;;</div><div class="line">		cbxDistrict.Items.Clear();</div><div class="line">		cbxCity.Items.Clear();</div><div class="line">		//遍历省份的节点</div><div class="line">		foreach (XmlNode ProvinceNode in ProvinceNodes)</div><div class="line">		&#123;</div><div class="line">			//如果省份节点的值(即省份名称)和当前省份名匹配，取出该省份的 ID</div><div class="line">			if (((XmlElement)ProvinceNode).GetAttribute(&quot;ProvinceName&quot;).Equals(cbxProvince.SelectedItem.ToString()))</div><div class="line">			&#123;</div><div class="line">				ProvinceID = ((XmlElement)ProvinceNode).GetAttribute(&quot;ID&quot;);</div><div class="line">				break;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		//遍历市的节点</div><div class="line">		foreach (XmlNode CityNode in CityNodes)</div><div class="line">		&#123;</div><div class="line">			//如果市节点的 PID 和省份 ID 匹配，取出该市的市名 CityName</div><div class="line">			if (((XmlElement)CityNode).GetAttribute(&quot;PID&quot;).Equals(ProvinceID))</div><div class="line">			&#123;</div><div class="line">				string strCityName = ((XmlElement)CityNode).GetAttribute(&quot;CityName&quot;);</div><div class="line">				//将市名绑定到市的控件上</div><div class="line">				cbxCity.Items.Add(strCityName);</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		//默认选择第一项</div><div class="line">		cbxCity.SelectedItem = cbxCity.Items[0];  </div><div class="line">	&#125;</div><div class="line"></div><div class="line">	//设置市的值改变时县区的联动事件</div><div class="line">	private void cbxCity_SelectedIndexChanged(object sender, EventArgs e)</div><div class="line">	&#123;</div><div class="line">		CityName = cbxCity.SelectedItem.ToString();</div><div class="line">		cbxDistrict.Text = &quot;&quot;;</div><div class="line">		cbxDistrict.Items.Clear();</div><div class="line">		foreach (XmlNode CityNode in CityNodes)</div><div class="line">		&#123;</div><div class="line">			//市名和当前市名匹配，并且市的 PID 和当前省份 ID 匹配，取出市 ID</div><div class="line">			if (((XmlElement)CityNode).GetAttribute(&quot;CityName&quot;).Equals(CityName) &amp;&amp; ((XmlElement)CityNode).GetAttribute(&quot;PID&quot;).Equals(ProvinceID))</div><div class="line">			&#123;</div><div class="line">				CityID = ((XmlElement)CityNode).GetAttribute(&quot;ID&quot;);</div><div class="line">				break;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		//县区 CID 和市 ID 匹配，取出县区 name 值，绑定到县区控件上</div><div class="line">		foreach (XmlNode Districtnode in DistrictNodes)</div><div class="line">		&#123;</div><div class="line">			if (((XmlElement)Districtnode).GetAttribute(&quot;CID&quot;).Equals(CityID))</div><div class="line">			&#123;</div><div class="line">				string strDistrictName = ((XmlElement)Districtnode).GetAttribute(&quot;DistrictName&quot;);   //获取name属性值	</div><div class="line">				cbxDistrict.Items.Add(strDistrictName);</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		cbxDistrict.SelectedItem = cbxDistrict.Items[0];  </div><div class="line">	&#125;</div><div class="line"></div><div class="line">	private void cbxDistrict_SelectedIndexChanged(object sender, EventArgs e)</div><div class="line">	&#123;</div><div class="line"></div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
       
       
@@ -361,13 +360,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/09/10/Oracle 锁知识/">Oracle 锁知识</a></p>
+        <p><span>本文标题:</span><a href="/2017/10/30/省市区地址选择三级联动效果/">省市区地址选择三级联动效果</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 ZhangHQ 的个人博客">ZhangHQ</a></p>
-        <p><span>发布时间:</span>2017年09月10日 - 19时30分</p>
-        <p><span>最后更新:</span>2017年11月01日 - 19时33分</p>
+        <p><span>发布时间:</span>2017年10月30日 - 18时31分</p>
+        <p><span>最后更新:</span>2017年11月07日 - 19时39分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/09/10/Oracle 锁知识/" title="Oracle 锁知识">http://stayfoolish.top/2017/09/10/Oracle 锁知识/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://stayfoolish.top/2017/09/10/Oracle 锁知识/　　作者: ZhangHQ" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/10/30/省市区地址选择三级联动效果/" title="省市区地址选择三级联动效果">http://stayfoolish.top/2017/10/30/省市区地址选择三级联动效果/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://stayfoolish.top/2017/10/30/省市区地址选择三级联动效果/　　作者: ZhangHQ" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -380,18 +379,9 @@
 
 <nav id="article-nav">
   
-    <a href="/2017/09/30/C Sharp 构造函数/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          C# 构造函数学习
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/08/30/比特币地址生成/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">比特币地址生成</div>
+    <a href="/2017/10/19/VSCode 中 git 的使用/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">VSCode 中 git 的使用</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -402,7 +392,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#常见问题"><span class="toc-number">1.</span> <span class="toc-text">常见问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#原因分析"><span class="toc-number">2.</span> <span class="toc-text">原因分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#扩展学习"><span class="toc-number">3.</span> <span class="toc-text">扩展学习</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#介绍"><span class="toc-number">1.</span> <span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#行政区资源"><span class="toc-number">2.</span> <span class="toc-text">行政区资源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实现过程"><span class="toc-number">3.</span> <span class="toc-text">实现过程</span></a></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -453,13 +443,11 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/09/30/C Sharp 构造函数/" title="上一篇: C# 构造函数学习">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2017/08/30/比特币地址生成/" title="下一篇: 比特币地址生成">
+            <a href="/2017/10/19/VSCode 中 git 的使用/" title="下一篇: VSCode 中 git 的使用">
                 <i class="fa fa-angle-right"></i>
             </a>
         
