@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>数据库事务四大特性和隔离级别 | GripNotes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="什么是事务事务是数据库中十分重要的一个概念，事务（Transaction）是并发控制的单位，是指用户操作数据库时定义的一串序列要么全部执行，要么全部取消，将一段或一组 SQL 绑定到“一块”，以这一块为执行单位，从而保证数据库的一致性和完整性。">
+<meta name="keywords" content="DBA">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据库事务四大特性和隔离级别">
+<meta property="og:url" content="http://stayfoolish.top/2017/11/06/数据库事务四大特性和隔离级别/index.html">
+<meta property="og:site_name" content="GripNotes">
+<meta property="og:description" content="什么是事务事务是数据库中十分重要的一个概念，事务（Transaction）是并发控制的单位，是指用户操作数据库时定义的一串序列要么全部执行，要么全部取消，将一段或一组 SQL 绑定到“一块”，以这一块为执行单位，从而保证数据库的一致性和完整性。">
+<meta property="og:updated_time" content="2017-11-13T06:27:20.265Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据库事务四大特性和隔离级别">
+<meta name="twitter:description" content="什么是事务事务是数据库中十分重要的一个概念，事务（Transaction）是并发控制的单位，是指用户操作数据库时定义的一串序列要么全部执行，要么全部取消，将一段或一组 SQL 绑定到“一块”，以这一块为执行单位，从而保证数据库的一致性和完整性。">
+  
+    <link rel="alternative" href="/atom.xml" title="GripNotes" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.jpg">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          rootUrl: '/',
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/head.jpg" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/" title="Hi Mate">ZhangHQ</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">总结 · 记录 · 分享</p>
+        
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">博客首页</a></li>
+                        
+                            <li><a href="/archives">全部文章</a></li>
+                        
+                            <li><a href="/tags">标签目录</a></li>
+                        
+                            <li><a href="/about">关 于 我</a></li>
+                        
+                            <li><a href="/works">作品展示</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=jvbn__zh7-zqzujh9uPv5_Kg7eHj" title="mail">mail</a>
+                            
+                                <a class="fl zhihu" target="_blank" href="https://www.zhihu.com/people/xiuboard/" title="zhihu">zhihu</a>
+                            
+                                <a class="fl weibo" target="_blank" href="http://weibo.com/p/1005053209397292/" title="weibo">weibo</a>
+                            
+                                <a class="fl QQ" target="_blank" href="/img/qq.jpg" title="QQ">QQ</a>
+                            
+                                <a class="fl wechat" target="_blank" href="/img/weixin.jpg" title="wechat">wechat</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/ProDog" title="github">github</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/NET/" style="font-size: 10px;">.NET</a> <a href="/tags/Bitcoin/" style="font-size: 17.5px;">Bitcoin</a> <a href="/tags/Blockchain/" style="font-size: 12.5px;">Blockchain</a> <a href="/tags/C/" style="font-size: 20px;">C#</a> <a href="/tags/DBA/" style="font-size: 10px;">DBA</a> <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/Oracle/" style="font-size: 12.5px;">Oracle</a> <a href="/tags/RSA/" style="font-size: 10px;">RSA</a> <a href="/tags/Ubuntu/" style="font-size: 15px;">Ubuntu</a> <a href="/tags/VScode/" style="font-size: 10px;">VScode</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/供应链/" style="font-size: 10px;">供应链</a>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://prodog.github.io/">Grip-Zhang</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">目前从事 .NET 开发工作，供应链管理方面，主要使用 C#、SQL 语言；业余时间研究比特币、区块链技术、Python 脚本等。</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">ZhangHQ</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/head.jpg" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me">ZhangHQ</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">总结 · 记录 · 分享</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">博客首页</a></li>
+                
+                    <li><a href="/archives">全部文章</a></li>
+                
+                    <li><a href="/tags">标签目录</a></li>
+                
+                    <li><a href="/about">关 于 我</a></li>
+                
+                    <li><a href="/works">作品展示</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=jvbn__zh7-zqzujh9uPv5_Kg7eHj" title="mail">mail</a>
+                    
+                        <a class="zhihu" target="_blank" href="https://www.zhihu.com/people/xiuboard/" title="zhihu">zhihu</a>
+                    
+                        <a class="weibo" target="_blank" href="http://weibo.com/p/1005053209397292/" title="weibo">weibo</a>
+                    
+                        <a class="QQ" target="_blank" href="/img/qq.jpg" title="QQ">QQ</a>
+                    
+                        <a class="wechat" target="_blank" href="/img/weixin.jpg" title="wechat">wechat</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/ProDog" title="github">github</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-数据库事务四大特性和隔离级别" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/11/06/数据库事务四大特性和隔离级别/" class="article-date">
+      <time datetime="2017-11-06T09:50:30.000Z" itemprop="datePublished">2017-11-06</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      数据库事务四大特性和隔离级别
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/数据库/">数据库</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DBA/">DBA</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h3 id="什么是事务"><a href="#什么是事务" class="headerlink" title="什么是事务"></a>什么是事务</h3><p>事务是数据库中十分重要的一个概念，事务（Transaction）是并发控制的单位，是指用户操作数据库时定义的一串序列要么全部执行，要么全部取消，将一段或一组 SQL 绑定到“一块”，以这一块为执行单位，从而保证数据库的一致性和完整性。<a id="more"></a></p>
+<h3 id="事务的特性"><a href="#事务的特性" class="headerlink" title="事务的特性"></a>事务的特性</h3><p>事务通常是以 BEGIN TRANSACTION 开始，以 COMMIT（提交） 或 ROLLBACK（回滚） 结束。COMMIT 表示提交，即提交事务的所有操作。具体地说就是将事务中所有对数据库的更新写回到磁盘上的物理数据库中去，事务正常结束。<br>ROLLBACK 表示回滚，即在事务运行的过程中发生了某种故障，事务不能继续进行，系统将事务中对数据库的所有以完成的操作全部撤消，滚回到事务开始的状态。事务的实现需要四个特性来保证，即 ACID 特性。</p>
+<h4 id="A：原子性-Atomicity"><a href="#A：原子性-Atomicity" class="headerlink" title="A：原子性 Atomicity"></a>A：原子性 Atomicity</h4><p>原子性是指事务包含的所有操作要么全部成功，要么全部失败回滚，因此事务的操作如果成功就必须要完全应用到数据库，如果操作失败则不能对数据库有任何影响。</p>
+<h4 id="C：一致性-Consistency"><a href="#C：一致性-Consistency" class="headerlink" title="C：一致性 Consistency"></a>C：一致性 Consistency</h4><p>一致性是指事务必须使数据库从一个一致性状态变换到另一个一致性状态，即一个事务执行之前和执行之后都必须处于一致性状态。<br>有个栗子说，假设用户A和用户B两者的钱加起来一共是5000，那么不管A和B之间如何转账，转几次账，事务结束后两个用户的钱相加起来应该还得是5000，这就是事务的一致性。</p>
+<h4 id="I：隔离性-Isolation"><a href="#I：隔离性-Isolation" class="headerlink" title="I：隔离性 Isolation"></a>I：隔离性 Isolation</h4><p>隔离性是当多个用户并发访问数据库时，比如操作同一张表时，数据库为每一个用户开启的事务，不能被其他事务的操作所干扰，多个并发事务之间要相互隔离。<br>即要达到这么一种效果：对于任意两个并发的事务 T1 和 T2，在事务 T1 看来，T2 要么在 T1 开始之前就已经结束，要么在 T1 结束之后才开始，这样每个事务都感觉不到有其他事务在并发地执行。<br>　　这里就会有疑问了，我是要排队等待上一个事务完成呢还是有些地方可以同时进行？这就是事务的隔离级别要做的。关于事务的隔离性数据库提供了多种隔离级别，稍后会介绍到。</p>
+<h4 id="D：持久性-Durability"><a href="#D：持久性-Durability" class="headerlink" title="D：持久性 Durability"></a>D：持久性 Durability</h4><p>持久性是指一个事务一旦被提交了，那么对数据库中的数据的改变就是永久性的，即便是在数据库系统遇到故障的情况下也不会丢失提交事务的操作。<br>例如我们在程序中操作数据库时，在提交事务方法后，提示用户事务操作完成，当我们程序执行完成直到看到提示后，就可以认定事务以及正确提交，即使这时候数据库出现了问题，也必须要将我们的事务完全执行完成，否则就会造成我们看到提示事务处理完毕，但是数据库因为故障而没有执行事务的重大错误。</p>
+<h3 id="数据库的隔离级别"><a href="#数据库的隔离级别" class="headerlink" title="数据库的隔离级别"></a>数据库的隔离级别</h3><p>数据库隔离级别从低到高：<br>0、没有并发控制 （None）<br>存在的问题：更新遗失。<br>解决办法就是下面的“可读取未确认”。</p>
+<p>1、可读取未确认（Read uncommitted）<br>写事务阻止其他写事务，避免了更新遗失。但是没有阻止其他读事务。<br>存在的问题：脏读。即读取到不正确的数据，因为另一个事务可能还没提交最终数据，这个读事务就读取了中途的数据，这个数据可能是不正确的。<br>解决办法就是下面的“可读取确认”。</p>
+<p>2、可读取确认（Read committed）<br>写事务会阻止其他读写事务。读事务不会阻止其他任何事务。<br>存在的问题：不可重复读。即在一次事务之间，进行了两次读取，但是结果不一样，可能第一次id为1的人叫“李三”，第二次读id为1的人就叫了“李四”。因为读取操作不会阻止其他事务。<br>解决办法就是下面的“可重复读”。</p>
+<p>3、可重复读（Repeatable read）<br>读事务会阻止其他写事务，但是不会阻止其他读事务。<br>存在的问题：幻读。可重复读阻止的写事务包括update和delete（只给存在的表加上了锁），但是不包括insert（新行不存在，所以没有办法加锁），所以一个事务第一次读取可能读取到了10条记录，但是第二次可能读取到11条，这就是幻读。<br>解决办法就是下面的“串行化”。</p>
+<p>4、可串行化（Serializable）<br>读加共享锁，写加排他锁。这样读取事务可以并发，但是读写，写写事务之间都是互斥的，基本上就是一个个执行事务，所以叫串行化。</p>
+<p>级别越高，执行效率就越低。像 Serializable 这样的级别，就是以锁表的方式(类似于Java多线程中的锁) 使得其他的线程只能在锁外等待，所以平时选用何种隔离级别应该根据实际情况。在 MySQL 数据库中默认的隔离级别为 Repeatable read (可重复读)。<br>在 MySQL 和 SqlServer 数据库中，支持上面所有隔离级别，默认的为 Repeatable read (可重复读)；而在 Oracle 数据库中，只支持 Serializable (串行化)级别和 Read committed (读已提交)这两种级别，其中默认的为 Read committed 级别。</p>
+<p>在 SqlServer中查看隔离级别：DBCC USEROPTIONS<br>设置隔离级别：SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED</p>
+<h3 id="隔离级别相关问题"><a href="#隔离级别相关问题" class="headerlink" title="隔离级别相关问题"></a>隔离级别相关问题</h3><p>当多个线程都开启事务操作数据库中的数据时，数据库系统要能进行隔离操作，以保证各个线程获取数据的准确性，如果不考虑事务的隔离性，会发生以下几种问题：</p>
+<p>0、脏读：<br>　　脏读是指在一个事务处理过程里读取了另一个未提交的事务中的数据。<br>　　当一个事务正在多次修改某个数据，而在这个事务中这多次的修改都还未提交，这时一个并发的事务来访问该数据，就会造成两个事务得到的数据不一致。例如：用户A向用户B转账100元，对应SQL命令如下<br>    update account set money=money+100 where name=’B’;  (此时A通知B)<br>    update account set money=money - 100 where name=’A’;<br>　　当只执行第一条SQL时，A通知B查看账户，B发现确实钱已到账（此时即发生了脏读），而之后无论第二条SQL是否执行，只要该事务不提交，则所有操作都将回滚，那么当B以后再次查看账户时就会发现钱其实并没有转。</p>
+<p>1、不可重复读<br>　　不可重复读是指在对于数据库中的某个数据，一个事务范围内多次查询却返回了不同的数据值，这是由于在查询间隔，被另一个事务修改并提交了。</p>
+<p>　　例如事务T1在读取某一数据，而事务T2立马修改了这个数据并且提交事务给数据库，事务T1再次读取该数据就得到了不同的结果，发送了不可重复读。</p>
+<p>　　不可重复读和脏读的区别是，脏读是某一事务读取了另一个事务未提交的脏数据，而不可重复读则是读取了前一事务提交的数据。</p>
+<p>　　在某些情况下，不可重复读并不是问题，比如我们多次查询某个数据当然以最后查询得到的结果为主。但在另一些情况下就有可能发生问题，例如对于同一个数据A和B依次查询就可能不同，A和B就可能打起来了……</p>
+<p>2、虚读(幻读)<br>　　幻读是事务非独立执行时发生的一种现象。例如事务T1对一个表中所有的行的某个数据项做了从“1”修改为“2”的操作，这时事务T2又对这个表中插入了一行数据项，而这个数据项的数值还是为“1”并且提交给数据库。而操作事务T1的用户如果再查看刚刚修改的数据，会发现还有一行没有修改，其实这行是从事务T2中添加的，就好像产生幻觉一样，这就是发生了幻读。</p>
+<p>　　幻读和不可重复读都是读取了另一条已经提交的事务（这点就脏读不同），所不同的是不可重复读查询的都是同一个数据项，而幻读针对的是一批数据整体（比如数据的个数）。</p>
+
+      
+      
+        <div class="page-reward">
+          <p><a href="javascript:void(0)" onclick="dashangToggle()" class="dashang" title="打赏，支持一下">赏</a></p>
+          <div class="hide_box"></div>
+          <div class="shang_box">
+            <a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()" title="关闭">×</a>
+            <div class="shang_tit">
+              <p>打赏测试</p>
+            </div>
+            <div class="shang_payimg">
+              <img src="/img/alipayimg.jpg" alt="扫码支持" title="扫一扫" />
+            </div>
+              <div class="pay_explain">扫码打赏，你说多少就多少</div>
+            <div class="shang_payselect">
+              
+                <div class="pay_item checked" data-id="alipay">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/alipayimg.jpg" alt="支付宝" /></span>
+                </div>
+              
+              
+                <div class="pay_item" data-id="wechat">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/wechatimg.jpg" alt="微信" /></span>
+                </div>
+              
+              
+                <div class="pay_item" data-id="bitcoin">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/bitcoinimg.jpg" alt="比特币" /></span>
+                </div>
+              
+              
+                <div class="pay_item" data-id="litecoin">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/litecoinimg.jpg" alt="莱特币" /></span>
+                </div>
+              
+            </div>
+            <div class="shang_info">
+              <p>打开<span id="shang_pay_txt">支付宝</span>扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+        </div>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
+        <script type="text/javascript">
+          $(".pay_item").click(function(){
+            $(this).addClass('checked').siblings('.pay_item').removeClass('checked');
+            var dataid=$(this).attr('data-id');
+            $(".shang_payimg img").attr("src","/img/"+dataid+"img.jpg");
+            if (dataid=="alipay")
+            {
+              $("#shang_pay_txt").text(" 支付宝 ");
+            }
+            if (dataid=="wechat")
+            {
+              $("#shang_pay_txt").text(" 微信 ");
+            }
+            if (dataid=="bitcoin")
+            {
+              $("#shang_pay_txt").text(" 比特币钱包 ");
+            }
+            if (dataid=="litecoin")
+            {
+              $("#shang_pay_txt").text(" 莱特币钱包 ");
+            }
+            <!--$("#shang_pay_txt").text(dataid=="alipay"?"支付宝":"微信");-->
+          });
+          function dashangToggle(){
+            $(".hide_box").fadeToggle();
+            $(".shang_box").fadeToggle();
+          }
+        </script>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2017/11/06/数据库事务四大特性和隔离级别/">数据库事务四大特性和隔离级别</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 ZhangHQ 的个人博客">ZhangHQ</a></p>
+        <p><span>发布时间:</span>2017年11月06日 - 17时50分</p>
+        <p><span>最后更新:</span>2017年11月13日 - 14时27分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/11/06/数据库事务四大特性和隔离级别/" title="数据库事务四大特性和隔离级别">http://stayfoolish.top/2017/11/06/数据库事务四大特性和隔离级别/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://stayfoolish.top/2017/11/06/数据库事务四大特性和隔离级别/　　作者: ZhangHQ" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/2017/11/09/委托/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          委托
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/10/30/省市区地址选择三级联动效果/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">省市区地址选择三级联动效果</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是事务"><span class="toc-number">1.</span> <span class="toc-text">什么是事务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#事务的特性"><span class="toc-number">2.</span> <span class="toc-text">事务的特性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#A：原子性-Atomicity"><span class="toc-number">2.1.</span> <span class="toc-text">A：原子性 Atomicity</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#C：一致性-Consistency"><span class="toc-number">2.2.</span> <span class="toc-text">C：一致性 Consistency</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#I：隔离性-Isolation"><span class="toc-number">2.3.</span> <span class="toc-text">I：隔离性 Isolation</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#D：持久性-Durability"><span class="toc-number">2.4.</span> <span class="toc-text">D：持久性 Durability</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据库的隔离级别"><span class="toc-number">3.</span> <span class="toc-text">数据库的隔离级别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#隔离级别相关问题"><span class="toc-number">4.</span> <span class="toc-text">隔离级别相关问题</span></a></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2017/11/09/委托/" title="上一篇: 委托">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2017/10/30/省市区地址选择三级联动效果/" title="下一篇: 省市区地址选择三级联动效果">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/11/09/委托/">委托</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/06/数据库事务四大特性和隔离级别/">数据库事务四大特性和隔离级别</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/30/省市区地址选择三级联动效果/">省市区地址选择三级联动效果</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/19/VSCode 中 git 的使用/">VSCode 中 git 的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/10/Oracle 数据字典整理/">Oracle DBA 数据字典整理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/30/C Sharp 构造函数/">C# 构造函数学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/10/Oracle 锁知识/">Oracle 锁知识</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/30/比特币地址生成/">比特币地址生成</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/02/C Sharp  重载 重写/">C# 重载（overload），重写（override）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/25/DOTNET 框架整理/">.NET 框架整理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/16/比特币分叉到底怎么分/">比特币分叉到底怎么分？</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/10/C Sharp  封装学习/">C# 封装学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/04/C Sharp List 总结/">C# List <T> 用法总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/26/比特币应用开发（二）/">比特币应用开发（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/比特币应用开发（一）/">比特币应用开发（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/RSA 公钥加密技术/">RSA 公钥加密技术</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/10/C Sharp  使用火币网交易API/">C# 使用火币网交易 API</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/05/区块链技术核心/">区块链技术核心</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/30/Node.js 安装升级和 npm 使用/">Node.js 安装升级和 npm 使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/28/区块链技术在供应链管理的实践/">区块链技术在供应链管理的实践</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/27/hello-world/">Hello World</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2017 ZhangHQ
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/luuman/hexo-theme-spfk" target="_blank">spfk</a> by luuman
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >累计访问数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 1;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>
