@@ -3,19 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>比特币地址生成 | GripNotes</title>
+  <title>委托 | GripNotes</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1、产生私钥：私钥可以是 1 和 n-1 之间的任何数字，其中 n 是一个常数（n=1.158*1077，略小于 2256），并由比特币所使用的椭圆曲线的阶所定义。要生成这样的一个私钥，我们随机选择一个 256 位的数字，并检查它是否小于 n-1。从编程的角度来看，一般是通过在一个密码学安全的随机源中取出一长串随机字节，对其使用 SHA256 哈希算法进行运算，这样就可以方便地产生一个 256 位">
-<meta name="keywords" content="Bitcoin">
+  <meta name="description" content="介绍委托 和 事件在 .Net 中的应用很多，平时工作也常遇到，为了更好的理解，只看概念是远远不够的，查阅资料时结合实例才会更好理解，然后自己实践才会真正掌握。本文对最近针对委托的学习了解和尝试做一些总结，加深理解和记忆。">
+<meta name="keywords" content="C#">
 <meta property="og:type" content="article">
-<meta property="og:title" content="比特币地址生成">
-<meta property="og:url" content="http://stayfoolish.top/2017/08/30/比特币地址生成/index.html">
+<meta property="og:title" content="委托">
+<meta property="og:url" content="http://stayfoolish.top/2017/11/09/委托和事件/index.html">
 <meta property="og:site_name" content="GripNotes">
-<meta property="og:description" content="1、产生私钥：私钥可以是 1 和 n-1 之间的任何数字，其中 n 是一个常数（n=1.158*1077，略小于 2256），并由比特币所使用的椭圆曲线的阶所定义。要生成这样的一个私钥，我们随机选择一个 256 位的数字，并检查它是否小于 n-1。从编程的角度来看，一般是通过在一个密码学安全的随机源中取出一长串随机字节，对其使用 SHA256 哈希算法进行运算，这样就可以方便地产生一个 256 位">
-<meta property="og:updated_time" content="2017-09-03T12:04:56.514Z">
+<meta property="og:description" content="介绍委托 和 事件在 .Net 中的应用很多，平时工作也常遇到，为了更好的理解，只看概念是远远不够的，查阅资料时结合实例才会更好理解，然后自己实践才会真正掌握。本文对最近针对委托的学习了解和尝试做一些总结，加深理解和记忆。">
+<meta property="og:updated_time" content="2017-11-14T11:34:06.127Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="比特币地址生成">
-<meta name="twitter:description" content="1、产生私钥：私钥可以是 1 和 n-1 之间的任何数字，其中 n 是一个常数（n=1.158*1077，略小于 2256），并由比特币所使用的椭圆曲线的阶所定义。要生成这样的一个私钥，我们随机选择一个 256 位的数字，并检查它是否小于 n-1。从编程的角度来看，一般是通过在一个密码学安全的随机源中取出一长串随机字节，对其使用 SHA256 哈希算法进行运算，这样就可以方便地产生一个 256 位">
+<meta name="twitter:title" content="委托">
+<meta name="twitter:description" content="介绍委托 和 事件在 .Net 中的应用很多，平时工作也常遇到，为了更好的理解，只看概念是远远不够的，查阅资料时结合实例才会更好理解，然后自己实践才会真正掌握。本文对最近针对委托的学习了解和尝试做一些总结，加深理解和记忆。">
   
     <link rel="alternative" href="/atom.xml" title="GripNotes" type="application/atom+xml">
   
@@ -233,11 +233,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-比特币地址生成" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-委托和事件" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/08/30/比特币地址生成/" class="article-date">
-      <time datetime="2017-08-30T07:28:52.000Z" itemprop="datePublished">2017-08-30</time>
+      <a href="/2017/11/09/委托和事件/" class="article-date">
+      <time datetime="2017-11-09T11:20:22.000Z" itemprop="datePublished">2017-11-09</time>
 </a>
     </div>
   
@@ -250,7 +250,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      比特币地址生成
+      委托
     </h1>
   
 
@@ -259,13 +259,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/比特币/">比特币</a>
+    <a class="article-category-link" href="/categories/C/">C#</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Bitcoin/">Bitcoin</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C#</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -275,19 +275,12 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h3 id="1、产生私钥："><a href="#1、产生私钥：" class="headerlink" title="1、产生私钥："></a>1、产生私钥：</h3><p>私钥可以是 1 和 n-1 之间的任何数字，其中 n 是一个常数（n=1.158*1077，略小于 2256），并由比特币所使用的椭圆曲线的阶所定义。要生成这样的一个私钥，我们随机选择一个 256 位的数字，并检查它是否小于 n-1。从编程的角度来看，一般是通过在一个密码学安全的随机源中取出一长串随机字节，对其使用 SHA256 哈希算法进行运算，这样就可以方便地产生一个 256 位的数字。如果运算结果小于 n-1，我们就有了一个合适的私钥。否则，我们就用另一个随机数再重复一次。<br><a id="more"></a><br>比特币私钥空间的大小是 2256，这是一个非常大的数字。用十进制表示的话，大约是 10^77，而可见宇宙被估计只含有 10^80 个原子。</p>
-<p>私钥例子：1E99423A4ED27608A15A2616A2B0E9E52CED330AC530EDCC32C8FFC6A526AEDD  64 位，用16 进制表示的 256 位私钥</p>
-<h3 id="2、由私钥产生公钥"><a href="#2、由私钥产生公钥" class="headerlink" title="2、由私钥产生公钥"></a>2、由私钥产生公钥</h3><p>通过椭圆曲线算法可以从私钥计算得到公钥，这是不可逆转的过程：K = k * G 。其中k是私钥，G是被称为生成点的常数点，而K是所得公钥。其反向运算，被称为“寻找离散对数”——已知公钥K来求出私钥k——是非常困难的，就像去试验所有可能的k值，即暴力搜索。</p>
-<p>以一个随机生成的私钥k为起点，我们将其与曲线上已定义的 生成点G相乘以获得曲线上的另一点，也就是相应的公钥 K。生成点是 secp256k1 标准的一部分，比特币密钥的生成点都是相同的：{K = k * G}<br>其中k是私钥，G 是生成点，在该曲线上所得的点K是公钥。因为所有比特币用户的生成点是相同的，一个私钥k乘以G将得到相同的公钥K。k和K之间的关系是固定的，但只能单向运算，即从 k 得到 K。这就是可以把比特币地址（K 的衍生）与任何人共享而不会泄露私钥（k）的原因。</p>
-<p>K = 1E99423A4ED27608A15A2616A2B0E9E52CED330AC530EDCC32C8FFC6A526AEDD * G</p>
-<p>公钥 K 被定义为一个点 K = (x, y)： 其中：</p>
-<p>x = F028892BAD7ED57D2FB57BF33081D5CFCF6F9ED3D3D7F159C2E2FFF579DC341A<br>y = 07CF33DA18BD734C600B96A72BBC4749D5141C90EC8AC328AE52DDFE2E505BDB</p>
-<h3 id="3、对公钥进行哈希："><a href="#3、对公钥进行哈希：" class="headerlink" title="3、对公钥进行哈希："></a>3、对公钥进行哈希：</h3><p>先对公钥 K 进行 SHA256 哈希值，并以此结果计算 RIPEMD160 哈希值，得到一个长度为 160 比特（20字节）的数字：</p>
-<p>A = RIPEMD160(SHA256(K))    公式中，K 是公钥，A 是生成的比特币地址。</p>
-<h3 id="4、对哈希过的公钥-A-进行-Base58Check-编码："><a href="#4、对哈希过的公钥-A-进行-Base58Check-编码：" class="headerlink" title="4、对哈希过的公钥 A 进行 Base58Check 编码："></a>4、对哈希过的公钥 A 进行 Base58Check 编码：</h3><p>对 A 进行编码：通常用户见到的比特币地址是经过 “Base58Check” 编码的，这种编码使用了 58 个字符（一种 Base58 数字系统）和校验码，提高了可读性、避免歧义并有效防止了在地址转录和输入中产生的错误。Base58Check 编码也被用于比特币的其它地方，例如比特币地址、私钥、加密的密钥和脚本哈希中，用来提高可读性和录入的正确性。</p>
-<p>为了使用 Base58Check 编码格式对数据（数字）进行编码，首先我们要对数据添加一个称作“版本字节”的前缀，这个前缀用来明确需要编码的数据的类型。例如，比特币地址的前缀是0（十六进制是  0x00），而对私钥编码时前缀是128（十六进制是 0x80）。</p>
-<p>给公钥加上前缀，进行双 SHA256 运算生产校验码：checksum = SHA256(SHA256(prefix+data))  两次 SHA256 产生一个 32 字节  (256 位)的哈希值，取前 4 字节作为校验码 C</p>
-<p>将校验码 C 附加到 prefix+data 之后，对整个数据进行 Base58 字母表编码  生成最终的比特币地址。</p>
+        <h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>委托 和 事件在 .Net 中的应用很多，平时工作也常遇到，为了更好的理解，只看概念是远远不够的，查阅资料时结合实例才会更好理解，然后自己实践才会真正掌握。<br>本文对最近针对委托的学习了解和尝试做一些总结，加深理解和记忆。<a id="more"></a></p>
+<p>委托（delegate）：委托是一种存储函数的引用类型，委托需要用 delegate 关键字声明，声明时指定了一个返回类型和一个参数列表。定义完成委托之后就可以声明该委托类型的变量，将该变量初始化成与委托具有相同返回类型和参数列表的函数引用，之后就可以使用委托变量调用该函数，类似于这个函数当做变量来使用。<br>如下例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line">using System;</div><div class="line">using System.Collections.Generic;</div><div class="line">using System.Linq;</div><div class="line">using System.Text;</div><div class="line">using System.Threading.Tasks;</div><div class="line">namespace Delegate</div><div class="line">&#123;</div><div class="line">	class Program</div><div class="line">	&#123;</div><div class="line">		//声明委托  double 类型 两个double 类型的参数</div><div class="line">		delegate double ProcessDelegate(double param1, double param2);      </div><div class="line">		//ProcessDelegate process = Multiply;       </div><div class="line">		static void Main(string[] args)</div><div class="line">		&#123;</div><div class="line">			//定义委托的变量 process</div><div class="line">			ProcessDelegate process;</div><div class="line">			//输入两个 double 类型的数字</div><div class="line">			Console.WriteLine(&quot;Input 2 num:&quot;);</div><div class="line">			string input = Console.ReadLine();</div><div class="line">			int commaPos = input.IndexOf(&apos;,&apos;);</div><div class="line">			double param1 = Convert.ToDouble(input.Substring(0, commaPos));</div><div class="line">			double param2 = Convert.ToDouble(input.Substring(commaPos + 1, input.Length - commaPos - 1));</div><div class="line">			Console.WriteLine(&quot;Write M or D:&quot;);</div><div class="line">			input = Console.ReadLine();</div><div class="line"></div><div class="line">			if (input == &quot;M&quot;)</div><div class="line">			//变量初始化 </div><div class="line">				process = new ProcessDelegate(Multiply);</div><div class="line">			else</div><div class="line">				process = new ProcessDelegate(Divide);</div><div class="line">			Console.WriteLine(&quot;Result: &#123;0&#125;&quot;, process(param1,param2));</div><div class="line">			Console.ReadKey();</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		static double Multiply(double param1, double param2)</div><div class="line">		&#123;</div><div class="line">			return param1 * param2;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		static double Divide(double param1, double param2)</div><div class="line">		&#123;</div><div class="line">			return param1 / param2;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>从上面的例子可以看出，可以把委托变量作为参数传递给一个函数，这样一来该函数就可以使用委托调用他引用的任何函数，而且在运行之前不必知道调用的是哪个函数。要把一个函数引用付给委托变量，需要使用上例中的方法，整个过程类似于给数组赋值，必须使用 new 关键字创建一个委托，在这个关键字后面指定委托类型，提供一个引用所需函数的参数，即 Multiply() 或 Divide() 函数，这个参数与委托类型或目标函数的参数不匹配，这也是委托赋值的一种方式，参数使用函数名不加括号，等同于：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">if (input == &quot;M&quot;)</div><div class="line">	process = Multiply;</div><div class="line">else</div><div class="line">	process = Divide;</div></pre></td></tr></table></figure></p>
+<p>程序执行到这里时，编译器会发现 process 变量的委托类型匹配到两个函数的签名，于是会自动初始化一个委托，使用该委托调用所选函数。</p>
+<p>再来看下面这个例子<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line">//声明 bool 类型的委托，参数是 int 整型</div><div class="line">delegate Boolean moreOrlessDelgate(int item);</div><div class="line">class Program</div><div class="line">&#123;</div><div class="line">	static void Main(string[] args)</div><div class="line">	&#123;</div><div class="line">		//声明一个 int 型 list</div><div class="line">		var arr = new List&lt;int&gt;() &#123; 1, 2, 3, 4, 5, 6, 7, 8 &#125;;</div><div class="line">		//声明一个委托类型的变量 d1，并初始化，传递 More 方法，委托参数的类型和被传递方法的参数一致</div><div class="line">		var d1 = new moreOrlessDelgate(More);</div><div class="line">		//调用 Print 方法，Print 中 d1 会调用 More 方法，循环判断 List 中数字的大小并打印，输出大于 3 的数字</div><div class="line">		Print(arr, d1);</div><div class="line">		Console.WriteLine(&quot;OK&quot;);</div><div class="line"></div><div class="line">		var d2 = new moreOrlessDelgate(Less);</div><div class="line">		//同理，输出小于 3 的数字</div><div class="line">		Print(arr, d2);</div><div class="line">		Console.WriteLine(&quot;OK&quot;);</div><div class="line">		Console.ReadKey();</div><div class="line"></div><div class="line">	&#125;</div><div class="line">	//定义 Print 方法，参数是整型 List 和委托类型</div><div class="line">	static void Print(List&lt;int&gt; arr, moreOrlessDelgate dL)</div><div class="line">	&#123;</div><div class="line">		foreach (var item in arr)</div><div class="line">		&#123;</div><div class="line">			if (dL(item))</div><div class="line">			&#123;</div><div class="line">				Console.WriteLine(item);</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	static bool More(int item)</div><div class="line">	&#123;</div><div class="line">		if (item &gt; 3)</div><div class="line">		&#123;</div><div class="line">			return true;</div><div class="line">		&#125;</div><div class="line">		return false;</div><div class="line">	&#125;</div><div class="line">	static bool Less(int item)</div><div class="line">	&#123;</div><div class="line">		if (item &lt; 3)</div><div class="line">		&#123;</div><div class="line">			return true;</div><div class="line">		&#125;</div><div class="line">		return false;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
       
       
@@ -370,13 +363,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/08/30/比特币地址生成/">比特币地址生成</a></p>
+        <p><span>本文标题:</span><a href="/2017/11/09/委托和事件/">委托</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 ZhangHQ 的个人博客">ZhangHQ</a></p>
-        <p><span>发布时间:</span>2017年08月30日 - 15时28分</p>
-        <p><span>最后更新:</span>2017年09月03日 - 20时04分</p>
+        <p><span>发布时间:</span>2017年11月09日 - 19时20分</p>
+        <p><span>最后更新:</span>2017年11月14日 - 19时34分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/08/30/比特币地址生成/" title="比特币地址生成">http://stayfoolish.top/2017/08/30/比特币地址生成/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://stayfoolish.top/2017/08/30/比特币地址生成/　　作者: ZhangHQ" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/11/09/委托和事件/" title="委托">http://stayfoolish.top/2017/11/09/委托和事件/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://stayfoolish.top/2017/11/09/委托和事件/　　作者: ZhangHQ" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -389,18 +382,18 @@
 
 <nav id="article-nav">
   
-    <a href="/2017/09/10/Oracle 锁知识/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/11/15/谷歌验证原理研究/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          Oracle 锁知识
+          谷歌验证原理研究
         
       </div>
     </a>
   
   
-    <a href="/2017/08/02/C Sharp  重载 重写/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">C# 重载（overload），重写（override）</div>
+    <a href="/2017/11/09/委托/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">委托</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -411,7 +404,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、产生私钥："><span class="toc-number">1.</span> <span class="toc-text">1、产生私钥：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、由私钥产生公钥"><span class="toc-number">2.</span> <span class="toc-text">2、由私钥产生公钥</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、对公钥进行哈希："><span class="toc-number">3.</span> <span class="toc-text">3、对公钥进行哈希：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、对哈希过的公钥-A-进行-Base58Check-编码："><span class="toc-number">4.</span> <span class="toc-text">4、对哈希过的公钥 A 进行 Base58Check 编码：</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#介绍"><span class="toc-number">1.</span> <span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#说明"><span class="toc-number">2.</span> <span class="toc-text">说明</span></a></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -462,13 +455,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/09/10/Oracle 锁知识/" title="上一篇: Oracle 锁知识">
+            <a href="/2017/11/15/谷歌验证原理研究/" title="上一篇: 谷歌验证原理研究">
                 <i class="fa fa-angle-left"></i>
             </a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2017/08/02/C Sharp  重载 重写/" title="下一篇: C# 重载（overload），重写（override）">
+            <a href="/2017/11/09/委托/" title="下一篇: 委托">
                 <i class="fa fa-angle-right"></i>
             </a>
         

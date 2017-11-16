@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://stayfoolish.top/2017/11/09/委托/index.html">
 <meta property="og:site_name" content="GripNotes">
 <meta property="og:description" content="介绍委托 和 事件在 .Net 中的应用很多，平时工作也常遇到，为了更好的理解，只看概念是远远不够的，查阅资料时结合实例才会更好理解，然后自己实践才会真正掌握。本文对最近针对委托的学习了解和尝试做一些总结，加深理解和记忆。">
-<meta property="og:updated_time" content="2017-11-14T11:34:06.127Z">
+<meta property="og:updated_time" content="2017-11-16T12:17:09.165Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="委托">
 <meta name="twitter:description" content="介绍委托 和 事件在 .Net 中的应用很多，平时工作也常遇到，为了更好的理解，只看概念是远远不够的，查阅资料时结合实例才会更好理解，然后自己实践才会真正掌握。本文对最近针对委托的学习了解和尝试做一些总结，加深理解和记忆。">
@@ -281,6 +281,7 @@
 <h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>从上面的例子可以看出，可以把委托变量作为参数传递给一个函数，这样一来该函数就可以使用委托调用他引用的任何函数，而且在运行之前不必知道调用的是哪个函数。要把一个函数引用付给委托变量，需要使用上例中的方法，整个过程类似于给数组赋值，必须使用 new 关键字创建一个委托，在这个关键字后面指定委托类型，提供一个引用所需函数的参数，即 Multiply() 或 Divide() 函数，这个参数与委托类型或目标函数的参数不匹配，这也是委托赋值的一种方式，参数使用函数名不加括号，等同于：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">if (input == &quot;M&quot;)</div><div class="line">	process = Multiply;</div><div class="line">else</div><div class="line">	process = Divide;</div></pre></td></tr></table></figure></p>
 <p>程序执行到这里时，编译器会发现 process 变量的委托类型匹配到两个函数的签名，于是会自动初始化一个委托，使用该委托调用所选函数。</p>
 <p>再来看下面这个例子<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line">//声明 bool 类型的委托，参数是 int 整型</div><div class="line">delegate Boolean moreOrlessDelgate(int item);</div><div class="line">class Program</div><div class="line">&#123;</div><div class="line">	static void Main(string[] args)</div><div class="line">	&#123;</div><div class="line">		//声明一个 int 型 list</div><div class="line">		var arr = new List&lt;int&gt;() &#123; 1, 2, 3, 4, 5, 6, 7, 8 &#125;;</div><div class="line">		//声明一个委托类型的变量 d1，并初始化，传递 More 方法，委托参数的类型和被传递方法的参数一致</div><div class="line">		var d1 = new moreOrlessDelgate(More);</div><div class="line">		//调用 Print 方法，Print 中 d1 会调用 More 方法，循环判断 List 中数字的大小并打印，输出大于 3 的数字</div><div class="line">		Print(arr, d1);</div><div class="line">		Console.WriteLine(&quot;OK&quot;);</div><div class="line"></div><div class="line">		var d2 = new moreOrlessDelgate(Less);</div><div class="line">		//同理，输出小于 3 的数字</div><div class="line">		Print(arr, d2);</div><div class="line">		Console.WriteLine(&quot;OK&quot;);</div><div class="line">		Console.ReadKey();</div><div class="line"></div><div class="line">	&#125;</div><div class="line">	//定义 Print 方法，参数是整型 List 和委托类型</div><div class="line">	static void Print(List&lt;int&gt; arr, moreOrlessDelgate dL)</div><div class="line">	&#123;</div><div class="line">		foreach (var item in arr)</div><div class="line">		&#123;</div><div class="line">			if (dL(item))</div><div class="line">			&#123;</div><div class="line">				Console.WriteLine(item);</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	static bool More(int item)</div><div class="line">	&#123;</div><div class="line">		if (item &gt; 3)</div><div class="line">		&#123;</div><div class="line">			return true;</div><div class="line">		&#125;</div><div class="line">		return false;</div><div class="line">	&#125;</div><div class="line">	static bool Less(int item)</div><div class="line">	&#123;</div><div class="line">		if (item &lt; 3)</div><div class="line">		&#123;</div><div class="line">			return true;</div><div class="line">		&#125;</div><div class="line">		return false;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>未完</p>
 
       
       
@@ -366,7 +367,7 @@
         <p><span>本文标题:</span><a href="/2017/11/09/委托/">委托</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 ZhangHQ 的个人博客">ZhangHQ</a></p>
         <p><span>发布时间:</span>2017年11月09日 - 19时20分</p>
-        <p><span>最后更新:</span>2017年11月14日 - 19时34分</p>
+        <p><span>最后更新:</span>2017年11月16日 - 20时17分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2017/11/09/委托/" title="委托">http://stayfoolish.top/2017/11/09/委托/</a>
             <span class="copy-path" data-clipboard-text="原文: http://stayfoolish.top/2017/11/09/委托/　　作者: ZhangHQ" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -381,6 +382,15 @@
 
 
 <nav id="article-nav">
+  
+    <a href="/2017/11/09/委托和事件/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          委托
+        
+      </div>
+    </a>
   
   
     <a href="/2017/11/06/数据库事务四大特性和隔离级别/" id="article-nav-older" class="article-nav-link-wrap">
@@ -446,7 +456,9 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2017/11/09/委托和事件/" title="上一篇: 委托">
+                <i class="fa fa-angle-left"></i>
+            </a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
@@ -455,7 +467,7 @@
             </a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/11/09/委托/">委托</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/06/数据库事务四大特性和隔离级别/">数据库事务四大特性和隔离级别</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/30/省市区地址选择三级联动效果/">省市区地址选择三级联动效果</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/19/VSCode 中 git 的使用/">VSCode 中 git 的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/10/Oracle 数据字典整理/">Oracle DBA 数据字典整理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/30/C Sharp 构造函数/">C# 构造函数学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/10/Oracle 锁知识/">Oracle 锁知识</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/30/比特币地址生成/">比特币地址生成</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/02/C Sharp  重载 重写/">C# 重载（overload），重写（override）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/25/DOTNET 框架整理/">.NET 框架整理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/16/比特币分叉到底怎么分/">比特币分叉到底怎么分？</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/10/C Sharp  封装学习/">C# 封装学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/04/C Sharp List 总结/">C# List <T> 用法总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/26/比特币应用开发（二）/">比特币应用开发（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/比特币应用开发（一）/">比特币应用开发（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/RSA 公钥加密技术/">RSA 公钥加密技术</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/10/C Sharp  使用火币网交易API/">C# 使用火币网交易 API</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/05/区块链技术核心/">区块链技术核心</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/30/Node.js 安装升级和 npm 使用/">Node.js 安装升级和 npm 使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/28/区块链技术在供应链管理的实践/">区块链技术在供应链管理的实践</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/27/hello-world/">Hello World</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/11/15/谷歌验证原理研究/">谷歌验证原理研究</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/09/委托和事件/">委托</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/09/委托/">委托</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/06/数据库事务四大特性和隔离级别/">数据库事务四大特性和隔离级别</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/30/省市区地址选择三级联动效果/">省市区地址选择三级联动效果</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/19/VSCode 中 git 的使用/">VSCode 中 git 的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/10/Oracle 数据字典整理/">Oracle DBA 数据字典整理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/30/C Sharp 构造函数/">C# 构造函数学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/10/Oracle 锁知识/">Oracle 锁知识</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/30/比特币地址生成/">比特币地址生成</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/02/C Sharp  重载 重写/">C# 重载（overload），重写（override）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/25/DOTNET 框架整理/">.NET 框架整理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/16/比特币分叉到底怎么分/">比特币分叉到底怎么分？</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/10/C Sharp  封装学习/">C# 封装学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/04/C Sharp List 总结/">C# List <T> 用法总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/26/比特币应用开发（二）/">比特币应用开发（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/比特币应用开发（一）/">比特币应用开发（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/20/RSA 公钥加密技术/">RSA 公钥加密技术</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/10/C Sharp  使用火币网交易API/">C# 使用火币网交易 API</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/05/区块链技术核心/">区块链技术核心</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/30/Node.js 安装升级和 npm 使用/">Node.js 安装升级和 npm 使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/28/区块链技术在供应链管理的实践/">区块链技术在供应链管理的实践</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/27/hello-world/">Hello World</a></li></ul>
     <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
     <script>
         $(".post-list").addClass("toc-article");

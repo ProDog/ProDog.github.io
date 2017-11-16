@@ -3,19 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>比特币地址生成 | GripNotes</title>
+  <title>谷歌验证原理研究 | GripNotes</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1、产生私钥：私钥可以是 1 和 n-1 之间的任何数字，其中 n 是一个常数（n=1.158*1077，略小于 2256），并由比特币所使用的椭圆曲线的阶所定义。要生成这样的一个私钥，我们随机选择一个 256 位的数字，并检查它是否小于 n-1。从编程的角度来看，一般是通过在一个密码学安全的随机源中取出一长串随机字节，对其使用 SHA256 哈希算法进行运算，这样就可以方便地产生一个 256 位">
-<meta name="keywords" content="Bitcoin">
+  <meta name="description" content="起因最近在使用一些 APP 时经常遇到谷歌二步验证，一开始猜想会不会是谷歌某一种验证服务，由谷歌来确保安全，但终归是猜想，需要得到验证，于是查找资料和开源代码，发现实现原理竟很简单，但是又比较安全，前提是采用了安全的加密算法。">
+<meta name="keywords" content="C#">
 <meta property="og:type" content="article">
-<meta property="og:title" content="比特币地址生成">
-<meta property="og:url" content="http://stayfoolish.top/2017/08/30/比特币地址生成/index.html">
+<meta property="og:title" content="谷歌验证原理研究">
+<meta property="og:url" content="http://stayfoolish.top/2017/11/15/谷歌验证原理研究/index.html">
 <meta property="og:site_name" content="GripNotes">
-<meta property="og:description" content="1、产生私钥：私钥可以是 1 和 n-1 之间的任何数字，其中 n 是一个常数（n=1.158*1077，略小于 2256），并由比特币所使用的椭圆曲线的阶所定义。要生成这样的一个私钥，我们随机选择一个 256 位的数字，并检查它是否小于 n-1。从编程的角度来看，一般是通过在一个密码学安全的随机源中取出一长串随机字节，对其使用 SHA256 哈希算法进行运算，这样就可以方便地产生一个 256 位">
-<meta property="og:updated_time" content="2017-09-03T12:04:56.514Z">
+<meta property="og:description" content="起因最近在使用一些 APP 时经常遇到谷歌二步验证，一开始猜想会不会是谷歌某一种验证服务，由谷歌来确保安全，但终归是猜想，需要得到验证，于是查找资料和开源代码，发现实现原理竟很简单，但是又比较安全，前提是采用了安全的加密算法。">
+<meta property="og:updated_time" content="2017-11-16T12:43:09.796Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="比特币地址生成">
-<meta name="twitter:description" content="1、产生私钥：私钥可以是 1 和 n-1 之间的任何数字，其中 n 是一个常数（n=1.158*1077，略小于 2256），并由比特币所使用的椭圆曲线的阶所定义。要生成这样的一个私钥，我们随机选择一个 256 位的数字，并检查它是否小于 n-1。从编程的角度来看，一般是通过在一个密码学安全的随机源中取出一长串随机字节，对其使用 SHA256 哈希算法进行运算，这样就可以方便地产生一个 256 位">
+<meta name="twitter:title" content="谷歌验证原理研究">
+<meta name="twitter:description" content="起因最近在使用一些 APP 时经常遇到谷歌二步验证，一开始猜想会不会是谷歌某一种验证服务，由谷歌来确保安全，但终归是猜想，需要得到验证，于是查找资料和开源代码，发现实现原理竟很简单，但是又比较安全，前提是采用了安全的加密算法。">
   
     <link rel="alternative" href="/atom.xml" title="GripNotes" type="application/atom+xml">
   
@@ -233,11 +233,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-比特币地址生成" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-谷歌验证原理研究" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/08/30/比特币地址生成/" class="article-date">
-      <time datetime="2017-08-30T07:28:52.000Z" itemprop="datePublished">2017-08-30</time>
+      <a href="/2017/11/15/谷歌验证原理研究/" class="article-date">
+      <time datetime="2017-11-15T10:12:10.000Z" itemprop="datePublished">2017-11-15</time>
 </a>
     </div>
   
@@ -250,7 +250,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      比特币地址生成
+      谷歌验证原理研究
     </h1>
   
 
@@ -259,13 +259,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/比特币/">比特币</a>
+    <a class="article-category-link" href="/categories/密码学/">密码学</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Bitcoin/">Bitcoin</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C#</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -275,19 +275,11 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h3 id="1、产生私钥："><a href="#1、产生私钥：" class="headerlink" title="1、产生私钥："></a>1、产生私钥：</h3><p>私钥可以是 1 和 n-1 之间的任何数字，其中 n 是一个常数（n=1.158*1077，略小于 2256），并由比特币所使用的椭圆曲线的阶所定义。要生成这样的一个私钥，我们随机选择一个 256 位的数字，并检查它是否小于 n-1。从编程的角度来看，一般是通过在一个密码学安全的随机源中取出一长串随机字节，对其使用 SHA256 哈希算法进行运算，这样就可以方便地产生一个 256 位的数字。如果运算结果小于 n-1，我们就有了一个合适的私钥。否则，我们就用另一个随机数再重复一次。<br><a id="more"></a><br>比特币私钥空间的大小是 2256，这是一个非常大的数字。用十进制表示的话，大约是 10^77，而可见宇宙被估计只含有 10^80 个原子。</p>
-<p>私钥例子：1E99423A4ED27608A15A2616A2B0E9E52CED330AC530EDCC32C8FFC6A526AEDD  64 位，用16 进制表示的 256 位私钥</p>
-<h3 id="2、由私钥产生公钥"><a href="#2、由私钥产生公钥" class="headerlink" title="2、由私钥产生公钥"></a>2、由私钥产生公钥</h3><p>通过椭圆曲线算法可以从私钥计算得到公钥，这是不可逆转的过程：K = k * G 。其中k是私钥，G是被称为生成点的常数点，而K是所得公钥。其反向运算，被称为“寻找离散对数”——已知公钥K来求出私钥k——是非常困难的，就像去试验所有可能的k值，即暴力搜索。</p>
-<p>以一个随机生成的私钥k为起点，我们将其与曲线上已定义的 生成点G相乘以获得曲线上的另一点，也就是相应的公钥 K。生成点是 secp256k1 标准的一部分，比特币密钥的生成点都是相同的：{K = k * G}<br>其中k是私钥，G 是生成点，在该曲线上所得的点K是公钥。因为所有比特币用户的生成点是相同的，一个私钥k乘以G将得到相同的公钥K。k和K之间的关系是固定的，但只能单向运算，即从 k 得到 K。这就是可以把比特币地址（K 的衍生）与任何人共享而不会泄露私钥（k）的原因。</p>
-<p>K = 1E99423A4ED27608A15A2616A2B0E9E52CED330AC530EDCC32C8FFC6A526AEDD * G</p>
-<p>公钥 K 被定义为一个点 K = (x, y)： 其中：</p>
-<p>x = F028892BAD7ED57D2FB57BF33081D5CFCF6F9ED3D3D7F159C2E2FFF579DC341A<br>y = 07CF33DA18BD734C600B96A72BBC4749D5141C90EC8AC328AE52DDFE2E505BDB</p>
-<h3 id="3、对公钥进行哈希："><a href="#3、对公钥进行哈希：" class="headerlink" title="3、对公钥进行哈希："></a>3、对公钥进行哈希：</h3><p>先对公钥 K 进行 SHA256 哈希值，并以此结果计算 RIPEMD160 哈希值，得到一个长度为 160 比特（20字节）的数字：</p>
-<p>A = RIPEMD160(SHA256(K))    公式中，K 是公钥，A 是生成的比特币地址。</p>
-<h3 id="4、对哈希过的公钥-A-进行-Base58Check-编码："><a href="#4、对哈希过的公钥-A-进行-Base58Check-编码：" class="headerlink" title="4、对哈希过的公钥 A 进行 Base58Check 编码："></a>4、对哈希过的公钥 A 进行 Base58Check 编码：</h3><p>对 A 进行编码：通常用户见到的比特币地址是经过 “Base58Check” 编码的，这种编码使用了 58 个字符（一种 Base58 数字系统）和校验码，提高了可读性、避免歧义并有效防止了在地址转录和输入中产生的错误。Base58Check 编码也被用于比特币的其它地方，例如比特币地址、私钥、加密的密钥和脚本哈希中，用来提高可读性和录入的正确性。</p>
-<p>为了使用 Base58Check 编码格式对数据（数字）进行编码，首先我们要对数据添加一个称作“版本字节”的前缀，这个前缀用来明确需要编码的数据的类型。例如，比特币地址的前缀是0（十六进制是  0x00），而对私钥编码时前缀是128（十六进制是 0x80）。</p>
-<p>给公钥加上前缀，进行双 SHA256 运算生产校验码：checksum = SHA256(SHA256(prefix+data))  两次 SHA256 产生一个 32 字节  (256 位)的哈希值，取前 4 字节作为校验码 C</p>
-<p>将校验码 C 附加到 prefix+data 之后，对整个数据进行 Base58 字母表编码  生成最终的比特币地址。</p>
+        <h3 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h3><p>最近在使用一些 APP 时经常遇到谷歌二步验证，一开始猜想会不会是谷歌某一种验证服务，由谷歌来确保安全，但终归是猜想，需要得到验证，于是查找资料和开源代码，发现实现原理竟很简单，但是又比较安全，前提是采用了安全的加密算法。<a id="more"></a></p>
+<p>开启 Google 二步验证（即 Google Authenticator 服务）后，用户登陆时需要输入手机客户端（谷歌验证器）生成的一次性密码。实现 Google Authenticator 功能需要服务器端和客户端的支持。服务器端负责密钥的生成、密码的验证。客户端负责生成一次性密码。</p>
+<h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>0、用户在开启 Google Authenticator<br>服务时，由服务器端生成一个密钥，将密钥保存在服务端，并且在页面显示出二维码，其实是将密钥包含进二维码中，（二维码内容是一个 URI 地址（otpauth://totp/账号?secret=密钥），如『otpauth://totp/XXX@gmail.com?secret=XXXXXXX』）<br>1、用手机客户端扫描二维码，读取二维码中的密钥信息，把密钥保存在客户端。<br>2、当用户登录时，客户端每隔 30S 会使用密钥和时间戳，用特定的算法生成一个一次性密码（类似于短信验证码），用户输入一次性密码。<br>3、服务器端使用保存的密钥和时间戳通过同一种『算法』生成一个一次性密码。同一个密钥，同样的算法，同一个 30S 内，生成的密码自然相同，服务端验证结果如果是相同则验证通过。<br>感觉很简单呢，那是如何保证安全性的呢？<br>0、密钥的安全性，每一次开启谷歌验证是生成的密钥完全随机且足够安全。<br>1、时间戳，一次性密码的有效期一般是 30S，30S 后便会重新生成，前一个密码失效。</p>
+<h3 id="疑问"><a href="#疑问" class="headerlink" title="疑问"></a>疑问</h3><p>由于网络延时，用户输入延迟等因素，可能当服务器端接收到一次性密码时，已经超出了 30S，服务器已经生成新的密码了，这样就会导致服务器计算的一次性密码值与用户输入的不同，验证失败。<br>解决这个问题的方法是，服务器计算当前时间片以及前面的 n 个时间片内的一次性密码值，只要其中有一个与用户输入的密码相同，则验证通过。当然，n 不能太大，否则会降低安全性。事实上，这个方法还有一个另外的功能。我们知道如果客户端和服务器的时钟有偏差，会造成与上面类似的问题，也就是客户端生成的密码和服务端生成的密码不一致。但是，如果服务器通过计算前 n 个时间片的密码并且成功验证之后，服务器就知道了客户端的时钟偏差。因此，下一次验证时，服务器就可以直接将偏差考虑在内进行计算，而不需要进行 n 次计算。</p>
+<p>以上就是 Google两步验证的工作原理，推荐大家使用，这确实是保护帐户安全的利器。</p>
 
       
       
@@ -370,13 +362,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/08/30/比特币地址生成/">比特币地址生成</a></p>
+        <p><span>本文标题:</span><a href="/2017/11/15/谷歌验证原理研究/">谷歌验证原理研究</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 ZhangHQ 的个人博客">ZhangHQ</a></p>
-        <p><span>发布时间:</span>2017年08月30日 - 15时28分</p>
-        <p><span>最后更新:</span>2017年09月03日 - 20时04分</p>
+        <p><span>发布时间:</span>2017年11月15日 - 18时12分</p>
+        <p><span>最后更新:</span>2017年11月16日 - 20时43分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/08/30/比特币地址生成/" title="比特币地址生成">http://stayfoolish.top/2017/08/30/比特币地址生成/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://stayfoolish.top/2017/08/30/比特币地址生成/　　作者: ZhangHQ" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/11/15/谷歌验证原理研究/" title="谷歌验证原理研究">http://stayfoolish.top/2017/11/15/谷歌验证原理研究/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://stayfoolish.top/2017/11/15/谷歌验证原理研究/　　作者: ZhangHQ" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -389,18 +381,9 @@
 
 <nav id="article-nav">
   
-    <a href="/2017/09/10/Oracle 锁知识/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          Oracle 锁知识
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/08/02/C Sharp  重载 重写/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">C# 重载（overload），重写（override）</div>
+    <a href="/2017/11/09/委托和事件/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">委托</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -411,7 +394,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、产生私钥："><span class="toc-number">1.</span> <span class="toc-text">1、产生私钥：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、由私钥产生公钥"><span class="toc-number">2.</span> <span class="toc-text">2、由私钥产生公钥</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、对公钥进行哈希："><span class="toc-number">3.</span> <span class="toc-text">3、对公钥进行哈希：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、对哈希过的公钥-A-进行-Base58Check-编码："><span class="toc-number">4.</span> <span class="toc-text">4、对哈希过的公钥 A 进行 Base58Check 编码：</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#起因"><span class="toc-number">1.</span> <span class="toc-text">起因</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#原理"><span class="toc-number">2.</span> <span class="toc-text">原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#疑问"><span class="toc-number">3.</span> <span class="toc-text">疑问</span></a></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -462,13 +445,11 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/09/10/Oracle 锁知识/" title="上一篇: Oracle 锁知识">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2017/08/02/C Sharp  重载 重写/" title="下一篇: C# 重载（overload），重写（override）">
+            <a href="/2017/11/09/委托和事件/" title="下一篇: 委托">
                 <i class="fa fa-angle-right"></i>
             </a>
         
