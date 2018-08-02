@@ -3,19 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>C# 重载（overload），重写（override） | GripNotes</title>
+  <title>C# 泛型 | GripNotes</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="方法的重载:C#允许在一个类中定义方法的不同版本，同一方法名称的多个方法，编译器会自动根据提供的参数选择最相匹配的版本。参数不同是指以下几种情况： 1、参数的类型不同 2、参数的个数不同 3、参数的个数相同时他们的先后顺序不同注意：系统会认为是同一个方法的两种情况，这样的两个方法不可以在同一个类里，否则系统会报错。1、返回类型不同，方法名和参数个数、顺序、类型都相同的两个方法2、返回类型相同，方法">
+  <meta name="description" content="什么是泛型？面对象编程有一个重要的好处是“代码重用”，它可以极大提高开发效率，代码重用一般是派生出一个类，让它继承基类的所有能力，派生类只需重写虚方法或添加一些新方法就可以定制派生类的功能。泛型是CLR和编程语言提供的一种特殊机制，它支持另一种形式的代码重用——“算法重用”，通过使用泛型，我们可以极大地提高代码的重用度，同时还可以获得强类型的支持，避免了隐式的装箱、拆箱，在一定程度上提升了应用程序">
 <meta name="keywords" content="C#">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C# 重载（overload），重写（override）">
-<meta property="og:url" content="http://stayfoolish.top/2017/08/02/C Sharp  重载 重写/index.html">
+<meta property="og:title" content="C# 泛型">
+<meta property="og:url" content="http://stayfoolish.top/2018/07/10/C Sharp泛型/index.html">
 <meta property="og:site_name" content="GripNotes">
-<meta property="og:description" content="方法的重载:C#允许在一个类中定义方法的不同版本，同一方法名称的多个方法，编译器会自动根据提供的参数选择最相匹配的版本。参数不同是指以下几种情况： 1、参数的类型不同 2、参数的个数不同 3、参数的个数相同时他们的先后顺序不同注意：系统会认为是同一个方法的两种情况，这样的两个方法不可以在同一个类里，否则系统会报错。1、返回类型不同，方法名和参数个数、顺序、类型都相同的两个方法2、返回类型相同，方法">
-<meta property="og:updated_time" content="2017-08-02T09:00:28.264Z">
+<meta property="og:description" content="什么是泛型？面对象编程有一个重要的好处是“代码重用”，它可以极大提高开发效率，代码重用一般是派生出一个类，让它继承基类的所有能力，派生类只需重写虚方法或添加一些新方法就可以定制派生类的功能。泛型是CLR和编程语言提供的一种特殊机制，它支持另一种形式的代码重用——“算法重用”，通过使用泛型，我们可以极大地提高代码的重用度，同时还可以获得强类型的支持，避免了隐式的装箱、拆箱，在一定程度上提升了应用程序">
+<meta property="og:updated_time" content="2018-08-02T14:10:53.054Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="C# 重载（overload），重写（override）">
-<meta name="twitter:description" content="方法的重载:C#允许在一个类中定义方法的不同版本，同一方法名称的多个方法，编译器会自动根据提供的参数选择最相匹配的版本。参数不同是指以下几种情况： 1、参数的类型不同 2、参数的个数不同 3、参数的个数相同时他们的先后顺序不同注意：系统会认为是同一个方法的两种情况，这样的两个方法不可以在同一个类里，否则系统会报错。1、返回类型不同，方法名和参数个数、顺序、类型都相同的两个方法2、返回类型相同，方法">
+<meta name="twitter:title" content="C# 泛型">
+<meta name="twitter:description" content="什么是泛型？面对象编程有一个重要的好处是“代码重用”，它可以极大提高开发效率，代码重用一般是派生出一个类，让它继承基类的所有能力，派生类只需重写虚方法或添加一些新方法就可以定制派生类的功能。泛型是CLR和编程语言提供的一种特殊机制，它支持另一种形式的代码重用——“算法重用”，通过使用泛型，我们可以极大地提高代码的重用度，同时还可以获得强类型的支持，避免了隐式的装箱、拆箱，在一定程度上提升了应用程序">
   
     <link rel="alternative" href="/atom.xml" title="GripNotes" type="application/atom+xml">
   
@@ -233,11 +233,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-C Sharp  重载 重写" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-C Sharp泛型" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/08/02/C Sharp  重载 重写/" class="article-date">
-      <time datetime="2017-08-02T10:30:20.000Z" itemprop="datePublished">2017-08-02</time>
+      <a href="/2018/07/10/C Sharp泛型/" class="article-date">
+      <time datetime="2018-07-10T10:40:20.000Z" itemprop="datePublished">2018-07-10</time>
 </a>
     </div>
   
@@ -250,7 +250,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      C# 重载（overload），重写（override）
+      C# 泛型
     </h1>
   
 
@@ -275,22 +275,22 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="方法的重载-C-允许在一个类中定义方法的不同版本，同一方法名称的多个方法，编译器会自动根据提供的参数选择最相匹配的版本。"><a href="#方法的重载-C-允许在一个类中定义方法的不同版本，同一方法名称的多个方法，编译器会自动根据提供的参数选择最相匹配的版本。" class="headerlink" title="方法的重载:C#允许在一个类中定义方法的不同版本，同一方法名称的多个方法，编译器会自动根据提供的参数选择最相匹配的版本。"></a>方法的重载:C#允许在一个类中定义方法的不同版本，同一方法名称的多个方法，编译器会自动根据提供的参数选择最相匹配的版本。</h2><p>参数不同是指以下几种情况：<br> 1、参数的类型不同<br> 2、参数的个数不同<br> 3、参数的个数相同时他们的先后顺序不同<br>注意：系统会认为是同一个方法的两种情况，这样的两个方法不可以在同一个类里，否则系统会报错。<br>1、返回类型不同，方法名和参数个数、顺序、类型都相同的两个方法<br>2、返回类型相同，方法名和参数的个数、顺序、类型都相同的两个方法，但是参数的名字不同<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">//返回值相同，参数不同</div><div class="line">class  BillPayment  </div><div class="line">   &#123;  </div><div class="line">       void PayBill(int TelephoneNumber)  </div><div class="line">       &#123;  </div><div class="line">            </div><div class="line">       &#125;  </div><div class="line">       void PayBill(long CustomerNumber)  </div><div class="line">       &#123;  </div><div class="line">          </div><div class="line">       &#125;  </div><div class="line">       void PayBill(long CustomerNumber,double amount)  </div><div class="line">       &#123;  </div><div class="line">            </div><div class="line">       &#125;  </div><div class="line">   &#125;  </div><div class="line"></div><div class="line">//返回值相同，参数个数不同</div><div class="line">class Add  </div><div class="line">&#123;  </div><div class="line">    int addtion(int num1,int num2)  </div><div class="line">    &#123;  </div><div class="line">       </div><div class="line">    &#125;  </div><div class="line">    int addtion(int num1,int num2,int num3)  </div><div class="line">    &#123;  </div><div class="line">       </div><div class="line">    &#125;  </div><div class="line">&#125;  </div><div class="line"> </div><div class="line">//参数不同，返回值不同</div><div class="line">int Method(int[] numbers)  </div><div class="line">&#123;  </div><div class="line">&#125;  </div><div class="line">double Method(double[] numbers)  </div><div class="line">&#123;  </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h2 id="重写：继承时，在子类中重新定义父类中的方法，子类中的方法和父类的方法是一样的，即方法名，参数，返回值都相同。"><a href="#重写：继承时，在子类中重新定义父类中的方法，子类中的方法和父类的方法是一样的，即方法名，参数，返回值都相同。" class="headerlink" title="重写：继承时，在子类中重新定义父类中的方法，子类中的方法和父类的方法是一样的，即方法名，参数，返回值都相同。"></a>重写：继承时，在子类中重新定义父类中的方法，子类中的方法和父类的方法是一样的，即方法名，参数，返回值都相同。</h2><p>例如:基类方法声明为virtual(虚方法)，派生类中使用override申明此方法的重写.<br>重写 override 一般用于接口实现和继承类的方法改写，要注意：<br>1、覆盖的方法的标志必须要和被覆盖的方法的名字和参数完全匹配，才能达到覆盖的效果；<br>2、覆盖的方法的返回值必须和被覆盖的方法的返回一致；<br>3、覆盖的方法所抛出的异常必须和被覆盖方法的所抛出的异常一致，或者是其子类；<br>4、被覆盖的方法不能为private，否则在其子类中只是新定义了一个方法，并没有对其进行覆盖。<br>示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">namespace 方法重写  </div><div class="line">&#123;  </div><div class="line">    class Program  </div><div class="line">    &#123;  </div><div class="line">   </div><div class="line">        static void Main(string[] args)  </div><div class="line">        &#123;  </div><div class="line">            BaseClass CO = new ClassOverride();  </div><div class="line">            CO.SetName(&quot;Override&quot;);  </div><div class="line">        &#125;  </div><div class="line">//基类  </div><div class="line">        public class BaseClass  </div><div class="line">        &#123;  </div><div class="line">            public virtual void SetName(string name)  </div><div class="line">            &#123;  </div><div class="line">               Console.WriteLine(&quot;基类：我的名字是&quot; + name);  </div><div class="line">            &#125;  </div><div class="line">        &#125;  </div><div class="line">   </div><div class="line">//派生类  </div><div class="line">        public class ClassOverride : BaseClass  </div><div class="line">        &#123;  </div><div class="line">            public override void SetName(string name)  </div><div class="line">            &#123;  </div><div class="line">               Console.WriteLine(&quot;Override：我的名字是&quot; + name);  </div><div class="line">            &#125;  </div><div class="line">        &#125;  </div><div class="line">   </div><div class="line">    &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>虚方法和抽象方法有什么区别呢？</p>
-<p>1．虚方法有一个实现部分可以被子类继承，从而使子类获得和基类相同的方法，另外也为派生类提供了覆盖该方法的选项。相反，抽象方法没有提供实现部分，是一种强制派生类覆盖的方法（否则派生类不能成具体类）</p>
-<p>2.（abstract）抽象方法只能在抽象类中声明,（virtual）虚方法不是。</p>
-<p>3.（abstract）抽象方法必须在派生类中重写而（virtual）虚方法不必。</p>
-<p>4.（abstract）抽象方法不能声明方法实体，虚方法可以。</p>
-<h2 id="隐藏（方法）"><a href="#隐藏（方法）" class="headerlink" title="隐藏（方法）"></a>隐藏（方法）</h2><p>基类方法不做申明（默认为非虚方法），在派生类中使用new声明此方法的隐藏。隐藏时，访问父类则调用父类的方法，访问子类则调用子类的方法。<br>示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">namespace 隐藏  </div><div class="line">&#123;  </div><div class="line">    class Program  </div><div class="line">    &#123;  </div><div class="line">   </div><div class="line">        static void Main(string[] args)  </div><div class="line">        &#123;  </div><div class="line">            ClassNew CN = new ClassNew();  </div><div class="line">            CN.SetName(&quot;new&quot;);  </div><div class="line">   </div><div class="line">            BaseClass BC =CN;  </div><div class="line">            BC.SetName(&quot;基类&quot;);  </div><div class="line">        &#125;  </div><div class="line">                 //基类  </div><div class="line">        public class BaseClass  </div><div class="line">        &#123;  </div><div class="line">            public voidSetName(string name)  </div><div class="line">            &#123;  </div><div class="line">               Console.WriteLine(&quot;基类：我的名字是&quot; + name);  </div><div class="line">            &#125;  </div><div class="line">        &#125;  </div><div class="line">//派生类  </div><div class="line">        public class ClassNew : BaseClass  </div><div class="line">        &#123;  </div><div class="line">                          //这里如果不使用new，将生成警告！  </div><div class="line">            new public void SetName(string name)  </div><div class="line">            &#123;  </div><div class="line">               Console.WriteLine(&quot;new：我的名字是&quot; + name);  </div><div class="line">            &#125;  </div><div class="line">        &#125;  </div><div class="line">    &#125;  </div><div class="line">&#125;  </div><div class="line"></div><div class="line"></div><div class="line">运行结果：new：我的名字是new</div><div class="line">        基类：我的名字是基类</div></pre></td></tr></table></figure></p>
-<p>如果上述扔不好理解，我们再举一个隐藏静态变量的例子:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">namespace 隐藏继承成员  </div><div class="line">&#123;  </div><div class="line">    class Program  </div><div class="line">    &#123;  </div><div class="line">        public class BaseClass  </div><div class="line">        &#123;  </div><div class="line">           public static int A = 123;  </div><div class="line">        &#125;  </div><div class="line">   </div><div class="line">        public class ClassNew : BaseClass  </div><div class="line">        &#123;  </div><div class="line">           new public static int A = 456;  </div><div class="line">   </div><div class="line">            static void Main(string[] args)  </div><div class="line">            &#123;  </div><div class="line">               Console.WriteLine(A);  </div><div class="line">            &#125;  </div><div class="line">   </div><div class="line">        &#125;  </div><div class="line">    &#125;  </div><div class="line">&#125;  </div><div class="line"></div><div class="line">运行结果：456</div></pre></td></tr></table></figure>
-<p>注：不仅有方法隐藏，还有其他的，通过继承隐藏名称一般采用下列形式之一： </p>
-<p>1.引入类或结构中的常数、指定、属性或类型隐藏具有相同名称的所有基类成员。</p>
-<p>2.引入类或结构中的方法隐藏基类中具有相同名称的属性、字段和类型。同时也隐藏具有相同签名的所有基类方法。</p>
-<p>3.引入类或结构中的索引器将隐藏具有相同名称的所有基类索引器。</p>
-<p>4.在同一成员上同时使用 new 和 override 是错误的。</p>
-<p>另外，在不隐藏继承成员的声明中使用 new 修饰符将生成警告。在隐藏继承成员的生命中不使用new修饰符也将产生警告</p>
+        <h3 id="什么是泛型？"><a href="#什么是泛型？" class="headerlink" title="什么是泛型？"></a>什么是泛型？</h3><p>面对象编程有一个重要的好处是“代码重用”，它可以极大提高开发效率，代码重用一般是派生出一个类，让它继承基类的所有能力，派生类只需重写虚方法或添加一些新方法就可以定制派生类的功能。泛型是CLR和编程语言提供的一种特殊机制，它支持另一种形式的代码重用——“算法重用”，通过使用泛型，我们可以极大地提高代码的重用度，同时还可以获得强类型的支持，避免了隐式的装箱、拆箱，在一定程度上提升了应用程序的性能。</p>
+<p>我们经常会定义一些算法，比如排序，搜索，交换，比较或转换等，但是往往定义算法的人并不知道该算法要操作的对象什么数据类型，所以我们想能不能有一种方法可以使我们的算法广泛地应用到不同类型呢，泛型就很好地解决了这个问题。</p>
+<a id="more"></a>
+<p>文字性的描述还是不具说服力，我们可以看看这几个例子：<br>先来个普通的冒泡排序：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"> public class SortHelper</div><div class="line">    &#123;</div><div class="line">        public void BubbleSort(int[] array)</div><div class="line">        &#123;</div><div class="line">            int length = array.Length;</div><div class="line">            for (int i = 0; i &lt; length - 1; i++)</div><div class="line">            &#123;</div><div class="line">                for (int j = 0; j &lt; length - 1 - i; j++)</div><div class="line">                &#123;</div><div class="line">                    if (array[j] &gt; array[j + 1])</div><div class="line">                    &#123;</div><div class="line">                        int temp = array[j];</div><div class="line">                        array[j] = array[j + 1];</div><div class="line">                        array[j + 1] = temp;</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">static void Main(string[] args)</div><div class="line">        &#123;</div><div class="line">            int[] array = &#123;1, 8, 3, 7, 5, 9, 0&#125;;</div><div class="line">            SortHelper sort=new SortHelper();</div><div class="line">            sort.BubbleSort(array);</div><div class="line">            foreach (var item in array)</div><div class="line">            &#123;</div><div class="line">                Console.Write(&quot;&#123;0&#125; &quot;,item);</div><div class="line">            &#125;</div><div class="line">           </div><div class="line">            Console.ReadKey();</div><div class="line">        &#125;</div></pre></td></tr></table></figure>
+<p>这个方法对于一些整型的数组排序没有问题，但是现在需要给一个byte类型数组排序呢？虽然byte是int类型的一个子集，但C#是强类型语言，给这个排序算法传入byte型数组时会出错，那我们就只能复制一遍这个方法了，将参数类型改为byte[]。</p>
+<p>这样看似问题也解决了，没什么不妥，但是再需要给char数组排序呢？而且有时候我们不确定要传入什么类型，考虑到算法重用，我们不能每一次都复制一遍改一下参数类型吧。</p>
+<p>这时候泛型就派上用场了，我们可以用 T[] 来代替任何类型，这样我们的算法就可以写成以下形式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">public void BubbleSort(T[] array)</div><div class="line">        &#123;</div><div class="line">            int length = array.Length;</div><div class="line">            for (int i = 0; i &lt; length - 1; i++)</div><div class="line">            &#123;</div><div class="line">                for (int j = 0; j &lt; length - 1 - i; j++)</div><div class="line">                &#123;</div><div class="line">                    if (array[j] &gt; array[j + 1])</div><div class="line">                    &#123;</div><div class="line">                        int temp = array[j];</div><div class="line">                        array[j] = array[j + 1];</div><div class="line">                        array[j + 1] = temp;</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div></pre></td></tr></table></figure>
+<p>但是细心地你会发现 T 类型无法被识别，这样的程序无法运行，这是因为该类不是泛型类，所以类的定义也需要标识泛型，如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">public class SortHelper&lt;T&gt;</div><div class="line">    &#123;</div><div class="line">        public void BubbleSort(T[] array)</div><div class="line">        &#123;</div><div class="line">            int length = array.Length;</div><div class="line">            for (int i = 0; i &lt; length - 1; i++)</div><div class="line">            &#123;</div><div class="line">                for (int j = 0; j &lt; length - 1 - i; j++)</div><div class="line">                &#123;</div><div class="line">                    if (array[j] &gt; array[j + 1])</div><div class="line">                    &#123;</div><div class="line">                        int temp = array[j];</div><div class="line">                        array[j] = array[j + 1];</div><div class="line">                        array[j + 1] = temp;</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;       </div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+<p>这样我们的泛型就定义完了，但是你会发现 array[j] &gt; array[j + 1] 会出错，这是因为程序并不知道泛型 T 到底是什么类型，它能不能用比较运算符也不确定，所以我们需要换一种比较的方式。</p>
+<p>在C#中，通常会实现 Icomparable 接口来使用比较， Icomparable 接口的定义如下：<br>public interface IComparable<br>  {<br>    int CompareTo(object obj);<br>  }<br>可以看到，实现 IComparable 接口就要实现里面的 CompareTo 方法，调用它是是这样子：obj1.CompareTo(obj2)<br>它返回一个整型，当传入的 obj2 大于 obj1 时返回小于0的整数，等于时返回0，小于时返回大于0的整数。</p>
+<p>接下来就让我们定义一个比较的类来实现 IComparable 接口，：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">public class Compare : IComparable</div><div class="line">    &#123;</div><div class="line">        //这里比较int型</div><div class="line">        public int CompareTo(object obj)</div><div class="line">        &#123;</div><div class="line">            int a = (int) obj;</div><div class="line">            return this.CompareTo(a);</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+<p>然后排序算法怎么用呢？<br>我们需要告诉排序的泛型类 SortHelper<t> Compare 类实现了 IComparable 接口，它接受的 T 类型的参数必须要可以比较，所以也就是让 SortHelper<t> 也实现 IComparable 接口，这也就是所谓的 泛型参数约束：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">public class SortHelper&lt;T&gt; where T : IComparable</div><div class="line">    &#123;</div><div class="line">        public void BubbleSort(T[] array)</div><div class="line">        &#123;</div><div class="line">            int length = array.Length;</div><div class="line">            for (int i = 0; i &lt; length - 1; i++)</div><div class="line">            &#123;</div><div class="line">                for (int j = 0; j &lt; length - 1 - i; j++)</div><div class="line">                &#123;</div><div class="line">                    if (array[j].CompareTo(array[j + 1]) &gt; 0)</div><div class="line">                    &#123;</div><div class="line">                        var temp = array[j];</div><div class="line">                        array[j] = array[j + 1];</div><div class="line">                        array[j + 1] = temp;</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure></t></t></p>
+<p>接下来我们就可以这样使用它了：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">SortHelper&lt;int&gt; sortInt = new SortHelper&lt;int&gt;();</div><div class="line">            sortInt.BubbleSort(array);</div><div class="line">            foreach (var item in array)</div><div class="line">            &#123;</div><div class="line">                Console.Write(&quot;&#123;0&#125; &quot;, item);</div><div class="line">            &#125;</div></pre></td></tr></table></figure></p>
+<p>### </p>
 
       
       
@@ -373,13 +373,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/08/02/C Sharp  重载 重写/">C# 重载（overload），重写（override）</a></p>
+        <p><span>本文标题:</span><a href="/2018/07/10/C Sharp泛型/">C# 泛型</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 ZhangHQ 的个人博客">ZhangHQ</a></p>
-        <p><span>发布时间:</span>2017年08月02日 - 18时30分</p>
-        <p><span>最后更新:</span>2017年08月02日 - 17时00分</p>
+        <p><span>发布时间:</span>2018年07月10日 - 18时40分</p>
+        <p><span>最后更新:</span>2018年08月02日 - 22时10分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/08/02/C Sharp  重载 重写/" title="C# 重载（overload），重写（override）">http://stayfoolish.top/2017/08/02/C Sharp  重载 重写/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://stayfoolish.top/2017/08/02/C Sharp  重载 重写/　　作者: ZhangHQ" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2018/07/10/C Sharp泛型/" title="C# 泛型">http://stayfoolish.top/2018/07/10/C Sharp泛型/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://stayfoolish.top/2018/07/10/C Sharp泛型/　　作者: ZhangHQ" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -392,18 +392,9 @@
 
 <nav id="article-nav">
   
-    <a href="/2017/08/30/比特币地址生成/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          比特币地址生成
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/07/25/DOTNET 框架整理/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">.NET 框架整理</div>
+    <a href="/2017/12/20/RSA 公钥加密技术/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">RSA 公钥加密技术</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -414,7 +405,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#方法的重载-C-允许在一个类中定义方法的不同版本，同一方法名称的多个方法，编译器会自动根据提供的参数选择最相匹配的版本。"><span class="toc-number">1.</span> <span class="toc-text">方法的重载:C#允许在一个类中定义方法的不同版本，同一方法名称的多个方法，编译器会自动根据提供的参数选择最相匹配的版本。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#重写：继承时，在子类中重新定义父类中的方法，子类中的方法和父类的方法是一样的，即方法名，参数，返回值都相同。"><span class="toc-number">2.</span> <span class="toc-text">重写：继承时，在子类中重新定义父类中的方法，子类中的方法和父类的方法是一样的，即方法名，参数，返回值都相同。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#隐藏（方法）"><span class="toc-number">3.</span> <span class="toc-text">隐藏（方法）</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是泛型？"><span class="toc-number">1.</span> <span class="toc-text">什么是泛型？</span></a></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -465,13 +456,11 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/08/30/比特币地址生成/" title="上一篇: 比特币地址生成">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2017/07/25/DOTNET 框架整理/" title="下一篇: .NET 框架整理">
+            <a href="/2017/12/20/RSA 公钥加密技术/" title="下一篇: RSA 公钥加密技术">
                 <i class="fa fa-angle-right"></i>
             </a>
         

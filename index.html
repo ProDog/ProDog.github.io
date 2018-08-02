@@ -236,6 +236,74 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-C Sharp泛型" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/07/10/C Sharp泛型/" class="article-date">
+      <time datetime="2018-07-10T10:40:20.000Z" itemprop="datePublished">2018-07-10</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/10/C Sharp泛型/">C# 泛型</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h3 id="什么是泛型？"><a href="#什么是泛型？" class="headerlink" title="什么是泛型？"></a>什么是泛型？</h3><p>面对象编程有一个重要的好处是“代码重用”，它可以极大提高开发效率，代码重用一般是派生出一个类，让它继承基类的所有能力，派生类只需重写虚方法或添加一些新方法就可以定制派生类的功能。泛型是CLR和编程语言提供的一种特殊机制，它支持另一种形式的代码重用——“算法重用”，通过使用泛型，我们可以极大地提高代码的重用度，同时还可以获得强类型的支持，避免了隐式的装箱、拆箱，在一定程度上提升了应用程序的性能。</p>
+<p>我们经常会定义一些算法，比如排序，搜索，交换，比较或转换等，但是往往定义算法的人并不知道该算法要操作的对象什么数据类型，所以我们想能不能有一种方法可以使我们的算法广泛地应用到不同类型呢，泛型就很好地解决了这个问题。</p>
+          
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/C/">C#</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C#</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2018/07/10/C Sharp泛型/#more">全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-RSA 公钥加密技术" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -825,73 +893,6 @@
       
         <p class="article-more-link">
           <a  href="/2017/09/10/Oracle 锁知识/#more">全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-比特币地址生成" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/08/30/比特币地址生成/" class="article-date">
-      <time datetime="2017-08-30T07:28:52.000Z" itemprop="datePublished">2017-08-30</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/30/比特币地址生成/">比特币地址生成</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h3 id="1、产生私钥："><a href="#1、产生私钥：" class="headerlink" title="1、产生私钥："></a>1、产生私钥：</h3><p>私钥可以是 1 和 n-1 之间的任何数字，其中 n 是一个常数（n=1.158*1077，略小于 2256），并由比特币所使用的椭圆曲线的阶所定义。要生成这样的一个私钥，我们随机选择一个 256 位的数字，并检查它是否小于 n-1。从编程的角度来看，一般是通过在一个密码学安全的随机源中取出一长串随机字节，对其使用 SHA256 哈希算法进行运算，这样就可以方便地产生一个 256 位的数字。如果运算结果小于 n-1，我们就有了一个合适的私钥。否则，我们就用另一个随机数再重复一次。<br>
-          
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/比特币/">比特币</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Bitcoin/">Bitcoin</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2017/08/30/比特币地址生成/#more">全文 >></a>
         </p>
       
       <div class="clearfix"></div>
