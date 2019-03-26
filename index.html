@@ -3,19 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>GripNotes</title>
+  <title>布尔</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="区块链，.NET，C#，数据库，Python">
 <meta property="og:type" content="website">
-<meta property="og:title" content="GripNotes">
+<meta property="og:title" content="布尔">
 <meta property="og:url" content="http://stayfoolish.top/index.html">
-<meta property="og:site_name" content="GripNotes">
+<meta property="og:site_name" content="布尔">
 <meta property="og:description" content="区块链，.NET，C#，数据库，Python">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="GripNotes">
+<meta name="twitter:title" content="布尔">
 <meta name="twitter:description" content="区块链，.NET，C#，数据库，Python">
   
-    <link rel="alternative" href="/atom.xml" title="GripNotes" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="布尔" type="application/atom+xml">
   
   
     <link rel="icon" href="/img/favicon.jpg">
@@ -63,7 +63,7 @@
         </a>
 
         <hgroup>
-          <h1 class="header-author"><a href="/" title="Hi Mate">ZhangHQ</a></h1>
+          <h1 class="header-author"><a href="/" title="Hi Mate">布尔</a></h1>
         </hgroup>
 
         
@@ -152,7 +152,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/NET/" style="font-size: 10px;">.NET</a> <a href="/tags/Bitcoin/" style="font-size: 17.5px;">Bitcoin</a> <a href="/tags/Blockchain/" style="font-size: 12.5px;">Blockchain</a> <a href="/tags/C/" style="font-size: 20px;">C#</a> <a href="/tags/DBA/" style="font-size: 10px;">DBA</a> <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/Oracle/" style="font-size: 12.5px;">Oracle</a> <a href="/tags/RSA/" style="font-size: 10px;">RSA</a> <a href="/tags/Ubuntu/" style="font-size: 15px;">Ubuntu</a> <a href="/tags/VScode/" style="font-size: 10px;">VScode</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/供应链/" style="font-size: 10px;">供应链</a>
+                        <a href="/tags/NET/" style="font-size: 10px;">.NET</a> <a href="/tags/Bitcoin/" style="font-size: 18px;">Bitcoin</a> <a href="/tags/Blockchain/" style="font-size: 12px;">Blockchain</a> <a href="/tags/C/" style="font-size: 20px;">C#</a> <a href="/tags/DBA/" style="font-size: 10px;">DBA</a> <a href="/tags/NEO/" style="font-size: 16px;">NEO</a> <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/Oracle/" style="font-size: 12px;">Oracle</a> <a href="/tags/RSA/" style="font-size: 10px;">RSA</a> <a href="/tags/Ubuntu/" style="font-size: 14px;">Ubuntu</a> <a href="/tags/VScode/" style="font-size: 10px;">VScode</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/供应链/" style="font-size: 10px;">供应链</a>
                     </div>
                 </section>
                 
@@ -183,7 +183,7 @@
       <nav id="mobile-nav">
       <div class="overlay">
           <div class="slider-trigger"></div>
-          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">ZhangHQ</a></h1>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">布尔</a></h1>
       </div>
     <div class="intrude-less">
         <header id="header" class="inner">
@@ -193,7 +193,7 @@
                 
             </a>
             <hgroup>
-              <h1 class="header-author"><a href="/" title="Me">ZhangHQ</a></h1>
+              <h1 class="header-author"><a href="/" title="Me">布尔</a></h1>
             </hgroup>
             
             <p class="header-subtitle">总结 · 记录 · 分享</p>
@@ -235,6 +235,269 @@
     </div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-在 NEO 上实现 NFT " class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/01/25/在 NEO 上实现 NFT /" class="article-date">
+      <time datetime="2019-01-25T06:12:10.000Z" itemprop="datePublished">2019-01-25</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/25/在 NEO 上实现 NFT /">在 NEO 上实现 NFT</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="NFT-是什么"><a href="#NFT-是什么" class="headerlink" title="NFT 是什么"></a>NFT 是什么</h2><p>我们经常接触的数字货币 BTC、ETH 等都可以称为同质化代币，因为每个 BTC 都是一样的，价值和属性都一样；如果我们想用数字货币做更多事情，比如货币功能以外的事情资产登记、权证记录等，这时候需要的每一份“资产”都是独一无二的，它可以有自己的属性，可以单独修改，因此便有了NFT 的概念，即非同质化代币。</p>
+<p>现在有一个需求，实现一套证书系统，每个人的证书有唯一的编号，证书可以记录用户的积分等特权信息，证书可以转让交易，证书拥有者可以享有特权信息，</p>
+
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/BlockChain/">BlockChain</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NEO/">NEO</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-在 NEO 上实现 Bancor" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/12/13/在 NEO 上实现 Bancor/" class="article-date">
+      <time datetime="2018-12-13T09:10:40.000Z" itemprop="datePublished">2018-12-13</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/13/在 NEO 上实现 Bancor/">在 NEO 链上实现 Bancor</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>Zoro 交易所内部交易机制采用 Bancor 自动化市商方案，代币交易的对手方是 Bancor 合约，<br>实现了程序化的自动议价，其可靠性已得到 <a href="https://www.bancor.network/tokens" target="_blank" rel="external">Bancor</a> 项目的验证。</p>
+<p>详细原理机制可以参考 Bancor <a href="https://storage.googleapis.com/website-bancor/2018/04/01ba8253-bancor_protocol_whitepaper_en.pdf" target="_blank" rel="external">白皮书</a>。</p>
+
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/BlockChain/">BlockChain</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NEO/">NEO</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-实现 NEO 的跨链通讯" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/11/15/实现 NEO 的跨链通讯/" class="article-date">
+      <time datetime="2018-11-15T04:12:10.000Z" itemprop="datePublished">2018-11-15</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/11/15/实现 NEO 的跨链通讯/">实现和 NEO 链的跨链通讯</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>通信是什么？无非就是信息的传递。一般是一方主动发送信息，另一方接收信息；一方暴露出信息，一方主动获取（监听）信息。<br>基于通信的本质，NEO 的跨链通讯可以使用智能合约来实现，大体思路是用智能合约实现暴露信息的接口和接收信息的接口，由于 NEO 不会主动向外发送信息，所以需要一种方式使得 NEO 能产生出信息，外部来主动获取，产生信息可以使用 NEO 的 log 机制、也就是 notifications（Notify）来实现。<br>
+          
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/BlockChain/">BlockChain</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NEO/">NEO</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2018/11/15/实现 NEO 的跨链通讯/#more">全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-在 NEO 公链上发布代币 " class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/10/11/在 NEO 公链上发布代币 /" class="article-date">
+      <time datetime="2018-10-11T11:20:30.000Z" itemprop="datePublished">2018-10-11</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/11/在 NEO 公链上发布代币 /">在 NEO 公链上发布代币</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>NEO 系统中有 UTXO 模型的代币 NEO 和 GAS，但如果基于 NEO 开发 Dapp 或其他区块链项目时我们仍然需要能实现自己的代币功能，这里就来总结一下如何用智能合约在 NEO 上发布代币。<br>与比特币的 BIP、以太坊的 ERC 等类似，NEO 也有 NEPs: NEO Enhancement Proposals  NEO加强/改进提议 ，它描述的是 NEO 平台的标准，包括核心协议规范，客户端 API 和合约标准。</p>
+<p>在 NEO 公链上发布代币是 Nep5 即 NEO 5 号改进提案中提出的，所以我们发布的代币统称 Nep5 代币，在 Nep5 中，规定了代币合约必须实现的接口、返回结果等标准，所以我们只需按照标准就可以开发自己的代币，然后发布合约即可，下面就分别讲讲合约编程和发布。
+          
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/BlockChain/">BlockChain</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NEO/">NEO</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2018/10/11/在 NEO 公链上发布代币 /#more">全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-C Sharp泛型" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -640,277 +903,6 @@
 
 
   
-    <article id="post-VSCode 中 git 的使用" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/10/19/VSCode 中 git 的使用/" class="article-date">
-      <time datetime="2017-10-19T12:11:05.000Z" itemprop="datePublished">2017-10-19</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/19/VSCode 中 git 的使用/">VSCode 中 git 的使用</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h3 id="在-VSCode-中同步修改至-github"><a href="#在-VSCode-中同步修改至-github" class="headerlink" title="在 VSCode 中同步修改至  github"></a>在 VSCode 中同步修改至  github</h3><p>VSCode 是一款值得推荐的编辑器，界面如同 sublime text 一样简洁美观，又具有调试，终端模式，控制台等丰富功能，还集成了 git，目前来看是我遇到最好的编程工具，最近使用 VSCode 感觉 git 十分方便，今天对往 github 同步代码步骤稍作总结：<br>
-          
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/工具/">工具</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VScode/">VScode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2017/10/19/VSCode 中 git 的使用/#more">全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Oracle 数据字典整理" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/10/10/Oracle 数据字典整理/" class="article-date">
-      <time datetime="2017-10-10T11:23:30.000Z" itemprop="datePublished">2017-10-10</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/10/Oracle 数据字典整理/">Oracle DBA 数据字典整理</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h3 id="整理下-Oracle-常用的数据字典"><a href="#整理下-Oracle-常用的数据字典" class="headerlink" title="整理下 Oracle 常用的数据字典"></a>整理下 Oracle 常用的数据字典</h3><p>ORACLE数据库逻辑结构包括：数据库块（block)，扩展（extent 区），段(segment)，表空间(tablespace)。<br>Oracle 系统的管理信息存放在元数据表中，为了便于访问这些元数据建立了很多视图，称为数据字典。这些视图可以分为动态和静态两大类。<br>DBA 是只有 DBA 权限的用户才能查询，内容包含了系统全部；<br>ALL 是普通用户可以查询，内容包含了该用户所能访问的部分；<br>User 是普通用户可以查询，内容包含了该用户是所有者的部分；<br>
-          
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/DBA/">DBA</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Oracle/">Oracle</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2017/10/10/Oracle 数据字典整理/#more">全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-C Sharp 构造函数" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/09/30/C Sharp 构造函数/" class="article-date">
-      <time datetime="2017-09-30T07:40:30.000Z" itemprop="datePublished">2017-09-30</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/30/C Sharp 构造函数/">C# 构造函数学习</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h2 id="C-构造函数："><a href="#C-构造函数：" class="headerlink" title="C# 构造函数："></a>C# 构造函数：</h2><p>new一个类或结构时会调用构造函数，其目的是为了给初始化的对象赋值；类或结构可能具有多个带有不同参数的构造函数，使用构造函数，就可以设置默认值，限制实例化，使代码更加灵活易读。</p>
-<h3 id="默认构造函数："><a href="#默认构造函数：" class="headerlink" title="默认构造函数："></a>默认构造函数：</h3><p>每个 C# 类都具有默认的构造函数，如果没有为类提供构造函数， C# 默认会 创建一个会实例化对象并将成员变量设置为默认值的构造函数， 如果没有为结构提供构造函数，C# 将依赖于隐式默认构造函数，自动将值类型的每个字段初始化为其默认值。<br>
-          
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/C/">C#</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C#</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2017/09/30/C Sharp 构造函数/#more">全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Oracle 锁知识" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/09/10/Oracle 锁知识/" class="article-date">
-      <time datetime="2017-09-10T11:30:50.000Z" itemprop="datePublished">2017-09-10</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/10/Oracle 锁知识/">Oracle 锁知识</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h3 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h3><p>最近使用 Oracle 遇到一个报错，信息如下</p>
-<p>异常提示:Oracle数据执行异常，请联系管理员处理<br>异常信息:ORA-14450: 试图访问已经在使用的事务处理临时表</p>
-<h3 id="原因分析"><a href="#原因分析" class="headerlink" title="原因分析"></a>原因分析</h3><p>查找相关资料，发现报错原因如下：<br>在存储过程中使用了 alter 等语句操作临时表，
-          
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/DBA/">DBA</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Oracle/">Oracle</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2017/09/10/Oracle 锁知识/#more">全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -921,7 +913,7 @@
     <div class="outer">
         <div id="footer-info">
             <div class="footer-left">
-                &copy; 2018 ZhangHQ
+                &copy; 2019 布尔
             </div>
             <div class="footer-right">
                 <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/luuman/hexo-theme-spfk" target="_blank">spfk</a> by luuman

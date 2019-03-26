@@ -3,19 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>GripNotes</title>
+  <title>布尔</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="区块链，.NET，C#，数据库，Python">
 <meta property="og:type" content="website">
-<meta property="og:title" content="GripNotes">
+<meta property="og:title" content="布尔">
 <meta property="og:url" content="http://stayfoolish.top/page/3/index.html">
-<meta property="og:site_name" content="GripNotes">
+<meta property="og:site_name" content="布尔">
 <meta property="og:description" content="区块链，.NET，C#，数据库，Python">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="GripNotes">
+<meta name="twitter:title" content="布尔">
 <meta name="twitter:description" content="区块链，.NET，C#，数据库，Python">
   
-    <link rel="alternative" href="/atom.xml" title="GripNotes" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="布尔" type="application/atom+xml">
   
   
     <link rel="icon" href="/img/favicon.jpg">
@@ -63,7 +63,7 @@
         </a>
 
         <hgroup>
-          <h1 class="header-author"><a href="/" title="Hi Mate">ZhangHQ</a></h1>
+          <h1 class="header-author"><a href="/" title="Hi Mate">布尔</a></h1>
         </hgroup>
 
         
@@ -152,7 +152,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/NET/" style="font-size: 10px;">.NET</a> <a href="/tags/Bitcoin/" style="font-size: 17.5px;">Bitcoin</a> <a href="/tags/Blockchain/" style="font-size: 12.5px;">Blockchain</a> <a href="/tags/C/" style="font-size: 20px;">C#</a> <a href="/tags/DBA/" style="font-size: 10px;">DBA</a> <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/Oracle/" style="font-size: 12.5px;">Oracle</a> <a href="/tags/RSA/" style="font-size: 10px;">RSA</a> <a href="/tags/Ubuntu/" style="font-size: 15px;">Ubuntu</a> <a href="/tags/VScode/" style="font-size: 10px;">VScode</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/供应链/" style="font-size: 10px;">供应链</a>
+                        <a href="/tags/NET/" style="font-size: 10px;">.NET</a> <a href="/tags/Bitcoin/" style="font-size: 18px;">Bitcoin</a> <a href="/tags/Blockchain/" style="font-size: 12px;">Blockchain</a> <a href="/tags/C/" style="font-size: 20px;">C#</a> <a href="/tags/DBA/" style="font-size: 10px;">DBA</a> <a href="/tags/NEO/" style="font-size: 16px;">NEO</a> <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/Oracle/" style="font-size: 12px;">Oracle</a> <a href="/tags/RSA/" style="font-size: 10px;">RSA</a> <a href="/tags/Ubuntu/" style="font-size: 14px;">Ubuntu</a> <a href="/tags/VScode/" style="font-size: 10px;">VScode</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/供应链/" style="font-size: 10px;">供应链</a>
                     </div>
                 </section>
                 
@@ -183,7 +183,7 @@
       <nav id="mobile-nav">
       <div class="overlay">
           <div class="slider-trigger"></div>
-          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">ZhangHQ</a></h1>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">布尔</a></h1>
       </div>
     <div class="intrude-less">
         <header id="header" class="inner">
@@ -193,7 +193,7 @@
                 
             </a>
             <hgroup>
-              <h1 class="header-author"><a href="/" title="Me">ZhangHQ</a></h1>
+              <h1 class="header-author"><a href="/" title="Me">布尔</a></h1>
             </hgroup>
             
             <p class="header-subtitle">总结 · 记录 · 分享</p>
@@ -235,6 +235,277 @@
     </div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-比特币应用开发（二）" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/06/26/比特币应用开发（二）/" class="article-date">
+      <time datetime="2017-06-26T14:36:50.000Z" itemprop="datePublished">2017-06-26</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/26/比特币应用开发（二）/">比特币应用开发（二）</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>本次学习用 Node.js 为例，调用 RPC 接口执行一些操作，发送一个转账交易。</p>
+<p>这里有必要先了解一下 RPC ：</p>
+<h2 id="RPC-简介"><a href="#RPC-简介" class="headerlink" title="RPC 简介"></a>RPC 简介</h2><p>RPC（Remote Procedure Call Protocol）——远程过程调用协议，它是一种通过网络从远程计算机程序上请求服务，而不需要了解底层网络技术的协议。RPC 协议假定某些传输协议的存在，如 TCP 或 UDP，为通信程序之间携带信息数据。在 OSI 网络通信模型中，RPC 跨越了传输层和应用层。RPC 使得开发包括网络分布式多程序在内的应用程序更加容易。<br>RPC 采用客户机/服务器模式。请求程序就是一个客户机，而服务提供程序就是一个服务器。首先，客户机调用进程发送一个有进程参数的调用信息到服务进程，然后等待应答信息。在服务器端，进程保持睡眠状态直到调用信息到达为止。当一个调用信息到达，服务器获得进程参数，计算结果，发送答复信息，然后等待下一个调用信息，最后，客户端调用进程接收答复信息，获得进程结果，然后调用执行继续进行。</p>
+          
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/比特币/">比特币</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Bitcoin/">Bitcoin</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ubuntu/">Ubuntu</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2017/06/26/比特币应用开发（二）/#more">全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-比特币应用开发（一）" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/06/20/比特币应用开发（一）/" class="article-date">
+      <time datetime="2017-06-20T11:44:55.000Z" itemprop="datePublished">2017-06-20</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/20/比特币应用开发（一）/">比特币应用开发（一）</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h3 id="Ubuntu-下搭建比特币测试网络"><a href="#Ubuntu-下搭建比特币测试网络" class="headerlink" title="Ubuntu 下搭建比特币测试网络"></a>Ubuntu 下搭建比特币测试网络</h3><p> 最近想入门区块链开发，先学习一下比特币网络，用测试网络来熟悉比特币的运行机制，在虚拟机上安装 Ubuntu14.04 作为开发环境，分享一下环境配置的方法。</p>
+<h3 id="安装虚拟机-Ubuntu-和-Node-js"><a href="#安装虚拟机-Ubuntu-和-Node-js" class="headerlink" title="安装虚拟机 Ubuntu 和 Node.js"></a>安装虚拟机 Ubuntu 和 Node.js</h3><p>1、虚拟机和 Ubuntu 的安装可以参考：<a href="https://jingyan.baidu.com/article/0320e2c1ef9f6c1b87507bf6.html" target="_blank" rel="external">Vmware Workstation 安装 Ubuntu14.04</a>；</p>
+<p>2、安装完成后打开 Ubuntu，用 CTRL+ALT+T 组合键可以打开 Ubuntu 终端，以后的操作都要在终端下以命令的方式进行；熟悉一些常用的 Ubuntu 快捷键和命令再好不过了，不懂的用到时再查，用几次也就熟了；</p>
+<p>3、Ubuntu14.04 默认带有 Node.js，查询是否安装 Node.js 和相应版本用如下命令：<br>
+          
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/区块链/">区块链</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Bitcoin/">Bitcoin</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ubuntu/">Ubuntu</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2017/06/20/比特币应用开发（一）/#more">全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-C Sharp  使用火币网交易API" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/06/10/C Sharp  使用火币网交易API/" class="article-date">
+      <time datetime="2017-06-10T03:20:10.000Z" itemprop="datePublished">2017-06-10</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/10/C Sharp  使用火币网交易API/">C# 使用火币网交易 API</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>最近看到火币网的交易 API，参考了一些资料，尝试用 C# 调用一下，也是学习 C# 的一部分，目前测试调用成功，没有写功能部分。</p>
+<p><a href="https://github.com/ProDog/HuoBiAPITest" target="_blank" rel="external">代码地址</a><br><a href="https://github.com/huobiapi/API_Docs/wiki" target="_blank" rel="external">火币网API</a></p>
+
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/C/">C#</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C#</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-区块链技术核心" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/06/05/区块链技术核心/" class="article-date">
+      <time datetime="2017-06-05T07:28:52.000Z" itemprop="datePublished">2017-06-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/05/区块链技术核心/">区块链技术核心</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>区块链技术从大方面来说主要有三个技术核心：密码学原理，共识机制，分布式数据存储，下面就总结一下最近掌握的这三点技术：</p>
+<h3 id="密码学原理："><a href="#密码学原理：" class="headerlink" title="密码学原理："></a>密码学原理：</h3><p>在区块链应用中，所有节点都是平等参与的，没有中心化的机构保证数据的安全和用户隐私不被泄露，这就需要节点或者分布式网络能保证安全性和匿名性。以比特币网络为例，比特币钱包客户端使用了公钥非对称数字加密技术来实现交易双方的互相信任。<br>
+          
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/区块链/">区块链</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blockchain/">Blockchain</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2017/06/05/区块链技术核心/#more">全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="node.js-Node.js 安装升级和 npm 使用" class="article article-type-node.js" itemscope itemprop="blogPost">
   
@@ -438,7 +709,7 @@
     <div class="outer">
         <div id="footer-info">
             <div class="footer-left">
-                &copy; 2018 ZhangHQ
+                &copy; 2019 布尔
             </div>
             <div class="footer-right">
                 <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/luuman/hexo-theme-spfk" target="_blank">spfk</a> by luuman
